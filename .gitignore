@@ -1,0 +1,3 @@
+.DS_Store
+results/*.json
+.claude/settings.local.json

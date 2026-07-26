@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poolbar Quiznacht Trainer</title>
+<style>
+:root {
+  --felt-dark: #06341f;
+  --felt: #0c4a2e;
+  --felt-light: #145c3a;
+  --brass: #c9a227;
+  --brass-bright: #e8c34a;
+  --cream: #f3ecd9;
+  --cream-dim: #cfc6ab;
+  --red: #b3432b;
+  --red-bright: #e0553a;
+  --green-ok: #4c9a5b;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+  --font-body: "Georgia", "Iowan Old Style", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, var(--felt-light) 0%, var(--felt) 45%, var(--felt-dark) 100%);
+  color: var(--cream);
+  font-family: var(--font-body);
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+#app {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Header / branding */
+.brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand h1 {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  color: var(--brass-bright);
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px var(--shadow);
+}
+
+.brand .sub {
+  color: var(--cream-dim);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  color: #23180a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 0 #8a6c15, 0 6px 14px var(--shadow);
+  transition: transform 0.08s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #8a6c15, 0 3px 8px var(--shadow);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(243, 236, 217, 0.4);
+  box-shadow: none;
+}
+
+.btn.secondary:hover {
+  border-color: var(--brass-bright);
+  color: var(--brass-bright);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Start screen */
+.set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.set-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.set-option input {
+  accent-color: var(--brass);
+}
+
+.name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.name-field input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--cream);
+}
+
+.name-field input:focus {
+  outline: none;
+  border-color: var(--brass-bright);
+}
+
+.embedded-set-label {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(243, 236, 217, 0.18);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.dot.done-correct {
+  background: var(--green-ok);
+  border-color: var(--green-ok);
+}
+
+.dot.done-wrong {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.dot.current {
+  background: var(--brass-bright);
+  border-color: var(--brass-bright);
+}
+
+/* Question */
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.12rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  color: var(--cream);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(243, 236, 217, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--cream);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.option:hover:not(.disabled) {
+  border-color: var(--brass-bright);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.option .letter {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.option .opt-body {
+  flex: 1;
+}
+
+.option .opt-info {
+  display: none;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  line-height: 1.4;
+}
+
+.option.revealed .opt-info {
+  display: block;
+}
+
+.option.correct {
+  border-color: var(--green-ok);
+  background: rgba(76, 154, 91, 0.18);
+}
+
+.option.correct .letter {
+  color: var(--green-ok);
+}
+
+.option.wrong {
+  border-color: var(--red-bright);
+  background: rgba(179, 67, 43, 0.18);
+}
+
+.option.wrong .letter {
+  color: var(--red-bright);
+}
+
+.option.disabled {
+  cursor: default;
+}
+
+/* Results */
+.results-score {
+  text-align: center;
+  font-family: var(--font-mono);
+  margin: 10px 0 24px;
+}
+
+.results-score .big {
+  font-size: 2.6rem;
+  color: var(--brass-bright);
+}
+
+.results-score .pct {
+  color: var(--cream-dim);
+  font-size: 0.9rem;
+}
+
+/* History */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px dashed rgba(243, 236, 217, 0.15);
+  padding: 8px 2px;
+  color: var(--cream-dim);
+}
+
+.history-row .score {
+  color: var(--brass-bright);
+}
+
+.empty-note {
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+  .card {
+    padding: 18px 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="brand">
+    <h1>Poolbar Quiznacht Trainer</h1>
+    <div class="sub">Vorarlberg pub quiz practice</div>
+  </div>
+
+  <section id="screen-start" class="screen active">
+    <div class="card">
+      <h2>Choose a question set</h2>
+      <div id="set-list" class="set-list">
+        <div class="empty-note">Loading question sets…</div>
+      </div>
+      <label class="name-field">
+        <span>Your name (optional)</span>
+        <input type="text" id="player-name" placeholder="You" maxlength="40" />
+      </label>
+      <div class="btn-row">
+        <button id="btn-start" class="btn">Start Quiz</button>
+        <button id="btn-view-history" class="btn secondary">History</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-quiz" class="screen">
+    <div class="card">
+      <div class="scoreboard">
+        <span id="quiz-progress">Q 1/50</span>
+        <span id="quiz-score">Score 0</span>
+      </div>
+      <div id="quiz-dots" class="dots"></div>
+      <div id="quiz-category" class="category-tag"></div>
+      <p id="quiz-question" class="question-text"></p>
+      <div id="quiz-options" class="options"></div>
+      <div class="btn-row">
+        <button id="btn-next" class="btn" style="display:none">Next Question</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-results" class="screen">
+    <div class="card">
+      <h2>Round complete</h2>
+      <div class="results-score">
+        <div class="big" id="results-score">0 / 0</div>
+        <div class="pct" id="results-pct">0%</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-play-again" class="btn">Play Again</button>
+        <button id="btn-download-results" class="btn secondary">Download Results</button>
+        <button id="btn-results-history" class="btn secondary">History</button>
+        <button id="btn-results-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-history" class="screen">
+    <div class="card">
+      <h2>Score history</h2>
+      <div id="history-list" class="history-list">
+        <div class="empty-note">No rounds played yet.</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-history-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+window.EMBEDDED_SET_META = {"id": "2026-07-25", "label": "Day 1 — 2026-07-25", "questionCount": 50};
+window.EMBEDDED_QUESTIONS = [{"id": "d1-01", "category": "Sport", "question": "The Copa América is the oldest continental football championship in the world, first played back in 1916. Which South American country has now won it more times than any other, after a recent title tipped the balance?", "options": [{"text": "Argentina", "info": "16 titles, having overtaken Uruguay after winning in 2021 and 2024."}, {"text": "Uruguay", "info": "15 titles, most of them won in the tournament's early 20th-century decades."}, {"text": "Brazil", "info": "9 titles — though Brazil holds more World Cups than any other nation."}, {"text": "Chile", "info": "Just 2 titles, won back-to-back in 2015 and 2016."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-02", "category": "Sport", "question": "Long before it became an Olympic sport, several European countries played their own hand-and-ball games in the late 1800s. Which country is usually credited with writing down the modern 11-a-side rules, around 1917–1919?", "options": [{"text": "Germany", "info": "Modern 11-a-side handball rules were codified there around 1917–1919."}, {"text": "Denmark", "info": "Developed an early outdoor version called \"håndbold\" in the 1890s."}, {"text": "Sweden", "info": "Helped popularize team handball, but didn't originate the modern ruleset."}, {"text": "Czechia", "info": "Had its own historical ball-and-hand games, but not the modern sport's birthplace."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-03", "category": "Sport", "question": "In the late 1800s, wealthy tourists in a Swiss Alpine resort started racing modified sledges down icy streets for fun. Which country is credited with turning that into the sport of bobsleigh?", "options": [{"text": "Switzerland", "info": "The first bobsled club was founded in St. Moritz in 1897."}, {"text": "Austria", "info": "Has a strong Alpine winter sports tradition, but didn't invent bobsleigh."}, {"text": "Germany", "info": "A major bobsleigh power today, though the sport began elsewhere."}, {"text": "France", "info": "Hosts Alpine resorts, but isn't credited with inventing the sport."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-04", "category": "Sport", "question": "Every January, one Alpine World Cup downhill course is so feared by racers that even the best sometimes crash on it. Which Austrian resort hosts this legendary \"Streif\" course as part of the Hahnenkamm races?", "options": [{"text": "Kitzbühel", "info": "Home to the Hahnenkamm downhill, one of skiing's toughest races."}, {"text": "Lech", "info": "A refined Vorarlberg resort, but not home to the Streif."}, {"text": "St. Anton", "info": "Famous Arlberg resort with its own World Cup history, but not the Streif."}, {"text": "Schladming", "info": "Hosts the famous night slalom, not the Streif downhill."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-05", "category": "Sport", "question": "Table tennis became an Olympic sport in 1988, and one country has won the overwhelming majority of gold medals in it ever since. Which country is it?", "options": [{"text": "China", "info": "Has won the vast majority of Olympic table tennis golds since 1988."}, {"text": "Japan", "info": "A strong competitor, especially in recent doubles and team events."}, {"text": "South Korea", "info": "Historically strong, with notable wins in the 1980s–90s."}, {"text": "Germany", "info": "Competitive in Europe, but far behind China's medal count."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-06", "category": "Sport", "question": "Formula 1 has crowned a Constructors' Champion every year since 1958. One Italian team, despite a rough patch in recent decades, still holds the all-time record for most titles won. Which team is it?", "options": [{"text": "Ferrari", "info": "Holds the record with 16 Constructors' titles since the 1960s."}, {"text": "Mercedes", "info": "Won 8 consecutive titles from 2014–2021, a modern-era record streak."}, {"text": "McLaren", "info": "Has 8 Constructors' titles, mostly from the 1980s–90s."}, {"text": "Williams", "info": "Won 9 titles historically, mostly in the 1980s–90s."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-07", "category": "Sport", "question": "Cycling's oldest and most famous Grand Tour loops all the way around France before finishing on the Champs-Elysees in Paris. Its French nickname, \"La Grande Boucle,\" reflects that route — what does the nickname actually mean?", "options": [{"text": "The Big Loop", "info": "A nod to the race's round-France circular route."}, {"text": "The Pink Race", "info": "That nickname (\"La Corsa Rosa\") actually belongs to the Giro d'Italia."}, {"text": "The Young One", "info": "The Vuelta a España is the youngest of cycling's three Grand Tours, not this."}, {"text": "The Hell of the North", "info": "That's the nickname for the cobblestone classic Paris-Roubaix."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-08", "category": "Movies & TV", "question": "Before he became one of Tarantino's favorite actors, Christoph Waltz was mostly known in German-language TV. He then won back-to-back Best Supporting Actor Oscars for two Tarantino films. Which two were they?", "options": [{"text": "Inglourious Basterds & Django Unchained", "info": "Both films earned Waltz his Academy Awards."}, {"text": "Pulp Fiction & Kill Bill", "info": "Tarantino classics, but Waltz wasn't in either film."}, {"text": "Once Upon a Time in Hollywood & The Hateful Eight", "info": "Waltz appeared in neither of these."}, {"text": "Django Unchained & The Hateful Eight", "info": "Only Django is right — Waltz wasn't in The Hateful Eight."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-09", "category": "Movies & TV", "question": "In 1997, an Austrian director made a deliberately unsettling home-invasion thriller called \"Funny Games\" — and then, a decade later, remade it shot-for-shot in English with Hollywood actors. Who directed both versions?", "options": [{"text": "Michael Haneke", "info": "Directed the 1997 Austrian original and a 2007 English remake."}, {"text": "Ulrich Seidl", "info": "Another provocative Austrian director, known for the \"Paradise\" trilogy."}, {"text": "Stefan Ruzowitzky", "info": "Austrian director best known for the Oscar-winning \"The Counterfeiters.\""}, {"text": "Barbara Albert", "info": "Austrian director known for festival dramas, not Funny Games."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-10", "category": "Movies & TV", "question": "Long before Hollywood blockbusters, German silent cinema produced a sprawling vision of a futuristic city divided between workers and elites, with special effects that influenced sci-fi for decades. What was this 1927 Fritz Lang film called?", "options": [{"text": "Metropolis", "info": "Lang's silent epic, a foundational sci-fi and Expressionist classic."}, {"text": "Nosferatu", "info": "F.W. Murnau's 1922 vampire classic — horror, not sci-fi."}, {"text": "M", "info": "Lang's 1931 thriller about a child murderer, his first sound film."}, {"text": "The Cabinet of Dr. Caligari", "info": "A 1920 German Expressionist horror classic."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-11", "category": "Movies & TV", "question": "For ten seasons through the 1990s and early 2000s, six friends in New York became one of the most-watched sitcoms in US television history. Which network originally aired it?", "options": [{"text": "NBC", "info": "Aired all 10 seasons from 1994 to 2004."}, {"text": "CBS", "info": "Home to other major US sitcoms, but not Friends."}, {"text": "ABC", "info": "Known for shows like Modern Family, not Friends."}, {"text": "Fox", "info": "Known for The Simpsons and other series, not Friends."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-12", "category": "Movies & TV", "question": "In the 1960s, one Italian filmmaker became famous for dreamlike, semi-autobiographical films about Rome's high society and his own creative struggles. Which director made both \"La Dolce Vita\" and \"8½\"?", "options": [{"text": "Federico Fellini", "info": "Directed both films, in 1960 and 1963."}, {"text": "Vittorio De Sica", "info": "Known for neorealist classics like \"Bicycle Thieves.\""}, {"text": "Michelangelo Antonioni", "info": "Known for \"L'Avventura\" and other slow, alienated dramas."}, {"text": "Luchino Visconti", "info": "Known for lavish epics like \"The Leopard.\""}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-13", "category": "Movies & TV", "question": "A brooding German-language series about a small town, a mysterious cave, and time travel became an unexpected international hit a few years ago. Which streaming platform produced \"Dark\"?", "options": [{"text": "Netflix", "info": "Produced Dark from 2017 to 2020."}, {"text": "Amazon Prime", "info": "Home to other big German-language shows, but not Dark."}, {"text": "Disney+", "info": "Focuses on family and franchise content, not Dark."}, {"text": "Hulu", "info": "A US streaming service — didn't produce Dark."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-14", "category": "Movies & TV", "question": "One crime family saga from 1972 is still regularly ranked among the greatest films ever made, and won Best Picture with Marlon Brando as its aging patriarch. What's the film called?", "options": [{"text": "The Godfather", "info": "Won Best Picture, with Brando as Vito Corleone."}, {"text": "Goodfellas", "info": "Scorsese's 1990 mob classic, nominated but didn't win Best Picture."}, {"text": "Scarface", "info": "Brian De Palma's 1983 remake, not a Best Picture winner."}, {"text": "The Untouchables", "info": "1987 crime film with Sean Connery, unrelated to Brando."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-15", "category": "Art & Culture", "question": "This painter struggled with his mental health throughout his life, famously cut off part of his own ear after a dispute with fellow artist Paul Gauguin, and produced some of the most recognizable paintings in history, including a swirling night sky over a village. Who was he?", "options": [{"text": "Vincent van Gogh", "info": "The Dutch Post-Impressionist behind both events."}, {"text": "Rembrandt", "info": "Dutch master of light and portraiture, from an earlier century."}, {"text": "Johannes Vermeer", "info": "Known for \"Girl with a Pearl Earring,\" a different era entirely."}, {"text": "Piet Mondrian", "info": "Dutch abstract painter known for grid-based geometric works."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-16", "category": "Art & Culture", "question": "Known almost as much for his flamboyant waxed mustache as for his art, this Spanish painter filled his surrealist works with dreamlike, often disturbing imagery — including a famous 1931 painting of clocks melting over a barren landscape. Who was he?", "options": [{"text": "Salvador Dalí", "info": "His famous 1931 surrealist painting."}, {"text": "Joan Miró", "info": "Spanish surrealist known for playful, biomorphic shapes."}, {"text": "Francisco Goya", "info": "Spanish master known for dark, dramatic works like \"The Third of May.\""}, {"text": "Diego Velázquez", "info": "Spanish Baroque painter known for \"Las Meninas.\""}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-17", "category": "Art & Culture", "question": "Egon Schiele shocked early 1900s Vienna with raw, sexually charged Expressionist portraits, but he didn't start out alone — an already-famous older Austrian painter took him under his wing and championed his early career. Who was that mentor?", "options": [{"text": "Gustav Klimt", "info": "Mentored and supported the young Schiele in early 1900s Vienna."}, {"text": "Oskar Kokoschka", "info": "A contemporary Expressionist, but not Schiele's mentor."}, {"text": "Koloman Moser", "info": "A Secession co-founder focused on design and graphics."}, {"text": "Anton Faistauer", "info": "An Austrian painter, but not Schiele's key mentor."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-18", "category": "Art & Culture", "question": "One of the most recognizable sculptures in the world shows a muscular man seated, chin resting on his hand, lost in thought. Which French sculptor created it in the late 1800s?", "options": [{"text": "Auguste Rodin", "info": "Created the famous bronze in the late 1800s."}, {"text": "Claude Monet", "info": "French Impressionist painter, not a sculptor."}, {"text": "Edgar Degas", "info": "Known for ballet dancer works, but not this piece."}, {"text": "Henri Matisse", "info": "French painter known for bold color, part of the Fauvist movement."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-19", "category": "Art & Culture", "question": "Originally built as a fortress, then a royal palace, this building became one of the world's largest and most-visited art museums, home to the Mona Lisa and the Venus de Milo. In which city is it located?", "options": [{"text": "Paris", "info": "The Louvre sits along the Seine in central Paris."}, {"text": "Lyon", "info": "France's third-largest city, with its own art museums."}, {"text": "Nice", "info": "A Riviera city known for beaches, not the Louvre."}, {"text": "Marseille", "info": "France's oldest city and major port, not home to the Louvre."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-20", "category": "Art & Culture", "question": "In the 1870s, a group of French painters broke from tradition, choosing to paint outdoors and capture fleeting effects of light rather than precise detail — a style critics mocked at first using the title of one of Monet's paintings. What was the movement called?", "options": [{"text": "Impressionism", "info": "Named after Monet's painting \"Impression, Sunrise.\""}, {"text": "Cubism", "info": "Picasso and Braque's fragmented, geometric style from the early 1900s."}, {"text": "Fauvism", "info": "Known for wild, non-naturalistic color, led by Matisse."}, {"text": "Baroque", "info": "An ornate 17th-century style, centuries before Impressionism."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-21", "category": "Art & Culture", "question": "Built as the Habsburgs' summer residence outside Vienna, this palace is now a UNESCO World Heritage Site, famous for its manicured Baroque gardens and a hilltop gloriette overlooking the city. What's it called?", "options": [{"text": "Schönbrunn Palace", "info": "The Habsburgs' summer residence, with its famous gardens."}, {"text": "Belvedere Palace", "info": "Also in Vienna, built for Prince Eugene of Savoy, now an art museum."}, {"text": "Hofburg", "info": "The Habsburgs' winter palace in Vienna's city center."}, {"text": "Ambras Castle", "info": "A Renaissance castle near Innsbruck, in Tyrol."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-22", "category": "Science", "question": "One of the founding figures of quantum mechanics, born in Vienna, formulated a rule stating that no two electrons in an atom can occupy the same quantum state — a principle that now carries his name. Who was he?", "options": [{"text": "Wolfgang Pauli", "info": "Austrian-born, this principle is named after him."}, {"text": "Werner Heisenberg", "info": "German physicist famous for the Uncertainty Principle instead."}, {"text": "Max Born", "info": "German physicist who worked on quantum mechanics' statistical interpretation."}, {"text": "Niels Bohr", "info": "Danish physicist known for the Bohr model of the atom."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-23", "category": "Science", "question": "Before this Austrian scientist's early 1900s discovery, blood transfusions were dangerous and unpredictable, since no one understood why some worked and others were fatal. His identification of the ABO blood group system earned him a Nobel Prize. Who was he?", "options": [{"text": "Karl Landsteiner", "info": "Discovered the ABO blood group system, Nobel Prize 1930."}, {"text": "Julius Wagner-Jauregg", "info": "Austrian Nobel laureate known for fever therapy for syphilis."}, {"text": "Konrad Lorenz", "info": "Austrian ethologist known for animal behavior, not blood groups."}, {"text": "Erwin Chargaff", "info": "Austrian-born biochemist known for early DNA composition research."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-24", "category": "Science", "question": "It's one of the most misunderstood terms in science — often imagined as a literal explosion in empty space. What does the Big Bang theory actually describe?", "options": [{"text": "The origin and expansion of the universe", "info": "How the universe began and has been expanding since."}, {"text": "The formation of black holes", "info": "A separate astrophysical process, unrelated to the Big Bang itself."}, {"text": "The end of the universe", "info": "Covered by different theories, like heat death, not the Big Bang."}, {"text": "Nuclear fission", "info": "A reactor and weapons process, unrelated to cosmology."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-25", "category": "Science", "question": "Most people guess oxygen when asked what we're mostly breathing in, but it's actually a different, mostly inert gas that dominates our atmosphere. Which gas makes up roughly 78% of the air around us?", "options": [{"text": "Nitrogen", "info": "The most abundant atmospheric gas by far."}, {"text": "Oxygen", "info": "The second most abundant, at roughly 21%."}, {"text": "Carbon dioxide", "info": "Just a trace gas, around 0.04% of the atmosphere."}, {"text": "Argon", "info": "A noble gas making up under 1% of the atmosphere."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-26", "category": "Science", "question": "Marie Curie remains the only person ever to win Nobel Prizes in two different sciences, for her work on radioactivity and the discovery of two new elements, polonium and radium. In which two fields did she win?", "options": [{"text": "Physics and Chemistry", "info": "1903 Physics Prize and 1911 Chemistry Prize."}, {"text": "Physics and Medicine", "info": "She never won a Medicine Prize."}, {"text": "Chemistry and Medicine", "info": "She didn't win a Medicine Prize either."}, {"text": "Physics and Peace", "info": "She never received a Peace Prize."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-27", "category": "Science", "question": "This Austrian scientist became famous for a series of photographs showing baby geese following him around as if he were their mother — a phenomenon he called imprinting, which later won him a Nobel Prize. Who was he?", "options": [{"text": "Konrad Lorenz", "info": "Shared the 1973 Nobel Prize for this research."}, {"text": "Karl von Frisch", "info": "Shared that same Nobel Prize, for studying honeybee communication."}, {"text": "Nikolaas Tinbergen", "info": "Also shared the 1973 prize, for studying animal instincts."}, {"text": "B.F. Skinner", "info": "American behaviorist famous for operant conditioning, never won a Nobel."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-28", "category": "Science", "question": "Its name in the periodic table comes not from English but from an old Latin word for the metal. What is the chemical symbol for gold?", "options": [{"text": "Au", "info": "From the Latin \"aurum.\""}, {"text": "Ag", "info": "That's silver, from the Latin \"argentum.\""}, {"text": "Gd", "info": "That's gadolinium, a rare earth element."}, {"text": "Go", "info": "Not a real element symbol."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-29", "category": "History & Geography", "question": "In the 1860s, one small South American country fought a war against a coalition of three of its neighbors simultaneously — a conflict so devastating that Paraguay is estimated to have lost more than half its population. What is this war called?", "options": [{"text": "The War of the Triple Alliance", "info": "Fought against Brazil, Argentina, and Uruguay, 1864–1870."}, {"text": "The Chaco War", "info": "A 20th-century conflict between Paraguay and Bolivia over the Gran Chaco."}, {"text": "The War of the Pacific", "info": "Fought between Chile and Peru/Bolivia over nitrate-rich land."}, {"text": "The Falklands War", "info": "A 1982 conflict between Argentina and the United Kingdom."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-30", "category": "History & Geography", "question": "Because of its geography, this tiny Austrian village can only be reached by car through Germany, and a 19th-century customs treaty tied its economy so closely to Bavaria that it used the Deutsche Mark as everyday currency for decades, even after Austria itself had its own money. Which village is it?", "options": [{"text": "Jungholz", "info": "This Tyrolean exclave was tied to Bavaria by an 1868 customs treaty."}, {"text": "Kleinwalsertal", "info": "A similar Vorarlberg exclave with the same historic customs arrangement."}, {"text": "Lech", "info": "A well-known Vorarlberg ski resort, but not a customs exclave."}, {"text": "Damüls", "info": "A snowy Vorarlberg village, unrelated to this customs quirk."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-31", "category": "History & Geography", "question": "Nicknamed \"the Green Mark\" for its dense woodlands, one Austrian federal state stands out as the most heavily forested in the country, with well over 60% of its land covered in trees. Which state is it?", "options": [{"text": "Steiermark (Styria)", "info": "Austria's most forested state, nicknamed \"the Green Mark.\""}, {"text": "Tirol", "info": "Mountainous and scenic, but less forested than Steiermark."}, {"text": "Vorarlberg", "info": "Has notable forest, but a lower percentage than Steiermark or Kärnten."}, {"text": "Niederösterreich", "info": "Has the largest total forest area, but a lower percentage than Steiermark."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-32", "category": "History & Geography", "question": "The Mediterranean is scattered with islands, from tourist-favorite beaches to entire independent nations, but one of them dwarfs all the others in size, at over 25,000 square kilometers. Which island is the largest?", "options": [{"text": "Sicily", "info": "Roughly 25,700 km², the Mediterranean's largest island."}, {"text": "Sardinia", "info": "The second-largest Mediterranean island, west of the Italian mainland."}, {"text": "Cyprus", "info": "The third-largest, in the eastern Mediterranean."}, {"text": "Corsica", "info": "A French island north of Sardinia, ranked fourth in size."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-33", "category": "History & Geography", "question": "Malta's own language, Maltese, is unusual in being a Semitic language written in Latin script, closely related to Arabic. But thanks to nearly two centuries of British rule, Malta also has a second official language. What is it?", "options": [{"text": "English", "info": "A legacy of British colonial rule."}, {"text": "Italian", "info": "Historically influential in Malta, but not an official language today."}, {"text": "French", "info": "Not an official language of Malta."}, {"text": "Arabic", "info": "Maltese has Arabic roots, but Arabic itself isn't official."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-34", "category": "History & Geography", "question": "Before he was crowned Emperor of Mexico and later executed, this Habsburg archduke built himself a striking white castle overlooking the Adriatic near Trieste, where he lived before departing for Mexico. What's the castle called?", "options": [{"text": "Miramare Castle", "info": "Built for Maximilian, later Emperor of Mexico."}, {"text": "Schönbrunn Palace", "info": "The Habsburgs' main summer residence, located in Vienna."}, {"text": "Konopiště Castle", "info": "A Habsburg-era castle in Czechia, once home to Franz Ferdinand."}, {"text": "Eckartsau Palace", "info": "An Austrian hunting palace, last residence of Emperor Karl I."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-35", "category": "History & Geography", "question": "After the Berlin Wall fell in 1989, the two German states that had been separated since the end of World War II moved quickly toward reunification. In 1990, East Germany was formally absorbed into which existing state?", "options": [{"text": "The Federal Republic of Germany", "info": "West Germany's state structure, which East Germany joined."}, {"text": "The German Democratic Republic", "info": "That was East Germany itself, which ceased to exist."}, {"text": "Austria", "info": "A separate country, uninvolved in German reunification."}, {"text": "Prussia", "info": "A historic kingdom that no longer existed by 1990."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-36", "category": "History & Geography", "question": "Stretching from the Atlantic Ocean to the Mediterranean Sea, this mountain range has separated the Iberian Peninsula from the rest of Europe for millions of years, and still forms much of the border between two modern countries. Which range is it?", "options": [{"text": "The Pyrenees", "info": "This range separates the Iberian Peninsula from France."}, {"text": "The Alps", "info": "Span Austria, Switzerland, France, and Italy — not the Spain-France border."}, {"text": "The Apennines", "info": "Run through Italy, not near Spain or France."}, {"text": "The Carpathians", "info": "Stretch across Central and Eastern Europe."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-37", "category": "History & Geography", "question": "This country was created in 1918 out of the collapse of the Austro-Hungarian Empire, survived World War II and decades of communist rule, and then peacefully split into two separate countries in 1993 in what's often called the \"Velvet Divorce.\" What was this country called?", "options": [{"text": "Czechoslovakia", "info": "Split into Czechia and Slovakia in the \"Velvet Divorce.\""}, {"text": "Yugoslavia", "info": "Also broke apart, but violently, and wasn't formed from Austria-Hungary alone."}, {"text": "Poland", "info": "Regained independence in 1918 too, but never split into two countries."}, {"text": "Hungary", "info": "Also emerged from Austria-Hungary's collapse, but didn't later divide."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-38", "category": "History & Geography", "question": "Vienna's historic center, a UNESCO World Heritage Site, grew up along the banks of one of Europe's great rivers, which also flows through Budapest and Belgrade on its way to the Black Sea. Which river is it?", "options": [{"text": "The Danube", "info": "Flows through Vienna and several other European capitals."}, {"text": "The Rhine", "info": "Flows through Germany, France, and the Netherlands, not Vienna."}, {"text": "The Elbe", "info": "Runs through Czechia and Germany, not Vienna."}, {"text": "The Inn", "info": "A tributary flowing through Tyrol and Bavaria, not central Vienna."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-39", "category": "General Knowledge", "question": "Excel doesn't actually store dates as dates internally — it stores them as plain numbers counting up from a fixed starting point, with a famous bug baked in from its earliest days. What date does Excel's serial number \"1\" actually represent?", "options": [{"text": "January 1, 1900", "info": "Excel's day count starts here (with a famous 1900 leap-year bug)."}, {"text": "January 0, 1900", "info": "A common misconception — Excel doesn't actually use a \"day zero.\""}, {"text": "December 31, 1899", "info": "Close, but Excel's day 1 is the following day, not this one."}, {"text": "January 1, 1904", "info": "This is the alternate \"1904 system,\" used mainly in old Mac Excel."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-40", "category": "General Knowledge", "question": "In the 1960s, a British psychologist designed a deceptively simple card experiment to test whether people reason logically or just look for evidence that confirms what they already believe — and most people failed it. Who created this famous \"selection task\"?", "options": [{"text": "Peter Wason", "info": "His task remains one of psychology's most-cited reasoning experiments."}, {"text": "Daniel Kahneman", "info": "Nobel-winning psychologist known for prospect theory and biases generally."}, {"text": "B.F. Skinner", "info": "American psychologist famous for behaviorism and operant conditioning."}, {"text": "Ivan Pavlov", "info": "Russian physiologist famous for classical conditioning experiments with dogs."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-41", "category": "General Knowledge", "question": "Fermented, spiced, and often intensely garlicky, this side dish is served with nearly every meal in its country of origin and has become one of that country's best-known culinary exports worldwide. Which country does kimchi come from?", "options": [{"text": "Korea", "info": "Kimchi is central to Korean meals."}, {"text": "Japan", "info": "Known for dishes like sushi and miso, not kimchi."}, {"text": "China", "info": "Has its own pickled vegetable traditions, distinct from kimchi."}, {"text": "Vietnam", "info": "Known for dishes like phở and bánh mì, not kimchi."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-42", "category": "General Knowledge", "question": "So central to Swiss cuisine that it lends its name to the informal cultural border between German- and French-speaking Switzerland (the \"Röstigraben\"), this pan-fried dish is a staple of Swiss-German cooking. What's it primarily made from?", "options": [{"text": "Grated potatoes", "info": "Pan-fried grated potatoes, a Swiss classic."}, {"text": "Rice", "info": "Not the base ingredient of Rösti."}, {"text": "Corn", "info": "Not used in traditional Rösti."}, {"text": "Cabbage", "info": "Common in Swiss and German cuisine, but not the basis of Rösti."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-43", "category": "General Knowledge", "question": "For most of the 20th century, this was the everyday currency Austrians used at the bakery, the ski lift, and everywhere in between, before it was phased out in favor of the Euro in 2002. What was it called?", "options": [{"text": "Austrian Schilling", "info": "Replaced by the Euro in 2002."}, {"text": "Austrian Mark", "info": "Not a historical Austrian currency name."}, {"text": "Austrian Gulden", "info": "An older currency, used before the Schilling in earlier centuries."}, {"text": "Austrian Krone", "info": "Used during the Austro-Hungarian Empire, before the first Schilling."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-44", "category": "General Knowledge", "question": "Hungary is famous for its love of paprika, and nowhere is that more obvious than in its national stew, a hearty mix of meat, vegetables, and generous amounts of the spice, traditionally cooked in a cauldron over an open fire. What's this dish called?", "options": [{"text": "Goulash", "info": "A Hungarian dish flavored heavily with paprika."}, {"text": "Borscht", "info": "A beet-based soup associated with Eastern Europe, especially Ukraine."}, {"text": "Ratatouille", "info": "A French vegetable stew from Provence."}, {"text": "Cassoulet", "info": "A French bean and meat casserole from the southwest."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-45", "category": "General Knowledge", "question": "Normally, only EU member states can officially use the Euro — but one small Balkan country simply started using it as its own currency in 2002, without ever joining the EU or any formal currency agreement. Which country is it?", "options": [{"text": "Montenegro", "info": "Adopted the Euro in 2002 despite not being an EU member."}, {"text": "Serbia", "info": "Uses its own currency, the Serbian dinar."}, {"text": "Albania", "info": "Uses the Albanian lek, not the Euro."}, {"text": "North Macedonia", "info": "Uses the Macedonian denar, not the Euro."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-46", "category": "German Language", "question": "German surnames are often just old occupational or descriptive words, and this Baroque composer's is no exception — it's simply the everyday German word for a small brook or stream. Knowing that, who composed the Brandenburg Concertos and the Well-Tempered Clavier?", "options": [{"text": "Johann Sebastian Bach", "info": "\"Bach\" means brook/stream in German."}, {"text": "Johannes Brahms", "info": "A later German Romantic composer, unrelated to this surname clue."}, {"text": "Georg Friedrich Händel", "info": "Baroque composer of \"Messiah,\" a contemporary of Bach."}, {"text": "Franz Schubert", "info": "Austrian composer known for \"Lieder\" (art songs), a generation later."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-47", "category": "German Language", "question": "This 19th-century Viennese composer's surname happens to be a German word with two very different everyday meanings — a large flightless bird, or a bunch of flowers. Given that clue, who earned the nickname \"The Waltz King\" and composed \"The Blue Danube\"?", "options": [{"text": "Johann Strauss II", "info": "\"Strauss\" means both ostrich and bouquet in German."}, {"text": "Richard Strauss", "info": "A different, later German composer, unrelated to this specific clue's answer."}, {"text": "Franz Liszt", "info": "Hungarian composer-pianist, not linked to the \"Strauss\" surname."}, {"text": "Ludwig van Beethoven", "info": "German composer of a completely different era and surname."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-48", "category": "German Language", "question": "Like many German surnames, this composer's traces back to an old trade — someone who drove a horse-drawn cart or wagon for a living. With that hint, who composed the epic four-opera cycle \"Der Ring des Nibelungen\"?", "options": [{"text": "Richard Wagner", "info": "\"Wagner\" comes from \"Wagen,\" meaning wagon/cart."}, {"text": "Johann Sebastian Bach", "info": "Baroque composer, unrelated to the \"wagon driver\" surname clue."}, {"text": "Gustav Mahler", "info": "Austrian composer-conductor, with a different surname meaning."}, {"text": "Anton Bruckner", "info": "Austrian symphonic composer, unrelated to this clue."}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-49", "category": "German Language", "question": "This composer's family actually came from Flanders, not Germany, and his surname is thought to combine old Dutch words for a root vegetable and a farm or homestead. With that in mind, who composed the famous 9th Symphony, including the \"Ode to Joy\"?", "options": [{"text": "Ludwig van Beethoven", "info": "His family's Flemish name loosely means \"beet farm/court.\""}, {"text": "Franz Joseph Haydn", "info": "Austrian composer known as the \"Father of the Symphony,\" different surname."}, {"text": "Wolfgang Amadeus Mozart", "info": "Austrian composer whose surname has no clear common-word meaning."}, {"text": "Felix Mendelssohn", "info": "German-Jewish composer whose surname means \"son of Mendel.\""}], "correctIndex": 0, "dateAdded": "2026-07-25"}, {"id": "d1-50", "category": "German Language", "question": "One of the 19th century's most celebrated piano virtuosos had a surname that, read as German, is the word for cunning, cleverness, or a sly trick. Who was this Hungarian-born composer and pianist, famous for his technical showmanship?", "options": [{"text": "Franz Liszt", "info": "\"Liszt\" derives from \"List,\" meaning cunning/trick."}, {"text": "Robert Schumann", "info": "German Romantic composer, unrelated to this surname clue."}, {"text": "Johannes Brahms", "info": "German composer known for symphonies and chamber music, different surname."}, {"text": "Antonín Dvořák", "info": "Czech composer whose surname isn't German in origin."}], "correctIndex": 0, "dateAdded": "2026-07-25"}];
+
+const HISTORY_KEY = "poolbar-quiz-history";
+
+function getHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+    console.error("Failed to read quiz history", err);
+    return [];
+  }
+}
+
+function addRoundToHistory(round) {
+  const history = getHistory();
+  history.unshift(round);
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch (err) {
+    console.error("Failed to save quiz history", err);
+  }
+  return history;
+}
+
+window.QuizStorage = { getHistory, addRoundToHistory };
+
+function shuffle(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+async function loadManifest() {
+  const res = await fetch("questions/manifest.json");
+  if (!res.ok) throw new Error("Could not load questions/manifest.json");
+  return res.json();
+}
+
+async function loadQuestionSet(fileName) {
+  const res = await fetch(`questions/${fileName}`);
+  if (!res.ok) throw new Error(`Could not load questions/${fileName}`);
+  return res.json();
+}
+
+class QuizRound {
+  constructor(questions) {
+    this.questions = shuffle(questions).map((q) => this.prepareQuestion(q));
+    this.currentIndex = 0;
+    this.score = 0;
+    this.answers = []; // { questionId, correct }
+  }
+
+  prepareQuestion(q) {
+    const order = shuffle(q.options.map((_, i) => i));
+    const options = order.map((originalIndex) => q.options[originalIndex]);
+    const correctIndex = order.indexOf(q.correctIndex);
+    return {
+      id: q.id,
+      category: q.category,
+      question: q.question,
+      options,
+      correctIndex,
+    };
+  }
+
+  get total() {
+    return this.questions.length;
+  }
+
+  get current() {
+    return this.questions[this.currentIndex];
+  }
+
+  get isLast() {
+    return this.currentIndex === this.total - 1;
+  }
+
+  submitAnswer(selectedIndex) {
+    const correct = selectedIndex === this.current.correctIndex;
+    if (correct) this.score++;
+    this.answers.push({
+      questionId: this.current.id,
+      category: this.current.category,
+      correct,
+    });
+    return correct;
+  }
+
+  advance() {
+    this.currentIndex++;
+  }
+
+  byCategory() {
+    const stats = {};
+    this.answers.forEach((a) => {
+      if (!stats[a.category]) stats[a.category] = { correct: 0, total: 0 };
+      stats[a.category].total++;
+      if (a.correct) stats[a.category].correct++;
+    });
+    return stats;
+  }
+}
+
+window.Quiz = { shuffle, loadManifest, loadQuestionSet, QuizRound };
+
+const LETTERS = ["A", "B", "C", "D"];
+const isEmbedded = Array.isArray(window.EMBEDDED_QUESTIONS);
+
+const screens = {
+  start: document.getElementById("screen-start"),
+  quiz: document.getElementById("screen-quiz"),
+  results: document.getElementById("screen-results"),
+  history: document.getElementById("screen-history"),
+};
+
+let manifest = null;
+let round = null;
+let answered = false;
+let playerName = "You";
+let currentSetId = null;
+let lastResult = null;
+
+function showScreen(name) {
+  Object.values(screens).forEach((el) => el.classList.remove("active"));
+  screens[name].classList.add("active");
+}
+
+function slugify(text) {
+  return (text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "player";
+}
+
+async function init() {
+  if (isEmbedded) {
+    renderEmbeddedSetLabel();
+  } else {
+    try {
+      manifest = await Quiz.loadManifest();
+      renderSetList();
+    } catch (err) {
+      document.getElementById("set-list").innerHTML =
+        `<div class="empty-note">Failed to load question sets: ${err.message}</div>`;
+    }
+  }
+
+  document.getElementById("btn-start").addEventListener("click", startQuiz);
+  document.getElementById("btn-view-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-next").addEventListener("click", nextQuestion);
+  document.getElementById("btn-play-again").addEventListener("click", startQuiz);
+  document.getElementById("btn-download-results").addEventListener("click", downloadResults);
+  document.getElementById("btn-results-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-results-home").addEventListener("click", () => showScreen("start"));
+  document.getElementById("btn-history-home").addEventListener("click", () => showScreen("start"));
+}
+
+function renderEmbeddedSetLabel() {
+  const meta = window.EMBEDDED_SET_META || {};
+  const container = document.getElementById("set-list");
+  container.innerHTML = `
+    <div class="embedded-set-label">${meta.label || "Quiz set"} — ${window.EMBEDDED_QUESTIONS.length} questions</div>
+  `;
+}
+
+function renderSetList() {
+  const container = document.getElementById("set-list");
+  container.innerHTML = "";
+  manifest.sets.forEach((set, i) => {
+    const label = document.createElement("label");
+    label.className = "set-option";
+    label.innerHTML = `
+      <input type="checkbox" value="${set.file}" ${i === 0 ? "checked" : ""} />
+      <span>${set.label} — ${set.questionCount} questions</span>
+    `;
+    container.appendChild(label);
+  });
+}
+
+function getSelectedSetFiles() {
+  return Array.from(document.querySelectorAll("#set-list input:checked")).map((el) => el.value);
+}
+
+async function startQuiz() {
+  const nameInput = document.getElementById("player-name");
+  playerName = (nameInput.value || "").trim() || "You";
+
+  if (isEmbedded) {
+    const meta = window.EMBEDDED_SET_META || {};
+    currentSetId = meta.id || "embedded";
+    round = new Quiz.QuizRound(window.EMBEDDED_QUESTIONS);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+    return;
+  }
+
+  const files = getSelectedSetFiles();
+  if (files.length === 0) {
+    alert("Pick at least one question set.");
+    return;
+  }
+  const btn = document.getElementById("btn-start");
+  btn.disabled = true;
+  try {
+    const sets = await Promise.all(files.map((f) => Quiz.loadQuestionSet(f)));
+    const allQuestions = sets.flat();
+    currentSetId = files.map((f) => f.replace(/\.json$/, "")).join("+");
+    round = new Quiz.QuizRound(allQuestions);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+  } catch (err) {
+    alert(`Failed to start quiz: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderDots() {
+  const dots = document.getElementById("quiz-dots");
+  dots.innerHTML = "";
+  round.questions.forEach((q, i) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    if (i < round.answers.length) {
+      dot.classList.add(round.answers[i].correct ? "done-correct" : "done-wrong");
+    } else if (i === round.currentIndex) {
+      dot.classList.add("current");
+    }
+    dots.appendChild(dot);
+  });
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = round.current;
+
+  document.getElementById("quiz-progress").textContent = `Q ${round.currentIndex + 1}/${round.total}`;
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  document.getElementById("quiz-category").textContent = q.category;
+  document.getElementById("quiz-question").textContent = q.question;
+  renderDots();
+
+  const optionsEl = document.getElementById("quiz-options");
+  optionsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const div = document.createElement("div");
+    div.className = "option";
+    div.dataset.index = i;
+    div.innerHTML = `
+      <span class="letter">${LETTERS[i]}</span>
+      <span class="opt-body">
+        <span class="opt-text">${opt.text}</span>
+        <span class="opt-info">${opt.info}</span>
+      </span>
+    `;
+    div.addEventListener("click", () => selectAnswer(i));
+    optionsEl.appendChild(div);
+  });
+
+  document.getElementById("btn-next").style.display = "none";
+}
+
+function selectAnswer(selectedIndex) {
+  if (answered) return;
+  answered = true;
+
+  const q = round.current;
+  const correct = round.submitAnswer(selectedIndex);
+
+  const optionEls = document.querySelectorAll("#quiz-options .option");
+  optionEls.forEach((el) => {
+    const i = Number(el.dataset.index);
+    el.classList.add("disabled", "revealed");
+    if (i === q.correctIndex) {
+      el.classList.add("correct");
+    } else if (i === selectedIndex) {
+      el.classList.add("wrong");
+    }
+  });
+
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  renderDots();
+
+  const nextBtn = document.getElementById("btn-next");
+  nextBtn.textContent = round.isLast ? "See Results" : "Next Question";
+  nextBtn.style.display = "inline-block";
+}
+
+function nextQuestion() {
+  if (round.isLast) {
+    finishRound();
+    return;
+  }
+  round.advance();
+  renderQuestion();
+}
+
+function finishRound() {
+  const entry = {
+    date: new Date().toISOString(),
+    name: playerName,
+    setId: currentSetId,
+    score: round.score,
+    total: round.total,
+    byCategory: round.byCategory(),
+    answers: round.answers,
+  };
+  lastResult = entry;
+  QuizStorage.addRoundToHistory(entry);
+
+  document.getElementById("results-score").textContent = `${round.score} / ${round.total}`;
+  const pct = round.total ? Math.round((round.score / round.total) * 100) : 0;
+  document.getElementById("results-pct").textContent = `${pct}%`;
+  showScreen("results");
+}
+
+function downloadResults() {
+  if (!lastResult) return;
+  const dateSlug = lastResult.date.slice(0, 10);
+  const fileName = `results-${slugify(lastResult.name)}-${dateSlug}.json`;
+  const blob = new Blob([JSON.stringify(lastResult, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function renderHistory() {
+  const list = document.getElementById("history-list");
+  const history = QuizStorage.getHistory();
+  if (history.length === 0) {
+    list.innerHTML = `<div class="empty-note">No rounds played yet.</div>`;
+    return;
+  }
+  list.innerHTML = "";
+  history.forEach((entry) => {
+    const row = document.createElement("div");
+    row.className = "history-row";
+    const date = new Date(entry.date);
+    const dateStr = isNaN(date) ? entry.date : date.toLocaleString();
+    const namePart = entry.name ? `${entry.name} — ` : "";
+    row.innerHTML = `
+      <span>${namePart}${dateStr}</span>
+      <span class="score">${entry.score} / ${entry.total}</span>
+    `;
+    list.appendChild(row);
+  });
+}
+
+init();
+
+</script>
+
+</body>
+</html>
