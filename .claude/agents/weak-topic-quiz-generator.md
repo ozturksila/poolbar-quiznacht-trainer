@@ -10,33 +10,37 @@ sent back from previous rounds. You work only with data files under
 `questions/` and `results/`, plus running the export script — never touch
 `index.html`, `css/`, or `js/`.
 
-## Step 1 — Find and aggregate that person's results
+## Step 1 — Build and read that person's profile
 
-1. `Glob` for `results/*.json` and read every file whose `name` field
-   matches the requested person (case-insensitive; also check the
-   filename if `name` is ambiguous or missing).
-2. If none are found, stop and tell the user: you can't personalize a set
-   for someone with zero recorded rounds — suggest sending them a regular
-   set first (see the `daily-quiz-generator` agent) and asking for their
-   results back.
-3. Aggregate `byCategory` across all of that person's results files into
-   total correct/total per category, and compute an accuracy percentage
-   per category. Rank categories from weakest to strongest accuracy. Note
-   categories with very few attempts (e.g. under 4-5 questions total) as
-   low-confidence — still eligible for extra focus, just mention the small
-   sample size in your final report.
+1. Run `python3 scripts/build_profile.py <Name>` (use the name as given).
+   This scans every `results/*.json` file belonging to them and (re)writes
+   `profiles/<name-slug>_profile.md` with their round history, cumulative
+   per-category accuracy, and a ranked weakest-categories section.
+   - If it exits with "No results/*.json files found," stop and tell the
+     user: you can't personalize a set for someone with zero recorded
+     rounds — suggest sending them a regular set first (see the
+     `daily-quiz-generator` agent) and asking for their results back.
+2. Read the resulting `profiles/<name-slug>_profile.md`. Its "Weakest
+   categories" section (anything under ~70% accuracy) is your primary
+   input for Step 3. Treat categories flagged "(small sample)" in that
+   file as lower-confidence — still eligible, just say so in your report.
+3. Never hand-edit a profile file directly — always regenerate it via the
+   script so it stays an accurate mirror of `results/`.
 
-## Step 2 — Read the full question history
+## Step 2 — Read the question history
 
-Read `questions/manifest.json` and every set file it lists, for two
-reasons:
-
-- Learn the house style (see "Style rules" — same rulebook as
-  `.claude/agents/daily-quiz-generator.md`; read that file too and follow
-  its style/schema/duplicate-avoidance sections in full).
-- Avoid repeating any subject/correct-answer already used in *any* past
-  set, exactly as that agent requires. This applies across the whole
-  question history, not just this person's past sets.
+1. Read `questions/asked-log.md` first — it's a compact, auto-generated
+   ledger (id, category, correct-answer subject) of every question ever
+   asked across all sets. Use it as your primary duplicate-avoidance
+   reference.
+2. Also read `questions/manifest.json` and every set file it lists in
+   full, to confirm the log is current and to absorb the house style (see
+   "Style rules" — same rulebook as `.claude/agents/daily-quiz-generator.md`;
+   read that file too and follow its style/schema/duplicate-avoidance
+   sections in full).
+3. Avoid repeating any subject/correct-answer already used in *any* past
+   set, exactly as that agent requires. This applies across the whole
+   question history, not just this person's past sets.
 
 ## Step 3 — Category weighting: dominated by their weak spots
 
@@ -60,7 +64,9 @@ weaknesses:
 
 ## Step 4 — Naming and files
 
-- Question `id`s: `w-<name-slug>-{NN}` (e.g. `w-anna-01`), zero-padded.
+- Question `id`s: `w-<name-slug>-YYYY-MM-DD-{NN}` (e.g. `w-anna-2026-07-26-01`),
+  zero-padded. Date-based, like every other set in this project — never
+  sequential "day N" numbering.
 - Default question count: 50, unless the user specifies otherwise.
 - Output file: `questions/w-<name-slug>-YYYY-MM-DD.json` for today's date
   (or a date the user specifies). If that exact file already exists, ask
@@ -83,10 +89,17 @@ This writes `dist/w-<name-slug>-YYYY-MM-DD.html` — a single self-contained
 file with the questions embedded (no server needed) that the user can send
 directly to that person. Confirm the file was created.
 
-## Step 6 — Report back
+## Step 6 — Refresh the asked-questions log
 
-Summarize: the person's weak categories and their accuracy (call out any
-based on a small sample), the category breakdown of the new set, how many
-questions target their weak spots vs. general coverage, confirmation that
-you checked for and avoided duplicate subjects against the full question
-history, and the path to the exported `dist/*.html` file.
+Run `python3 scripts/build_asked_log.py` so `questions/asked-log.md` picks
+up the new set — the next generation (for this person or anyone else) needs
+it current.
+
+## Step 7 — Report back
+
+Summarize: the person's weak categories and their accuracy from their
+profile (call out any based on a small sample), the category breakdown of
+the new set, how many questions target their weak spots vs. general
+coverage, confirmation that you checked for and avoided duplicate subjects
+against the full question history, and the paths to the updated profile
+and the exported `dist/*.html` file.

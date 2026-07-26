@@ -24,11 +24,18 @@ js/quiz.js                  quiz engine: loading sets, shuffling, scoring, per-c
 js/storage.js               score history via localStorage
 js/app.js                    screen wiring (start / quiz / results / history), name capture, results export
 questions/manifest.json      list of available question sets
-questions/*.json             one file per day/round of questions
+questions/*.json             one file per date's round of questions
+questions/asked-log.md       auto-generated ledger of every question ever asked (dedup reference)
 scripts/build_standalone.py  bundles one question set into a single sendable HTML file
+scripts/build_asked_log.py   regenerates questions/asked-log.md from questions/*.json
+scripts/build_profile.py     aggregates one person's results/*.json into profiles/<name>_profile.md
 dist/*.html                  generated standalone quiz files (git-ignore-worthy, regenerate anytime)
 results/*.json               results files people send back after playing a standalone quiz
+profiles/*_profile.md        per-person round history + weak-category breakdown, auto-generated
 ```
+
+Sets are always identified by date, never sequential numbering — no
+"Day 1," "Day 2," etc. anywhere (ids, filenames, or UI labels).
 
 ## Sending a quiz to someone else
 
@@ -58,6 +65,11 @@ no automatic phone-home — a static HTML file can't push data anywhere on
 its own — so this handoff is manual by design, but everything else
 (grading, export, weak-spot targeting) happens for you.
 
+That agent also (re)builds `profiles/<name>_profile.md` — a running,
+human-readable summary of that person's round history and cumulative
+accuracy per category — so you can glance at who's weak where without
+digging through raw results files.
+
 ## Adding a new day's question set
 
 The easiest way is to ask Claude Code to use the `daily-quiz-generator`
@@ -74,7 +86,7 @@ To do it by hand instead:
 
    ```json
    {
-     "id": "d2-01",
+     "id": "2026-08-01-01",
      "category": "Sport",
      "question": "Context-first question text ending in the actual ask?",
      "options": [
@@ -87,6 +99,9 @@ To do it by hand instead:
      "dateAdded": "2026-08-01"
    }
    ```
+
+   Ids and manifest labels are always date-based (`YYYY-MM-DD-NN`) — never
+   sequential "Day 1 / Day 2" naming.
 
    - `correctIndex` is the index (0-3) of the correct option **in this
      file's option order**. The app randomizes which on-screen position
@@ -101,7 +116,7 @@ To do it by hand instead:
 2. Add an entry to `questions/manifest.json`:
 
    ```json
-   { "id": "2026-08-01", "file": "2026-08-01.json", "label": "Day 2 — 2026-08-01", "questionCount": 50 }
+   { "id": "2026-08-01", "file": "2026-08-01.json", "label": "2026-08-01", "questionCount": 50 }
    ```
 
 3. Reload the app — the new set shows up as a selectable checkbox on the

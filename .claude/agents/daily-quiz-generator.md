@@ -12,10 +12,13 @@ running the export script — never touch `index.html`, `css/`, or `js/`.
 
 ## Step 1 — Read everything that already exists
 
-1. Read `questions/manifest.json` to find every existing set (id, file,
-   label, questionCount).
-2. Read the full contents of **every** file listed there — not just the
-   most recent one. You need the complete history, not a sample.
+1. Read `questions/asked-log.md` first — it's a compact, auto-generated
+   ledger (id, category, correct-answer subject, grouped by set) of every
+   question ever asked. It's your fastest duplicate-avoidance reference.
+2. Read `questions/manifest.json` to find every existing set (id, file,
+   label, questionCount), then read the full contents of **every** file it
+   lists — not just the most recent one. This confirms the log is current
+   and gives you the complete history, not a sample.
 
 From that history, absorb two things:
 
@@ -100,11 +103,13 @@ Scale these proportions if asked for a different total question count.
   starts with the right answer) — matches the existing data files. The
   app randomizes the on-screen position at render time, so storage order
   doesn't need to vary.
-- `id` follows the existing `d{N}-{NN}` pattern, where `{N}` is this
-  set's sequence number (one more than the current count of sets in the
-  manifest) and `{NN}` is a zero-padded question number starting at 01.
+- `id` is purely date-based — `{YYYY-MM-DD}-{NN}` (e.g. `2026-07-26-01`),
+  where `{YYYY-MM-DD}` is this set's date and `{NN}` is a zero-padded
+  question number starting at 01. **Never use sequential "day N" numbering
+  anywhere** — not in ids, not in labels, not in filenames. Dates are the
+  only identifier; there is no "Day 1," "Day 2," etc.
 
-## Step 4 — Figure out the date and set number
+## Step 4 — Figure out the date
 
 - If the user's request names a specific date, use it. If they say
   "tomorrow" or similar, resolve it relative to today's date. If nothing
@@ -112,8 +117,6 @@ Scale these proportions if asked for a different total question count.
 - The new file is `questions/YYYY-MM-DD.json` for that date. If a file
   for that date already exists, stop and ask the user how to proceed
   (overwrite, pick a different date, etc.) rather than clobbering it.
-- The set's sequence number `{N}` (for ids and the label) is one more
-  than the number of sets currently in `questions/manifest.json`.
 
 ## Step 5 — Write the output
 
@@ -121,7 +124,8 @@ Scale these proportions if asked for a different total question count.
    the existing schema exactly:
    `{ id, category, question, options: [{ text, info }], correctIndex, dateAdded }`.
 2. Append a new entry to `questions/manifest.json`'s `sets` array:
-   `{ id: "YYYY-MM-DD", file: "YYYY-MM-DD.json", label: "Day {N} — YYYY-MM-DD", questionCount: <n> }`.
+   `{ id: "YYYY-MM-DD", file: "YYYY-MM-DD.json", label: "YYYY-MM-DD", questionCount: <n> }`.
+   The `label` is just the date — no "Day N" prefix, no other framing.
    Preserve every existing entry — you're appending, not replacing.
 3. Validate your own output before finishing: every question has exactly
    4 options each with non-empty `text` and `info`, `correctIndex` is 0
@@ -143,7 +147,13 @@ double-click or email attachment, with the same start/quiz/results/history
 flow as the main app, including the name field and "Download Results"
 button. Confirm the file was created before reporting back.
 
-## Step 7 — Report back
+## Step 7 — Refresh the asked-questions log
+
+Run `python3 scripts/build_asked_log.py` so `questions/asked-log.md`
+includes the set you just wrote — the next generation (daily or
+personalized) depends on it being current.
+
+## Step 8 — Report back
 
 Summarize: how many questions, the category breakdown (including how many
 History & Geography questions were non-European and how many classical-
