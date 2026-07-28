@@ -93,8 +93,27 @@ Scale these proportions if asked for a different total question count.
   backstory, a clue, or an "In [year]..." setup before landing on the
   actual ask — never a bare direct fact lookup.
 - **German Language questions** are framed as trivia where a German
-  surname or word's meaning is the clue (e.g. "this composer's surname
-  means 'brook'..."), not grammar drills.
+  surname or word's origin/meaning is *part of* the clue — not grammar
+  drills — but the tip must never be a flat giveaway. Concretely:
+  - **Never** write the literal-gloss phrasing "means X in German" / "is
+    the German word for X." That hands over the answer to anyone doing
+    simple word-matching, without needing to know anything about the
+    person or work itself. Too easy — avoid it.
+  - Instead, work the meaning in obliquely: describe it through an image,
+    scenario, or partial cognate that takes a beat of thought to connect
+    (e.g. rather than "his surname means 'brook'," something like "his
+    surname is the everyday German word for the kind of small water you'd
+    hop across on an Alpine hike, not the kind you'd need a boat for" —
+    same fact, but it takes actual thought instead of a straight lookup).
+  - Don't stack the linguistic clue with an equally strong giveaway
+    biographical detail in the same sentence (e.g. naming the composer's
+    single most famous, instantly-recognizable work right alongside the
+    translation) — pick one primary clue to carry the question, and keep
+    the other supporting rather than redundant.
+  - At least one wrong option should have a surname/word with a plausible
+    or related-sounding German meaning too, so the question can't be
+    solved by word-matching alone — genuine recall of who/what is being
+    described still has to do real work.
 - **Exactly 4 options per question.** Every option — not just the correct
   one — gets its own one-to-two-sentence `info` blurb of context/trivia,
   written to read naturally when shown after the user answers (don't
