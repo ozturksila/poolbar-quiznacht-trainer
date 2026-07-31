@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poolbar Quiznacht Trainer</title>
+<style>
+:root {
+  --felt-dark: #06341f;
+  --felt: #0c4a2e;
+  --felt-light: #145c3a;
+  --brass: #c9a227;
+  --brass-bright: #e8c34a;
+  --cream: #f3ecd9;
+  --cream-dim: #cfc6ab;
+  --red: #b3432b;
+  --red-bright: #e0553a;
+  --green-ok: #4c9a5b;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+  --font-body: "Georgia", "Iowan Old Style", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, var(--felt-light) 0%, var(--felt) 45%, var(--felt-dark) 100%);
+  color: var(--cream);
+  font-family: var(--font-body);
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+#app {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Header / branding */
+.brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand h1 {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  color: var(--brass-bright);
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px var(--shadow);
+}
+
+.brand .sub {
+  color: var(--cream-dim);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  color: #23180a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 0 #8a6c15, 0 6px 14px var(--shadow);
+  transition: transform 0.08s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #8a6c15, 0 3px 8px var(--shadow);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(243, 236, 217, 0.4);
+  box-shadow: none;
+}
+
+.btn.secondary:hover {
+  border-color: var(--brass-bright);
+  color: var(--brass-bright);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Start screen */
+.set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.set-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.set-option input {
+  accent-color: var(--brass);
+}
+
+.name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.name-field input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--cream);
+}
+
+.name-field input:focus {
+  outline: none;
+  border-color: var(--brass-bright);
+}
+
+.embedded-set-label {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(243, 236, 217, 0.18);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.dot.done-correct {
+  background: var(--green-ok);
+  border-color: var(--green-ok);
+}
+
+.dot.done-wrong {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.dot.current {
+  background: var(--brass-bright);
+  border-color: var(--brass-bright);
+}
+
+/* Question */
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.12rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  color: var(--cream);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(243, 236, 217, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--cream);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.option:hover:not(.disabled) {
+  border-color: var(--brass-bright);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.option .letter {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.option .opt-body {
+  flex: 1;
+}
+
+.option .opt-info {
+  display: none;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  line-height: 1.4;
+}
+
+.option.revealed .opt-info {
+  display: block;
+}
+
+.option.correct {
+  border-color: var(--green-ok);
+  background: rgba(76, 154, 91, 0.18);
+}
+
+.option.correct .letter {
+  color: var(--green-ok);
+}
+
+.option.wrong {
+  border-color: var(--red-bright);
+  background: rgba(179, 67, 43, 0.18);
+}
+
+.option.wrong .letter {
+  color: var(--red-bright);
+}
+
+.option.disabled {
+  cursor: default;
+}
+
+/* Results */
+.results-score {
+  text-align: center;
+  font-family: var(--font-mono);
+  margin: 10px 0 24px;
+}
+
+.results-score .big {
+  font-size: 2.6rem;
+  color: var(--brass-bright);
+}
+
+.results-score .pct {
+  color: var(--cream-dim);
+  font-size: 0.9rem;
+}
+
+/* History */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px dashed rgba(243, 236, 217, 0.15);
+  padding: 8px 2px;
+  color: var(--cream-dim);
+}
+
+.history-row .score {
+  color: var(--brass-bright);
+}
+
+.empty-note {
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+  .card {
+    padding: 18px 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="brand">
+    <h1>Poolbar Quiznacht Trainer</h1>
+    <div class="sub">Vorarlberg pub quiz practice</div>
+  </div>
+
+  <section id="screen-start" class="screen active">
+    <div class="card">
+      <h2>Choose a question set</h2>
+      <div id="set-list" class="set-list">
+        <div class="empty-note">Loading question sets…</div>
+      </div>
+      <label class="name-field">
+        <span>Your name (optional)</span>
+        <input type="text" id="player-name" placeholder="You" maxlength="40" />
+      </label>
+      <div class="btn-row">
+        <button id="btn-start" class="btn">Start Quiz</button>
+        <button id="btn-view-history" class="btn secondary">History</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-quiz" class="screen">
+    <div class="card">
+      <div class="scoreboard">
+        <span id="quiz-progress">Q 1/50</span>
+        <span id="quiz-score">Score 0</span>
+      </div>
+      <div id="quiz-dots" class="dots"></div>
+      <div id="quiz-category" class="category-tag"></div>
+      <p id="quiz-question" class="question-text"></p>
+      <div id="quiz-options" class="options"></div>
+      <div class="btn-row">
+        <button id="btn-next" class="btn" style="display:none">Next Question</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-results" class="screen">
+    <div class="card">
+      <h2>Round complete</h2>
+      <div class="results-score">
+        <div class="big" id="results-score">0 / 0</div>
+        <div class="pct" id="results-pct">0%</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-play-again" class="btn">Play Again</button>
+        <button id="btn-download-results" class="btn secondary">Download Results</button>
+        <button id="btn-results-history" class="btn secondary">History</button>
+        <button id="btn-results-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-history" class="screen">
+    <div class="card">
+      <h2>Score history</h2>
+      <div id="history-list" class="history-list">
+        <div class="empty-note">No rounds played yet.</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-history-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+window.EMBEDDED_SET_META = {"id": "2026-07-28", "label": "2026-07-28", "questionCount": 50};
+window.EMBEDDED_QUESTIONS = [{"id": "2026-07-28-01", "category": "Sport", "question": "The FIFA World Cup has been held every four years since 1930 (aside from wartime gaps), and one South American nation has now won it a record five times, most recently in 2002. Which country holds the record for most World Cup titles?", "options": [{"text": "Brazil", "info": "Brazil has won the World Cup five times: 1958, 1962, 1970, 1994, and 2002."}, {"text": "Germany", "info": "Germany has won four titles, most recently in 2014."}, {"text": "Italy", "info": "Italy has also won four titles, most recently in 2006."}, {"text": "Argentina", "info": "Argentina has won three titles, most recently in 2022."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-02", "category": "Sport", "question": "Despite having a population of under three million, one Caribbean island has produced a wildly disproportionate share of the world's fastest sprinters, including Usain Bolt and several other Olympic and world champions. Which country is it?", "options": [{"text": "Jamaica", "info": "Home to Usain Bolt and a long line of world-class sprinters, despite its small size."}, {"text": "Trinidad and Tobago", "info": "Also a strong Caribbean sprinting nation, but without Jamaica's sheer volume of champions."}, {"text": "Bahamas", "info": "Known for strong relay and middle-distance runners, but not this level of sprinting dominance."}, {"text": "Barbados", "info": "A small Caribbean island with some track success, but not Jamaica's sprinting legacy."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-03", "category": "Sport", "question": "Shepherds are said to have knocked stones into rabbit holes on the coastal grasslands of one country as early as the 15th century, with rules eventually formalized at a club in St Andrews. Which country is credited as the birthplace of golf?", "options": [{"text": "Scotland", "info": "St Andrews' Old Course is often called the 'Home of Golf.'"}, {"text": "England", "info": "Developed many other sports, but golf's origins are credited to Scotland."}, {"text": "Netherlands", "info": "Had a similar stick-and-ball game called 'kolf,' but not modern golf itself."}, {"text": "Ireland", "info": "Has a strong golfing tradition today, but isn't credited as the sport's birthplace."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-04", "category": "Sport", "question": "For decades, one East African country's high-altitude training regions have produced a hugely disproportionate share of the world's top marathon and long-distance runners. Which country is it?", "options": [{"text": "Kenya", "info": "The Rift Valley region's high altitude is often credited for its runners' dominance."}, {"text": "Ethiopia", "info": "Also a distance-running powerhouse, and Kenya's fiercest rival in the sport."}, {"text": "Morocco", "info": "Has produced strong distance runners, but far fewer than Kenya."}, {"text": "Uganda", "info": "Has had some standout distance runners, but nowhere near Kenya's overall dominance."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-05", "category": "Sport", "question": "Frozen ponds and outdoor rinks in one cold northern country gave rise to a fast-paced game with sticks and a puck in the 19th century, a sport that later became that nation's official winter sport. Which country invented ice hockey?", "options": [{"text": "Canada", "info": "Modern ice hockey developed in Canada in the mid-1800s, particularly around Montreal."}, {"text": "Russia", "info": "A major hockey power today thanks to its own Soviet-era traditions, but not the sport's birthplace."}, {"text": "USA", "info": "Adopted the sport enthusiastically, especially via the NHL, but didn't invent it."}, {"text": "Sweden", "info": "A strong modern hockey nation, but not where the sport originated."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-06", "category": "Sport", "question": "Wrestlers in this ancient combat sport can weigh well over 150 kilograms, compete in a circular ring called a 'dohyo,' and follow rituals rooted in Shinto religious tradition. Which country's national sport is sumo wrestling?", "options": [{"text": "Japan", "info": "Sumo has Shinto religious roots and remains Japan's national sport."}, {"text": "Mongolia", "info": "Has produced many top sumo champions in Japan's professional leagues, but sumo itself is Japanese."}, {"text": "South Korea", "info": "Has its own traditional wrestling style called ssireum, distinct from sumo."}, {"text": "China", "info": "Has various traditional wrestling styles, but sumo specifically is Japanese."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-07", "category": "Movies & TV", "question": "Nicknamed the 'Master of Suspense,' this British-American director filmed one of cinema's most famous murder scenes in a motel shower, scored by shrieking violins, for his 1960 film 'Psycho.' Who directed it?", "options": [{"text": "Alfred Hitchcock", "info": "Directed Psycho in 1960, one of many suspense classics in his long career."}, {"text": "Orson Welles", "info": "Directed Citizen Kane, widely considered one of the greatest films ever made, but not Psycho."}, {"text": "Billy Wilder", "info": "Directed Sunset Boulevard and Some Like It Hot, not Psycho."}, {"text": "Stanley Kubrick", "info": "Directed The Shining and other tense classics, but not Psycho."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-08", "category": "Movies & TV", "question": "To bring Middle-earth to the screen, one director shot an entire fantasy trilogy almost entirely on location in his home country, whose dramatic landscapes became inseparable from the films' identity. Who directed 'The Lord of the Rings' trilogy, largely filmed in New Zealand?", "options": [{"text": "Peter Jackson", "info": "A New Zealand native, he filmed the trilogy extensively across his home country."}, {"text": "Guillermo del Toro", "info": "Was briefly attached to a Hobbit adaptation, but didn't direct the original trilogy."}, {"text": "James Cameron", "info": "Also based much of his later filmmaking career in New Zealand, but didn't direct these films."}, {"text": "Ridley Scott", "info": "Directed Gladiator and Blade Runner, not the Lord of the Rings trilogy."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-09", "category": "Movies & TV", "question": "In 2003, the daughter of a legendary director made a quiet, melancholic film about two lonely Americans adrift in a Tokyo hotel, and won an Academy Award for its screenplay. Who directed 'Lost in Translation'?", "options": [{"text": "Sofia Coppola", "info": "Won the Best Original Screenplay Oscar for Lost in Translation; daughter of Francis Ford Coppola."}, {"text": "Greta Gerwig", "info": "Directed Lady Bird and Barbie, a later generation of acclaimed filmmakers."}, {"text": "Kathryn Bigelow", "info": "The first woman to win the Best Director Oscar, for The Hurt Locker, not this film."}, {"text": "Jane Campion", "info": "Directed The Piano and The Power of the Dog, not Lost in Translation."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-10", "category": "Movies & TV", "question": "A Canadian director known for atmospheric, slow-burn science fiction adapted Frank Herbert's sprawling desert-planet epic into a two-part blockbuster, after also directing a belated sequel to a 1980s sci-fi classic. Who directed 'Dune' and 'Blade Runner 2049'?", "options": [{"text": "Denis Villeneuve", "info": "The Canadian director behind Dune, Blade Runner 2049, and Arrival."}, {"text": "Christopher Nolan", "info": "Directed Interstellar and Inception, distinct sci-fi epics, not these two films."}, {"text": "Alfonso Cuarón", "info": "Directed Gravity and Children of Men, not Dune or Blade Runner 2049."}, {"text": "Jean-Pierre Jeunet", "info": "French director best known for Amélie, a very different kind of film."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-11", "category": "Movies & TV", "question": "Based on George R.R. Martin's unfinished fantasy novel series, a sprawling drama about warring noble houses and a growing threat beyond an icy wall became one of the most-watched and most-discussed shows in television history. Which network originally aired 'Game of Thrones'?", "options": [{"text": "HBO", "info": "Aired Game of Thrones from 2011 to 2019, its most-watched series ever."}, {"text": "Showtime", "info": "Home to other prestige dramas, but not Game of Thrones."}, {"text": "Starz", "info": "Produced fantasy-adjacent shows like Outlander, but not Game of Thrones."}, {"text": "Netflix", "info": "A streaming giant, but Game of Thrones was a cable/premium TV show, not a Netflix original."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-12", "category": "Movies & TV", "question": "Released in 1995, this film about a cowboy doll and a spaceman action figure became the first feature film ever made entirely with computer animation. Which studio produced 'Toy Story'?", "options": [{"text": "Pixar", "info": "Produced Toy Story, the first fully computer-animated feature film, released in 1995."}, {"text": "DreamWorks Animation", "info": "Later produced Shrek and other CGI hits, but not Toy Story."}, {"text": "Walt Disney Animation Studios", "info": "Distributed Toy Story, but Pixar itself produced and animated it."}, {"text": "Blue Sky Studios", "info": "Produced the Ice Age franchise, founded a few years after Toy Story's release."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-13", "category": "Art & Culture", "question": "This Polish composer left his homeland at 20 and never returned, spending most of his career in Paris writing nocturnes and mazurkas almost exclusively for solo piano. Legend says his heart was removed after his death and returned to Warsaw, while the rest of him was buried in France. Who was he?", "options": [{"text": "Frédéric Chopin", "info": "Died of tuberculosis in Paris in 1849; his heart is preserved in a Warsaw church."}, {"text": "Franz Liszt", "info": "A close contemporary and fellow piano virtuoso, but Hungarian, not Polish."}, {"text": "Robert Schumann", "info": "German Romantic composer and critic who championed Chopin's music in print."}, {"text": "Sergei Rachmaninoff", "info": "A later Russian composer-pianist, born decades after Chopin's death."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-14", "category": "Art & Culture", "question": "Commissioned to mark the era of the newly opened Suez Canal, this Italian composer's opera 'Aida' premiered in Cairo in 1871, though he's just as famous for 'La Traviata' and the rousing 'Va, pensiero' chorus. Who was he?", "options": [{"text": "Giuseppe Verdi", "info": "Composed Aida, La Traviata, and dozens of other operas across a long career."}, {"text": "Giacomo Puccini", "info": "A later Italian opera composer, known for La Bohème and Madama Butterfly."}, {"text": "Gioachino Rossini", "info": "Composed The Barber of Seville, an earlier era of Italian opera."}, {"text": "Pietro Mascagni", "info": "Known mainly for the one-act opera Cavalleria Rusticana."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-15", "category": "Art & Culture", "question": "While serving as director of a conservatory in New York in the 1890s, this Czech composer wrote a symphony inspired partly by African American spirituals and melodies he encountered during his stay in the United States. What's the symphony commonly called?", "options": [{"text": "Antonín Dvořák", "info": "Composed Symphony No. 9, 'From the New World,' during his time in the United States."}, {"text": "Bedřich Smetana", "info": "Another major Czech composer, known for the symphonic cycle 'Má vlast.'"}, {"text": "Leoš Janáček", "info": "A later Czech composer, known for operas like Jenůfa."}, {"text": "Jean Sibelius", "info": "Finnish composer known for his own symphonies and 'Finlandia,' unrelated to this piece."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-16", "category": "Art & Culture", "question": "Known for enormous hands that let him span unusually wide chords, this Russian composer and pianist fled his homeland after the 1917 Revolution and spent the rest of his life touring and composing in exile, mostly in the United States. Who was he?", "options": [{"text": "Sergei Rachmaninoff", "info": "Famous for technically demanding piano concertos, written partly for his own huge hand span."}, {"text": "Sergei Prokofiev", "info": "Also Russian, but he eventually returned to live under Soviet rule, unlike Rachmaninoff."}, {"text": "Dmitri Shostakovich", "info": "Remained in the Soviet Union throughout his career, unlike Rachmaninoff."}, {"text": "Alexander Scriabin", "info": "An earlier Russian composer known for mystical, experimental piano works."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-17", "category": "Art & Culture", "question": "Instantly recognizable for its cresting blue wave dwarfing three fishing boats with Mount Fuji visible in the background, this Japanese woodblock print is one of the most reproduced artworks in the world. Which artist created 'The Great Wave off Kanagawa'?", "options": [{"text": "Katsushika Hokusai", "info": "Created the print as part of his series 'Thirty-six Views of Mount Fuji.'"}, {"text": "Utagawa Hiroshige", "info": "Another major ukiyo-e artist, known for landscape series like 'The Fifty-three Stations of the Tōkaidō.'"}, {"text": "Kitagawa Utamaro", "info": "Known for ukiyo-e portraits of women, not landscape prints."}, {"text": "Yoshitoshi", "info": "A later ukiyo-e artist known for dramatic, sometimes violent scenes."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-18", "category": "Art & Culture", "question": "Built directly over a waterfall in rural Pennsylvania, this house was designed so its cantilevered terraces seem to float above the rushing water below, and is regarded as one of the most celebrated houses in American architecture. Who designed 'Fallingwater'?", "options": [{"text": "Frank Lloyd Wright", "info": "Designed Fallingwater in 1935 for the Kaufmann family."}, {"text": "Le Corbusier", "info": "A pioneering Swiss-French modernist architect, but didn't design Fallingwater."}, {"text": "Mies van der Rohe", "info": "German-American architect known for minimalist glass-and-steel buildings."}, {"text": "Louis Sullivan", "info": "An early skyscraper pioneer and mentor to Wright, but not Fallingwater's designer."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-19", "category": "Art & Culture", "question": "Still unfinished more than a century after construction began in 1882, this basilica in Barcelona is famous for its melting, organic spires and is expected to finally be completed sometime in the coming years. Which architect designed it?", "options": [{"text": "Antoni Gaudí", "info": "Designed the Sagrada Família, though he died in 1926 with it still far from finished."}, {"text": "Santiago Calatrava", "info": "A later Spanish architect-engineer known for bridges and modern structures."}, {"text": "Rafael Moneo", "info": "A Spanish architect and Pritzker Prize winner, but not the Sagrada Família's designer."}, {"text": "Josep Puig i Cadafalch", "info": "Another Catalan Modernisme architect, a contemporary of Gaudí's."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-20", "category": "Science", "question": "In 1905, a patent clerk in Switzerland published four groundbreaking physics papers in a single year, including one introducing the equation E=mc², though he actually won his only Nobel Prize for a different paper explaining the photoelectric effect. Who was he?", "options": [{"text": "Albert Einstein", "info": "Published his 'miracle year' papers in 1905 and won the 1921 Nobel Prize in Physics."}, {"text": "Max Planck", "info": "Founded quantum theory, and was actually one of Einstein's early champions in Germany."}, {"text": "Niels Bohr", "info": "Danish physicist known for his model of the atom, a slightly later generation."}, {"text": "Erwin Schrödinger", "info": "Austrian physicist famous for a thought experiment involving a cat."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-21", "category": "Science", "question": "Locked in a bitter rivalry with Thomas Edison over which electrical system should power the world, this Serbian-American inventor championed alternating current, which eventually won out for long-distance power transmission. Who was he?", "options": [{"text": "Nikola Tesla", "info": "Developed AC power systems and held patents used by George Westinghouse."}, {"text": "Thomas Edison", "info": "Championed direct current (DC) in the rivalry known as the 'War of the Currents.'"}, {"text": "George Westinghouse", "info": "Backed Tesla's AC system commercially, but wasn't the inventor himself."}, {"text": "Guglielmo Marconi", "info": "Italian inventor known for pioneering radio, not this electrical rivalry."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-22", "category": "Science", "question": "In 1953, two scientists in Cambridge published a short paper describing DNA's now-famous twisted-ladder shape, building heavily on X-ray images captured by a colleague whose contribution went largely unrecognized during her lifetime. Who were the two scientists officially credited with describing the double helix?", "options": [{"text": "James Watson and Francis Crick", "info": "Published the double helix structure in 1953, drawing on Rosalind Franklin's X-ray data."}, {"text": "Gregor Mendel", "info": "Austrian monk whose 19th-century pea plant experiments founded genetics, decades earlier."}, {"text": "Frederick Sanger", "info": "Developed DNA sequencing methods later, in the 1970s."}, {"text": "Barbara McClintock", "info": "American geneticist known for discovering 'jumping genes' in corn."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-23", "category": "Science", "question": "When a fighter jet exceeds this speed, it produces a sonic boom, and pilots describe the threshold as 'Mach 1.' Roughly how fast does sound travel through air at sea level?", "options": [{"text": "About 343 meters per second", "info": "Roughly 1,235 km/h, though the exact speed varies with air temperature."}, {"text": "About 1,000 meters per second", "info": "Nearly three times too fast to be the actual speed of sound in air."}, {"text": "About 100 meters per second", "info": "Far too slow — that's closer to a fast car's speed, not sound's."}, {"text": "About 3,000 meters per second", "info": "Almost ten times too fast to be sound's actual speed in air."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-24", "category": "Science", "question": "Often called the 'father of modern chemistry,' this 18th-century Frenchman named the elements oxygen and hydrogen, helped disprove an old theory about a fire-releasing substance called 'phlogiston,' and was later executed during the French Revolution. Who was he?", "options": [{"text": "Antoine Lavoisier", "info": "Guillotined in 1794 during the Revolution's Reign of Terror, despite his major scientific contributions."}, {"text": "Joseph Priestley", "info": "English scientist who independently discovered oxygen around the same time."}, {"text": "John Dalton", "info": "English chemist known for early atomic theory, a generation later."}, {"text": "Dmitri Mendeleev", "info": "Russian chemist who created the periodic table, nearly a century later."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-25", "category": "Science", "question": "Developed in 1935 by an American seismologist, this logarithmic scale became the standard public way to describe an earthquake's magnitude, though scientists today mostly use a related but more accurate scale instead. What is this original scale called?", "options": [{"text": "The Richter scale", "info": "Named after Charles Richter, who developed it at Caltech in 1935."}, {"text": "The Beaufort scale", "info": "Measures wind speed and sea conditions, unrelated to earthquakes."}, {"text": "The Fujita scale", "info": "Measures tornado intensity, not earthquakes."}, {"text": "The Saffir-Simpson scale", "info": "Categorizes hurricane intensity, not earthquake magnitude."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-26", "category": "History & Geography", "question": "Built from precisely stacked granite blocks without any mortar, this vast stone city was the capital of a powerful medieval trading kingdom in southern Africa, and gave a modern nation its name after independence. What are these ruins called?", "options": [{"text": "Great Zimbabwe", "info": "Built between roughly the 11th and 15th centuries, it gave modern Zimbabwe its name."}, {"text": "Timbuktu", "info": "A West African center of Islamic scholarship and trade, in modern Mali."}, {"text": "Aksum", "info": "An ancient East African kingdom in what's now Ethiopia and Eritrea."}, {"text": "Carthage", "info": "An ancient North African city-state near modern Tunis, founded by Phoenician settlers."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-27", "category": "History & Geography", "question": "For over a thousand years, camel caravans carried silk, spices, and ideas along a sprawling network of trade routes connecting China with the Mediterranean world, passing through Central Asia, Persia, and beyond. What is this historic trade network commonly called?", "options": [{"text": "The Silk Road", "info": "Named for the valuable Chinese silk that traveled along it westward."}, {"text": "The Amber Road", "info": "A separate ancient European trade route, carrying amber from the Baltic to the Mediterranean."}, {"text": "The Incense Route", "info": "Carried frankincense and myrrh from Arabia toward the Mediterranean."}, {"text": "The Spice Route", "info": "Primarily refers to later maritime trade routes to Europe by sea."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-28", "category": "History & Geography", "question": "Covering an area roughly the size of the entire United States, this is the largest hot desert in the world, stretching across much of North Africa from the Atlantic coast to the Red Sea. What's it called?", "options": [{"text": "The Sahara Desert", "info": "At about 9.2 million square kilometers, it's the world's largest hot desert."}, {"text": "The Arabian Desert", "info": "A large Middle Eastern desert, but far smaller than the Sahara."}, {"text": "The Gobi Desert", "info": "A cold desert spanning China and Mongolia, not a hot desert."}, {"text": "The Kalahari Desert", "info": "A semi-arid region in southern Africa, much smaller than the Sahara."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-29", "category": "History & Geography", "question": "Perched on a mountain ridge high in the Andes and hidden from Spanish conquistadors, this 15th-century Inca citadel remained largely unknown to the outside world until an American historian was guided to it in 1911. What's it called?", "options": [{"text": "Machu Picchu", "info": "Brought to international attention by Hiram Bingham in 1911, though local communities already knew of it."}, {"text": "Ollantaytambo", "info": "Another significant Inca site in the Sacred Valley, but not this famous citadel."}, {"text": "Nazca", "info": "Famous for its ancient geoglyphs (the 'Nazca Lines'), not an Inca citadel."}, {"text": "Tiwanaku", "info": "An ancient pre-Inca city near Lake Titicaca in what's now Bolivia."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-30", "category": "History & Geography", "question": "Built, rebuilt, and extended by multiple Chinese dynasties over more than 2,000 years to defend against northern invasions, this fortification is often (incorrectly) said to be visible from space. What is it called?", "options": [{"text": "The Great Wall of China", "info": "Much of the surviving wall dates from the Ming Dynasty (1368-1644)."}, {"text": "The Forbidden City", "info": "The imperial palace complex in Beijing, not a defensive wall."}, {"text": "The Grand Canal", "info": "An ancient Chinese waterway connecting northern and southern China."}, {"text": "Hadrian's Wall", "info": "A much shorter Roman defensive wall across northern England."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-31", "category": "History & Geography", "question": "In 1896, an African kingdom decisively defeated an invading European colonial army at the Battle of Adwa, allowing it to remain one of the only African nations never formally colonized by a European power. Which country was it?", "options": [{"text": "Ethiopia", "info": "Defeated Italy at Adwa in 1896, preserving its independence for decades longer."}, {"text": "Liberia", "info": "Also avoided formal European colonization, but through different circumstances, as a state founded by freed American slaves."}, {"text": "Morocco", "info": "Was colonized by France and Spain in the early 20th century."}, {"text": "Sudan", "info": "Was under Anglo-Egyptian colonial rule for decades."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-32", "category": "History & Geography", "question": "Carved directly into rose-colored sandstone cliffs by the ancient Nabataean people, this city in the desert of modern Jordan was a wealthy hub on ancient incense and spice trade routes before being largely forgotten by the outside world for centuries. What's it called?", "options": [{"text": "Petra", "info": "Rediscovered by a European explorer in 1812, after centuries of Western obscurity."}, {"text": "Palmyra", "info": "An ancient Syrian city, also on desert trade routes, but a separate site."}, {"text": "Baalbek", "info": "A Roman-era temple complex in modern Lebanon, not this Nabataean city."}, {"text": "Ctesiphon", "info": "An ancient Persian capital near modern Baghdad, unrelated to Petra."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-33", "category": "History & Geography", "question": "During the last Ice Age, falling sea levels exposed a stretch of land connecting two continents, which many scientists believe the first humans in the Americas crossed on foot from Asia. What is this land bridge commonly called?", "options": [{"text": "Beringia (the Bering Land Bridge)", "info": "Connected Siberia and Alaska when sea levels were much lower."}, {"text": "The Isthmus of Panama", "info": "Connects North and South America, unrelated to early human migration from Asia."}, {"text": "The Aleutian Chain", "info": "A string of volcanic islands, not the land bridge itself."}, {"text": "The Kamchatka Peninsula", "info": "A Russian peninsula near the Bering Strait, not the land bridge itself."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-34", "category": "History & Geography", "question": "This Mesoamerican civilization developed one of the only fully independent writing systems in human history, along with a sophisticated calendar and an early mathematical concept of zero, all without contact from societies in Europe or Asia. Which civilization was it?", "options": [{"text": "The Maya", "info": "Flourished across the Yucatán and Central America, with achievements in writing, astronomy, and mathematics."}, {"text": "The Aztec", "info": "A later Mesoamerican civilization that borrowed and adapted some Maya knowledge."}, {"text": "The Olmec", "info": "An earlier Mesoamerican civilization, sometimes called Mesoamerica's 'mother culture.'"}, {"text": "The Inca", "info": "A South American civilization with no writing system in this sense, and a separate calendar tradition."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-35", "category": "History & Geography", "question": "Founded as Byzantium, later renamed after a Roman emperor, and finally given its modern name in 1930, this city is unique among the world's major metropolises for straddling two continents across a narrow strait. What is it called today?", "options": [{"text": "Istanbul", "info": "Straddles the Bosphorus Strait, split between Europe and Asia."}, {"text": "Baku", "info": "The capital of Azerbaijan, near but not divided by a continental boundary this way."}, {"text": "Cairo", "info": "Egypt's capital, located entirely within Africa."}, {"text": "Tbilisi", "info": "Georgia's capital, in the Caucasus but not split by a strait like this."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-36", "category": "History & Geography", "question": "From the 13th to 17th centuries, a network of merchant guilds and market towns across Northern Europe banded together to protect trade routes and negotiate favorable terms, dominating commerce around the Baltic and North Seas for centuries. What was this trading confederation called?", "options": [{"text": "The Hanseatic League", "info": "Included cities like Lübeck, Hamburg, and Bruges at its height."}, {"text": "The Holy Roman Empire", "info": "A separate, much larger political entity covering Central Europe."}, {"text": "The Teutonic Order", "info": "A German crusading military order, distinct from this merchant confederation."}, {"text": "The Kalmar Union", "info": "A political union of Denmark, Norway, and Sweden, not a trade league."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-37", "category": "History & Geography", "question": "Founded, according to tradition, in the year 301 AD by a Christian stonemason fleeing persecution, this tiny country surrounded entirely by Italy claims to be the world's oldest surviving republic. What's it called?", "options": [{"text": "San Marino", "info": "A microstate perched on Monte Titano, with a population of around 34,000."}, {"text": "Andorra", "info": "A microstate in the Pyrenees between France and Spain, with a different founding story."}, {"text": "Liechtenstein", "info": "A microstate between Austria and Switzerland, founded much later, in 1719."}, {"text": "Monaco", "info": "A microstate on the French Riviera, ruled by the Grimaldi family since the 13th century."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-38", "category": "History & Geography", "question": "This tiny Pyrenean country has an unusual system of government: its two heads of state, called co-princes, are the President of France and a Spanish bishop, an arrangement dating back to a medieval treaty. Which country is it?", "options": [{"text": "Andorra", "info": "Co-ruled by the President of France and the Bishop of Urgell since a 1278 treaty."}, {"text": "San Marino", "info": "An Italian-surrounded microstate with an elected government, not co-princes."}, {"text": "Monaco", "info": "Ruled by a hereditary prince from the Grimaldi family, not a co-principality."}, {"text": "Liechtenstein", "info": "A hereditary principality ruled by its own prince, not shared with a foreign head of state."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-39", "category": "General Knowledge", "question": "Originally developed as a way to preserve fish by fermenting it with rice, this dish evolved over centuries in one East Asian country into the vinegared-rice-and-raw-fish combination eaten worldwide today. Which country does sushi come from?", "options": [{"text": "Japan", "info": "Modern sushi (particularly nigiri) developed in Edo-period Tokyo in the 19th century."}, {"text": "China", "info": "An early form of fermented fish-and-rice preservation ('narezushi') likely originated here before spreading to Japan."}, {"text": "Thailand", "info": "Known for dishes like pad thai and tom yum, not sushi."}, {"text": "Vietnam", "info": "Known for phở and fresh spring rolls, not sushi."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-40", "category": "General Knowledge", "question": "Named after the French physician who proposed it as a more humane, painless method of execution during the French Revolution, this device used a heavy angled blade to behead condemned prisoners quickly. What is it called?", "options": [{"text": "The guillotine", "info": "Named for Joseph-Ignace Guillotin, though he didn't invent the device himself."}, {"text": "The gallows", "info": "A separate execution method using hanging, not a blade."}, {"text": "The rack", "info": "A medieval torture device for stretching the body, not an execution device like this."}, {"text": "The iron maiden", "info": "A largely mythical torture device, likely a 19th-century invention rather than a real medieval one."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-41", "category": "General Knowledge", "question": "After a French newspaper mistakenly published his obituary years before his actual death, describing him as a 'merchant of death' for inventing dynamite, this Swedish industrialist rewrote his will to fund a set of prizes meant to reward benefit to humanity instead. Who was he?", "options": [{"text": "Alfred Nobel", "info": "Founded the Nobel Prizes with his fortune, largely made from explosives manufacturing."}, {"text": "Andrew Carnegie", "info": "American steel magnate known for funding libraries and other philanthropy, not the Nobel Prizes."}, {"text": "Cecil Rhodes", "info": "British-South African businessman who endowed the Rhodes Scholarship, not the Nobel Prizes."}, {"text": "John D. Rockefeller", "info": "American oil magnate known for founding the Rockefeller Foundation, not the Nobel Prizes."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-42", "category": "General Knowledge", "question": "Long before it meant a tomato-based condiment in the West, this word described a fermented fish sauce popular in parts of Southeast Asia, which European traders encountered and eventually adapted into something completely different. What condiment traces its name back to this Asian sauce?", "options": [{"text": "Ketchup", "info": "The word likely derives from a Hokkien Chinese term for fermented fish sauce."}, {"text": "Soy sauce", "info": "A separate fermented condiment with its own distinct name and history."}, {"text": "Fish sauce", "info": "The Southeast Asian condiment itself, not the word that evolved into ketchup."}, {"text": "Worcestershire sauce", "info": "A British condiment with its own separate, unrelated origin story."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-43", "category": "General Knowledge", "question": "In the 1940s, a Swiss engineer returned from a walk in the Alps and got curious about why burrs from a certain plant kept sticking so stubbornly to his clothes and his dog's fur, leading him to invent a now-ubiquitous hook-and-loop fastener. What is this fastener called?", "options": [{"text": "Velcro", "info": "Invented by George de Mestral, inspired by burdock burrs."}, {"text": "Zipper", "info": "A separate fastening invention, developed decades earlier by different inventors."}, {"text": "Snap fastener", "info": "An older type of fastener, unrelated to this burr-inspired invention."}, {"text": "Duct tape", "info": "A separate adhesive product with its own unrelated origin story."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-44", "category": "General Knowledge", "question": "Decades before the board game most people know today was patented, an American woman designed an earlier version specifically to demonstrate the dangers of unchecked monopolies and land ownership — a critique that got largely lost when a later version became a beloved mainstream game. What's this game called today?", "options": [{"text": "Monopoly", "info": "Based on Elizabeth 'Lizzie' Magie's 1904 'The Landlord's Game,' though it later celebrated the very thing she meant to criticize."}, {"text": "The Game of Life", "info": "A different classic board game, created by Milton Bradley in the 1860s."}, {"text": "Risk", "info": "A strategy board game about global conquest, created by a French filmmaker in the 1950s."}, {"text": "Clue (Cluedo)", "info": "A murder-mystery board game invented in England in the 1940s."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-45", "category": "German Language", "question": "Half of this Romantic composer's surname is just the everyday German word for 'person' — the other half describes the trade of someone you'd visit if the sole came loose on your boot, back when every craft had its own family name. He wrote piano cycles like 'Kinderszenen' and married the pianist Clara Wieck. Who was he?", "options": [{"text": "Robert Schumann", "info": "'Schumann' blends 'Schuh' (shoe) and 'Mann' (man), an old occupational surname for a shoemaker."}, {"text": "Franz Schubert", "info": "His surname sounds similar but likely traces to an old word for a bundle of straw used in thatching, unrelated to shoes."}, {"text": "Johannes Brahms", "info": "Devoted to Clara Schumann for decades but never married her; his surname is thought to derive from a word for bramble bushes."}, {"text": "Johann Strauss II", "info": "The 'Waltz King,' whose surname means either ostrich or bouquet in German — no connection to shoemaking."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-46", "category": "German Language", "question": "This composer's surname has nothing to do with music at all — it's an old topographic word for the kind of open, scrubby grazing land you'd find just outside an Austrian village. He also spent a stretch of his career with a much younger composer boarding in his household as a pupil. Who was this teacher, sometimes nicknamed the 'Father of the Symphony'?", "options": [{"text": "Joseph Haydn", "info": "'Haydn' traces back to 'Heide,' meaning heath or open heathland."}, {"text": "Ludwig van Beethoven", "info": "Was actually Haydn's pupil in Vienna for a time, though the two didn't get along; his own Flemish surname is thought to mean roughly 'beet farm.'"}, {"text": "Franz Schubert", "info": "Not one of Haydn's students; his surname likely comes from an old word for a bundle of straw."}, {"text": "Antonio Salieri", "info": "An Italian-born Viennese court composer who did teach both Beethoven and Schubert, but his own surname isn't German."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-47", "category": "German Language", "question": "This composer's surname looks almost identical to the modern German word for trade or commerce, though scholars debate whether that's really his family name's origin or just a coincidence of spelling. Born in Halle, he later became a naturalized British citizen and made his career composing Italian-style operas and large-scale oratorios for London audiences. Who was he?", "options": [{"text": "Georg Friedrich Händel", "info": "His surname closely resembles the modern word 'Handel' (trade/commerce); he's best remembered today for the oratorio 'Messiah.'"}, {"text": "Johann Pachelbel", "info": "Best remembered for his Canon in D; his surname likely comes from a place name rather than a trade word."}, {"text": "Dietrich Buxtehude", "info": "A North German organist whose famous 'Abendmusik' concerts drew the young Bach on a long walking pilgrimage to hear him play."}, {"text": "Heinrich Schütz", "info": "An early Baroque German composer whose surname is the everyday word for 'protection' or a marksman."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-48", "category": "German Language", "question": "Before the modern title 'conductor' existed, European courts and churches gave this old German title to whoever directed the resident musicians — literally, the master of the chapel. It survives today mostly as an honorary title for senior conductors at a handful of European opera houses. What is this historic title?", "options": [{"text": "Kapellmeister", "info": "Literally 'chapel master,' the historic term for whoever directed a court or church's musicians before 'conductor' existed as a modern title."}, {"text": "Konzertmeister", "info": "The modern title for the principal first violinist in an orchestra, a different role entirely."}, {"text": "Generalmusikdirektor", "info": "A modern German title for the top music director of an opera house or city, a later invention."}, {"text": "Intendant", "info": "The administrative and artistic director of an opera house or theater, not a musical role."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-49", "category": "German Language", "question": "This German word describes the opposite of homesickness — a restless longing for distant places you've never even been, built from the words for 'far' and 'pain' or 'ache.' What does it mean, translated literally?", "options": [{"text": "Longing for far-off places", "info": "From 'fern' (far) and 'Weh' (pain/ache) — essentially 'far-ache.'"}, {"text": "Fear of heights", "info": "That's closer to the separate German word 'Höhenangst.'"}, {"text": "Love of nature", "info": "Not the literal translation of this particular compound word."}, {"text": "Longing for home", "info": "That's homesickness, or 'Heimweh' — close to the opposite of this word."}], "correctIndex": 0, "dateAdded": "2026-07-28"}, {"id": "2026-07-28-50", "category": "German Language", "question": "This German word describes the extra weight gained from emotional overeating, built from an everyday food word and a feeling of sorrow. What does it mean, translated literally?", "options": [{"text": "Grief bacon", "info": "From 'Kummer' (grief/sorrow) and 'Speck' (bacon/fat), describing weight gained from emotional eating."}, {"text": "Sweet tooth", "info": "Not the literal translation — this word specifically involves grief, not a general craving."}, {"text": "Full stomach", "info": "Too literal a guess; misses that 'Kummer' (grief) is the actual first half."}, {"text": "Broken heart", "info": "Captures the emotional idea loosely, but isn't the literal food-based translation."}], "correctIndex": 0, "dateAdded": "2026-07-28"}];
+
+const HISTORY_KEY = "poolbar-quiz-history";
+
+function getHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+    console.error("Failed to read quiz history", err);
+    return [];
+  }
+}
+
+function addRoundToHistory(round) {
+  const history = getHistory();
+  history.unshift(round);
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch (err) {
+    console.error("Failed to save quiz history", err);
+  }
+  return history;
+}
+
+window.QuizStorage = { getHistory, addRoundToHistory };
+
+function shuffle(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+async function loadManifest() {
+  const res = await fetch("questions/manifest.json");
+  if (!res.ok) throw new Error("Could not load questions/manifest.json");
+  return res.json();
+}
+
+async function loadQuestionSet(fileName) {
+  const res = await fetch(`questions/${fileName}`);
+  if (!res.ok) throw new Error(`Could not load questions/${fileName}`);
+  return res.json();
+}
+
+class QuizRound {
+  constructor(questions) {
+    this.questions = shuffle(questions).map((q) => this.prepareQuestion(q));
+    this.currentIndex = 0;
+    this.score = 0;
+    this.answers = []; // { questionId, correct }
+  }
+
+  prepareQuestion(q) {
+    const order = shuffle(q.options.map((_, i) => i));
+    const options = order.map((originalIndex) => q.options[originalIndex]);
+    const correctIndex = order.indexOf(q.correctIndex);
+    return {
+      id: q.id,
+      category: q.category,
+      question: q.question,
+      options,
+      correctIndex,
+    };
+  }
+
+  get total() {
+    return this.questions.length;
+  }
+
+  get current() {
+    return this.questions[this.currentIndex];
+  }
+
+  get isLast() {
+    return this.currentIndex === this.total - 1;
+  }
+
+  submitAnswer(selectedIndex) {
+    const correct = selectedIndex === this.current.correctIndex;
+    if (correct) this.score++;
+    this.answers.push({
+      questionId: this.current.id,
+      category: this.current.category,
+      correct,
+    });
+    return correct;
+  }
+
+  advance() {
+    this.currentIndex++;
+  }
+
+  byCategory() {
+    const stats = {};
+    this.answers.forEach((a) => {
+      if (!stats[a.category]) stats[a.category] = { correct: 0, total: 0 };
+      stats[a.category].total++;
+      if (a.correct) stats[a.category].correct++;
+    });
+    return stats;
+  }
+}
+
+window.Quiz = { shuffle, loadManifest, loadQuestionSet, QuizRound };
+
+const LETTERS = ["A", "B", "C", "D"];
+const isEmbedded = Array.isArray(window.EMBEDDED_QUESTIONS);
+
+const screens = {
+  start: document.getElementById("screen-start"),
+  quiz: document.getElementById("screen-quiz"),
+  results: document.getElementById("screen-results"),
+  history: document.getElementById("screen-history"),
+};
+
+let manifest = null;
+let round = null;
+let answered = false;
+let playerName = "You";
+let currentSetId = null;
+let lastResult = null;
+
+function showScreen(name) {
+  Object.values(screens).forEach((el) => el.classList.remove("active"));
+  screens[name].classList.add("active");
+}
+
+function slugify(text) {
+  return (text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "player";
+}
+
+async function init() {
+  if (isEmbedded) {
+    renderEmbeddedSetLabel();
+  } else {
+    try {
+      manifest = await Quiz.loadManifest();
+      renderSetList();
+    } catch (err) {
+      document.getElementById("set-list").innerHTML =
+        `<div class="empty-note">Failed to load question sets: ${err.message}</div>`;
+    }
+  }
+
+  document.getElementById("btn-start").addEventListener("click", startQuiz);
+  document.getElementById("btn-view-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-next").addEventListener("click", nextQuestion);
+  document.getElementById("btn-play-again").addEventListener("click", startQuiz);
+  document.getElementById("btn-download-results").addEventListener("click", downloadResults);
+  document.getElementById("btn-results-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-results-home").addEventListener("click", () => showScreen("start"));
+  document.getElementById("btn-history-home").addEventListener("click", () => showScreen("start"));
+}
+
+function renderEmbeddedSetLabel() {
+  const meta = window.EMBEDDED_SET_META || {};
+  const container = document.getElementById("set-list");
+  container.innerHTML = `
+    <div class="embedded-set-label">${meta.label || "Quiz set"} — ${window.EMBEDDED_QUESTIONS.length} questions</div>
+  `;
+}
+
+function renderSetList() {
+  const container = document.getElementById("set-list");
+  container.innerHTML = "";
+  manifest.sets.forEach((set, i) => {
+    const label = document.createElement("label");
+    label.className = "set-option";
+    label.innerHTML = `
+      <input type="checkbox" value="${set.file}" ${i === 0 ? "checked" : ""} />
+      <span>${set.label} — ${set.questionCount} questions</span>
+    `;
+    container.appendChild(label);
+  });
+}
+
+function getSelectedSetFiles() {
+  return Array.from(document.querySelectorAll("#set-list input:checked")).map((el) => el.value);
+}
+
+async function startQuiz() {
+  const nameInput = document.getElementById("player-name");
+  playerName = (nameInput.value || "").trim() || "You";
+
+  if (isEmbedded) {
+    const meta = window.EMBEDDED_SET_META || {};
+    currentSetId = meta.id || "embedded";
+    round = new Quiz.QuizRound(window.EMBEDDED_QUESTIONS);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+    return;
+  }
+
+  const files = getSelectedSetFiles();
+  if (files.length === 0) {
+    alert("Pick at least one question set.");
+    return;
+  }
+  const btn = document.getElementById("btn-start");
+  btn.disabled = true;
+  try {
+    const sets = await Promise.all(files.map((f) => Quiz.loadQuestionSet(f)));
+    const allQuestions = sets.flat();
+    currentSetId = files.map((f) => f.replace(/\.json$/, "")).join("+");
+    round = new Quiz.QuizRound(allQuestions);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+  } catch (err) {
+    alert(`Failed to start quiz: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderDots() {
+  const dots = document.getElementById("quiz-dots");
+  dots.innerHTML = "";
+  round.questions.forEach((q, i) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    if (i < round.answers.length) {
+      dot.classList.add(round.answers[i].correct ? "done-correct" : "done-wrong");
+    } else if (i === round.currentIndex) {
+      dot.classList.add("current");
+    }
+    dots.appendChild(dot);
+  });
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = round.current;
+
+  document.getElementById("quiz-progress").textContent = `Q ${round.currentIndex + 1}/${round.total}`;
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  document.getElementById("quiz-category").textContent = q.category;
+  document.getElementById("quiz-question").textContent = q.question;
+  renderDots();
+
+  const optionsEl = document.getElementById("quiz-options");
+  optionsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const div = document.createElement("div");
+    div.className = "option";
+    div.dataset.index = i;
+    div.innerHTML = `
+      <span class="letter">${LETTERS[i]}</span>
+      <span class="opt-body">
+        <span class="opt-text">${opt.text}</span>
+        <span class="opt-info">${opt.info}</span>
+      </span>
+    `;
+    div.addEventListener("click", () => selectAnswer(i));
+    optionsEl.appendChild(div);
+  });
+
+  document.getElementById("btn-next").style.display = "none";
+}
+
+function selectAnswer(selectedIndex) {
+  if (answered) return;
+  answered = true;
+
+  const q = round.current;
+  const correct = round.submitAnswer(selectedIndex);
+
+  const optionEls = document.querySelectorAll("#quiz-options .option");
+  optionEls.forEach((el) => {
+    const i = Number(el.dataset.index);
+    el.classList.add("disabled", "revealed");
+    if (i === q.correctIndex) {
+      el.classList.add("correct");
+    } else if (i === selectedIndex) {
+      el.classList.add("wrong");
+    }
+  });
+
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  renderDots();
+
+  const nextBtn = document.getElementById("btn-next");
+  nextBtn.textContent = round.isLast ? "See Results" : "Next Question";
+  nextBtn.style.display = "inline-block";
+}
+
+function nextQuestion() {
+  if (round.isLast) {
+    finishRound();
+    return;
+  }
+  round.advance();
+  renderQuestion();
+}
+
+function finishRound() {
+  const entry = {
+    date: new Date().toISOString(),
+    name: playerName,
+    setId: currentSetId,
+    score: round.score,
+    total: round.total,
+    byCategory: round.byCategory(),
+    answers: round.answers,
+  };
+  lastResult = entry;
+  QuizStorage.addRoundToHistory(entry);
+
+  document.getElementById("results-score").textContent = `${round.score} / ${round.total}`;
+  const pct = round.total ? Math.round((round.score / round.total) * 100) : 0;
+  document.getElementById("results-pct").textContent = `${pct}%`;
+  showScreen("results");
+}
+
+function downloadResults() {
+  if (!lastResult) return;
+  const dateSlug = lastResult.date.slice(0, 10);
+  const fileName = `results-${slugify(lastResult.name)}-${dateSlug}.json`;
+  const blob = new Blob([JSON.stringify(lastResult, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function renderHistory() {
+  const list = document.getElementById("history-list");
+  const history = QuizStorage.getHistory();
+  if (history.length === 0) {
+    list.innerHTML = `<div class="empty-note">No rounds played yet.</div>`;
+    return;
+  }
+  list.innerHTML = "";
+  history.forEach((entry) => {
+    const row = document.createElement("div");
+    row.className = "history-row";
+    const date = new Date(entry.date);
+    const dateStr = isNaN(date) ? entry.date : date.toLocaleString();
+    const namePart = entry.name ? `${entry.name} — ` : "";
+    row.innerHTML = `
+      <span>${namePart}${dateStr}</span>
+      <span class="score">${entry.score} / ${entry.total}</span>
+    `;
+    list.appendChild(row);
+  });
+}
+
+init();
+
+</script>
+
+</body>
+</html>
