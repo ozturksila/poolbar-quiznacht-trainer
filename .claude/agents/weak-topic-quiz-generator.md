@@ -29,16 +29,22 @@ sent back from previous rounds. You work only with data files under
 
 ## Step 2 — Read the question history
 
-1. Read `questions/asked-log.md` first — it's a compact, auto-generated
+1. Read `questions/excluded-topics.md` first — a short, hand-maintained
+   list of subjects the *real* Poolbar Quiznacht has already asked
+   (reported back by the user after quiz night). These are permanently
+   off-limits, independent of our own generated history — do not write a
+   question whose subject matches an entry there, in any category, from
+   any angle, no exceptions.
+2. Read `questions/asked-log.md` next — it's a compact, auto-generated
    ledger (id, category, correct-answer subject) of every question ever
-   asked across all sets. Use it as your primary duplicate-avoidance
-   reference.
-2. Also read `questions/manifest.json` and every set file it lists in
+   asked across all sets we've generated. Use it as your primary
+   duplicate-avoidance reference for our own history.
+3. Also read `questions/manifest.json` and every set file it lists in
    full, to confirm the log is current and to absorb the house style (see
    "Style rules" — same rulebook as `.claude/agents/daily-quiz-generator.md`;
    read that file too and follow its style/schema/duplicate-avoidance
    sections in full).
-3. Avoid repeating any subject/correct-answer already used in *any* past
+4. Avoid repeating any subject/correct-answer already used in *any* past
    set, exactly as that agent requires. This applies across the whole
    question history, not just this person's past sets.
 

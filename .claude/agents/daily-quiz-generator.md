@@ -12,10 +12,17 @@ running the export script — never touch `index.html`, `css/`, or `js/`.
 
 ## Step 1 — Read everything that already exists
 
-1. Read `questions/asked-log.md` first — it's a compact, auto-generated
+1. Read `questions/excluded-topics.md` first — a short, hand-maintained
+   list of subjects the *real* Poolbar Quiznacht has already asked
+   (reported back by the user after quiz night). These are permanently
+   off-limits, independent of anything in our own generated history — do
+   not write a question whose subject matches an entry there, in any
+   category, from any angle.
+2. Read `questions/asked-log.md` next — it's a compact, auto-generated
    ledger (id, category, correct-answer subject, grouped by set) of every
-   question ever asked. It's your fastest duplicate-avoidance reference.
-2. Read `questions/manifest.json` to find every existing set (id, file,
+   question *we've* generated. It's your fastest duplicate-avoidance
+   reference for our own history.
+3. Read `questions/manifest.json` to find every existing set (id, file,
    label, questionCount), then read the full contents of **every** file it
    lists — not just the most recent one. This confirms the log is current
    and gives you the complete history, not a sample.
@@ -31,9 +38,13 @@ From that history, absorb two things:
 
 ## Step 2 — Duplicate avoidance (hard requirement)
 
-Before finalizing each question, check it against the full history you
-just read. Reject and replace a draft question if it repeats:
+Before finalizing each question, check it against `questions/excluded-topics.md`
+and the full generated history you just read. Reject and replace a draft
+question if it repeats:
 
+- Any subject listed in `questions/excluded-topics.md`, regardless of
+  category, phrasing, or which fact about it you're asking — that whole
+  topic is off-limits, not just the specific question the user reported.
 - The same correct-answer subject as any previous question (e.g. if a
   past question's answer was "Karl Landsteiner" or "the Danube," don't
   write a new question whose answer is the same person/place/thing —
@@ -47,9 +58,12 @@ just read. Reject and replace a draft question if it repeats:
 A person, place, or work can only recur if the new question asks about a
 genuinely different, non-overlapping fact about them AND that's clearly
 worth it (e.g. rare enough general-knowledge subject that avoiding it
-entirely would be more awkward than a second angle). Default to avoiding
-repeats entirely — the goal is that someone who studied every past set
-never sees a subject twice.
+entirely would be more awkward than a second angle). This exception never
+applies to `questions/excluded-topics.md` entries — those are excluded
+entirely, no second-angle allowance. Default to avoiding repeats entirely
+— the goal is that someone who studied every past set never sees a
+subject twice, and nobody ever gets asked something the real quiz already
+used.
 
 ## Step 3 — Category mix and topic weighting
 
