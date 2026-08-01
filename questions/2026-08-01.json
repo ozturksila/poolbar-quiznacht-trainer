@@ -1,0 +1,1252 @@
+[
+  {
+    "id": "2026-08-01-01",
+    "category": "Sport",
+    "question": "Despite a population of under three million, this Caribbean island has produced a wildly disproportionate share of the fastest sprinters in Olympic history, including the world record holder over both 100m and 200m. Which country is it?",
+    "options": [
+      {
+        "text": "Jamaica",
+        "info": "Home to Usain Bolt and a sprint pipeline built around a handful of elite high school athletics programs."
+      },
+      {
+        "text": "Trinidad and Tobago",
+        "info": "Also punches above its weight in sprinting, but hasn't matched Jamaica's Olympic sprint medal haul."
+      },
+      {
+        "text": "Bahamas",
+        "info": "Strong in track relays, especially the 4x400m, but not the sprint powerhouse Jamaica is."
+      },
+      {
+        "text": "Barbados",
+        "info": "A cricket-mad Caribbean island, but not known for producing world-record sprinters."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-02",
+    "category": "Sport",
+    "question": "At most major international marathons, from Boston to Berlin, the winner's podium is disproportionately filled with runners from a single East African country, often specifically from its Rift Valley highlands. Which country is it?",
+    "options": [
+      {
+        "text": "Kenya",
+        "info": "The high-altitude training grounds around Iten, in the Rift Valley, have produced generations of world-class distance runners."
+      },
+      {
+        "text": "Ethiopia",
+        "info": "A fierce distance-running rival with its own legendary marathoners, but trails Kenya in total major marathon wins."
+      },
+      {
+        "text": "Uganda",
+        "info": "Has produced standout distance runners like Joshua Cheptegei, but on a much smaller scale than Kenya."
+      },
+      {
+        "text": "Morocco",
+        "info": "Has a strong middle-distance tradition, but not the marathon dominance of Kenya."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-03",
+    "category": "Sport",
+    "question": "In this West African nation, traditional wrestling matches — blending combat sport with pre-fight ritual dances, drumming, and amulets believed to bring luck — fill stadiums and turn top wrestlers into some of the country's highest-paid athletes. Which country is it?",
+    "options": [
+      {
+        "text": "Senegal",
+        "info": "The sport, called Laamb, is considered the national sport and predates French colonial rule by centuries."
+      },
+      {
+        "text": "Nigeria",
+        "info": "Has its own traditional wrestling styles, but Laamb wrestling's commercial and cultural home is Senegal."
+      },
+      {
+        "text": "Mali",
+        "info": "Shares some Sahelian wrestling traditions with Senegal, but the sport's center is Dakar, in Senegal."
+      },
+      {
+        "text": "Ivory Coast",
+        "info": "A West African neighbor with a growing sports scene, but not the historic home of Laamb wrestling."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-04",
+    "category": "Sport",
+    "question": "With more world championship medals than any gymnast in history, this American athlete has had multiple skills named after her across different apparatuses because they were considered too difficult for anyone to have landed before her. Who is she?",
+    "options": [
+      {
+        "text": "Simone Biles",
+        "info": "Her named skills include a triple-twisting double backflip on floor, nicknamed 'the Biles II.'"
+      },
+      {
+        "text": "Nadia Comăneci",
+        "info": "Scored gymnastics' first perfect 10 at the 1976 Olympics, a generation before Biles."
+      },
+      {
+        "text": "Gabby Douglas",
+        "info": "The first American gymnast to win Olympic all-around and team gold in the same games, but doesn't hold Biles's medal record."
+      },
+      {
+        "text": "Shannon Miller",
+        "info": "The most decorated American gymnast before Biles, competing in the 1990s."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-05",
+    "category": "Sport",
+    "question": "Between 1975 and 1979, one Caribbean cricket team assembled from several different island nations won the sport's first two World Cups and dominated Test cricket for nearly two decades behind a fearsome pace-bowling attack. What is this combined team called?",
+    "options": [
+      {
+        "text": "The West Indies",
+        "info": "Represents multiple independent Caribbean nations, including Jamaica, Barbados, and Trinidad and Tobago, as a single international cricket team."
+      },
+      {
+        "text": "South Africa",
+        "info": "Was actually banned from international cricket for most of this era due to apartheid-related sporting boycotts."
+      },
+      {
+        "text": "Pakistan",
+        "info": "A cricketing powerhouse with its own golden eras, but not the dominant force of the late 1970s."
+      },
+      {
+        "text": "Sri Lanka",
+        "info": "Would win its own World Cup later, in 1996, a different era of the sport."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-06",
+    "category": "Sport",
+    "question": "No national football team has lifted the FIFA World Cup trophy more times than this South American country, which has won it on five separate occasions between 1958 and 2002. Which country is it?",
+    "options": [
+      {
+        "text": "Brazil",
+        "info": "The only country to have played in every World Cup tournament ever held."
+      },
+      {
+        "text": "Germany",
+        "info": "Has won the World Cup four times, one fewer than Brazil's record."
+      },
+      {
+        "text": "Italy",
+        "info": "Has also won four World Cups, tied with Germany for second place on the all-time list."
+      },
+      {
+        "text": "Argentina",
+        "info": "Has won three World Cups, most recently in 2022."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-07",
+    "category": "Movies & TV",
+    "question": "Nicknamed 'the Master of Suspense,' this British director pioneered techniques like the shocking shower scene in 'Psycho' and made a cameo appearance in nearly every one of his own films. Who was he?",
+    "options": [
+      {
+        "text": "Alfred Hitchcock",
+        "info": "Directed over 50 films across six decades, including 'Vertigo,' 'Rear Window,' and 'North by Northwest.'"
+      },
+      {
+        "text": "Orson Welles",
+        "info": "Directed and starred in 'Citizen Kane,' a contemporary working in a very different style."
+      },
+      {
+        "text": "Billy Wilder",
+        "info": "An Austrian-born director known for films like 'Some Like It Hot' and 'Sunset Boulevard.'"
+      },
+      {
+        "text": "David Lean",
+        "info": "A British director known for sweeping epics like 'Lawrence of Arabia,' rather than suspense thrillers."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-08",
+    "category": "Movies & TV",
+    "question": "Born in Taiwan, this director has moved fluidly between genres and languages, winning Best Director Oscars for both a wuxia martial arts epic and a survival tale about a boy adrift with a tiger. Who is he?",
+    "options": [
+      {
+        "text": "Ang Lee",
+        "info": "Won Oscars for 'Crouching Tiger, Hidden Dragon' and 'Life of Pi,' and also directed 'Brokeback Mountain.'"
+      },
+      {
+        "text": "John Woo",
+        "info": "A Hong Kong director famous for stylized action films like 'Face/Off,' a different genre specialty."
+      },
+      {
+        "text": "Zhang Yimou",
+        "info": "A mainland Chinese director known for visually lush films like 'Hero' and 'Raise the Red Lantern.'"
+      },
+      {
+        "text": "Wong Kar-wai",
+        "info": "A Hong Kong director known for atmospheric, romantic dramas like 'In the Mood for Love.'"
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-09",
+    "category": "Movies & TV",
+    "question": "In 1975, a mechanical shark that kept malfunctioning during filming forced this young director to rely on suggestion and suspense rather than showing the creature directly — accidentally making 'Jaws' scarier and inventing the modern summer blockbuster. Who directed it?",
+    "options": [
+      {
+        "text": "Steven Spielberg",
+        "info": "Went on to direct 'E.T.,' 'Jurassic Park,' and 'Schindler's List' across a career spanning decades."
+      },
+      {
+        "text": "George Romero",
+        "info": "An American director known for zombie horror films like 'Night of the Living Dead,' a different genre entirely."
+      },
+      {
+        "text": "John Carpenter",
+        "info": "An American director known for horror and sci-fi films like 'Halloween' and 'The Thing.'"
+      },
+      {
+        "text": "Ridley Scott",
+        "info": "A British director known for 'Alien' and 'Blade Runner,' slightly later in the decade."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-10",
+    "category": "Movies & TV",
+    "question": "With 21 Academy Award nominations, this American actress holds the record for the most Oscar nominations of any performer in history, spanning roles from a Danish author in Africa to a fashion magazine editor. Who is she?",
+    "options": [
+      {
+        "text": "Meryl Streep",
+        "info": "Has won three competitive Oscars, for 'Kramer vs. Kramer,' 'Sophie's Choice,' and 'The Iron Lady.'"
+      },
+      {
+        "text": "Katharine Hepburn",
+        "info": "Holds the record for the most competitive acting Oscar wins, with four, but far fewer nominations than Streep."
+      },
+      {
+        "text": "Judi Dench",
+        "info": "A celebrated British actress with multiple Oscar nominations, though well short of Streep's total."
+      },
+      {
+        "text": "Cate Blanchett",
+        "info": "An Australian actress with numerous nominations and two wins, but not as many nominations as Streep."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-11",
+    "category": "Movies & TV",
+    "question": "Released in 1995, this film was the first feature-length movie made entirely with computer animation, following a cowboy doll's rivalry with a new spaceman action figure. What is it called?",
+    "options": [
+      {
+        "text": "Toy Story",
+        "info": "Produced by Pixar and directed by John Lasseter, it launched a franchise that would eventually span four films."
+      },
+      {
+        "text": "Shrek",
+        "info": "A landmark CGI film too, but released years later, in 2001, by a different studio."
+      },
+      {
+        "text": "Antz",
+        "info": "An early computer-animated film from DreamWorks, released shortly after 'Toy Story' but not the first."
+      },
+      {
+        "text": "A Bug's Life",
+        "info": "Pixar's second feature film, released in 1998, three years after 'Toy Story.'"
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-12",
+    "category": "Movies & TV",
+    "question": "Based on a still-unfinished series of fantasy novels, this HBO series about noble families fighting for control of a fictional continent became one of the most-watched and most-pirated shows in television history. What is it called?",
+    "options": [
+      {
+        "text": "Game of Thrones",
+        "info": "Based on George R. R. Martin's 'A Song of Ice and Fire' novels, it ran for eight seasons starting in 2011."
+      },
+      {
+        "text": "The Wire",
+        "info": "Another acclaimed HBO drama, set in Baltimore and focused on crime and institutions, not fantasy."
+      },
+      {
+        "text": "Rome",
+        "info": "An earlier HBO historical drama set in the ancient world, not a fantasy series."
+      },
+      {
+        "text": "The Witcher",
+        "info": "A rival fantasy series based on Polish novels, but produced by Netflix, not HBO."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-13",
+    "category": "Art & Culture",
+    "question": "Composed in just 24 days in 1741, this oratorio includes the famous 'Hallelujah' chorus, and tradition holds that audiences stand during it because England's King George II supposedly rose to his feet at the London premiere. Who composed it?",
+    "options": [
+      {
+        "text": "George Frideric Handel",
+        "info": "A German-born composer who spent most of his career in England, also known for his orchestral suite 'Water Music.'"
+      },
+      {
+        "text": "Johann Sebastian Bach",
+        "info": "A contemporary German composer, famous for the 'Brandenburg Concertos' and church cantatas, but didn't write 'Messiah.'"
+      },
+      {
+        "text": "Henry Purcell",
+        "info": "An earlier English Baroque composer, known for the opera 'Dido and Aeneas.'"
+      },
+      {
+        "text": "Antonio Vivaldi",
+        "info": "An Italian Baroque composer best known for 'The Four Seasons,' working in a different musical tradition."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-14",
+    "category": "Art & Culture",
+    "question": "Written during a stay in the United States in the 1890s, this Czech composer's ninth symphony was inspired partly by African American spirituals and Native American melodies he encountered, and includes a famous largo movement later adapted into the song 'Goin' Home.' Who composed it?",
+    "options": [
+      {
+        "text": "Antonín Dvořák",
+        "info": "Directed a New York conservatory for several years and encouraged American composers to draw on their own folk traditions."
+      },
+      {
+        "text": "Bedřich Smetana",
+        "info": "An earlier Czech composer known for the symphonic cycle 'Má vlast,' celebrating Bohemian landscapes and legends."
+      },
+      {
+        "text": "Leoš Janáček",
+        "info": "A later Czech composer known for operas like 'Jenůfa,' working in a more modernist style."
+      },
+      {
+        "text": "Jean Sibelius",
+        "info": "A Finnish composer known for 'Finlandia,' from a different national musical tradition entirely."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-15",
+    "category": "Art & Culture",
+    "question": "Commissioned for the opening of a new opera house in Cairo and set in ancient Egypt, this grand opera features a famous triumphal march often performed at outdoor spectacles with live elephants and horses. Who composed it?",
+    "options": [
+      {
+        "text": "Giuseppe Verdi",
+        "info": "One of the most performed opera composers in history, also known for 'La Traviata' and 'Rigoletto.'"
+      },
+      {
+        "text": "Giacomo Puccini",
+        "info": "A later Italian opera composer known for 'La Bohème' and 'Madama Butterfly,' a generation after Verdi."
+      },
+      {
+        "text": "Gioachino Rossini",
+        "info": "An earlier Italian opera composer known for comic works like 'The Barber of Seville.'"
+      },
+      {
+        "text": "Ruggero Leoncavallo",
+        "info": "An Italian opera composer known for 'Pagliacci,' a contemporary of Puccini rather than Verdi."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-16",
+    "category": "Art & Culture",
+    "question": "Each movement of this early 20th-century orchestral suite is named after a planet and its corresponding astrological character, from the martial aggression of 'Mars' to the serene mysticism of 'Neptune' — and it was written before Pluto's discovery, so it isn't included. Who composed 'The Planets'?",
+    "options": [
+      {
+        "text": "Gustav Holst",
+        "info": "An English composer of German and Swedish descent, whose daughter Imogen later became a composer and conductor herself."
+      },
+      {
+        "text": "Ralph Vaughan Williams",
+        "info": "A contemporary and close friend of Holst's, also an English composer, known for 'The Lark Ascending.'"
+      },
+      {
+        "text": "Benjamin Britten",
+        "info": "A later English composer known for the opera 'Peter Grimes' and 'The Young Person's Guide to the Orchestra.'"
+      },
+      {
+        "text": "Edward Elgar",
+        "info": "An earlier English composer best known for the 'Pomp and Circumstance' marches and the 'Enigma Variations.'"
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-17",
+    "category": "Art & Culture",
+    "question": "Besides painting what may be the most famous portrait in the world, this Renaissance polymath filled notebooks with mirror-written designs for flying machines, anatomical studies, and engineering concepts centuries ahead of his time. Who was he?",
+    "options": [
+      {
+        "text": "Leonardo da Vinci",
+        "info": "Painted both the 'Mona Lisa' and 'The Last Supper,' while also working as an engineer, inventor, and scientist."
+      },
+      {
+        "text": "Raphael",
+        "info": "A younger contemporary Renaissance painter, known for works like 'The School of Athens,' but not for the notebooks or inventions."
+      },
+      {
+        "text": "Donatello",
+        "info": "An earlier Renaissance sculptor, best known for his bronze statue of David."
+      },
+      {
+        "text": "Filippo Brunelleschi",
+        "info": "A Renaissance architect and engineer famous for designing Florence Cathedral's dome, not the notebooks or paintings."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-18",
+    "category": "Art & Culture",
+    "question": "This contemporary Chinese artist and activist covered the floor of London's Tate Modern with a hundred million hand-painted porcelain sunflower seeds, and has used his art to criticize government censorship and human rights abuses, leading to his own detention in 2011. Who is he?",
+    "options": [
+      {
+        "text": "Ai Weiwei",
+        "info": "Helped design the 'Bird's Nest' stadium for the 2008 Beijing Olympics before later becoming an outspoken government critic."
+      },
+      {
+        "text": "Cai Guo-Qiang",
+        "info": "Another contemporary Chinese artist, known for large-scale gunpowder and fireworks-based artworks."
+      },
+      {
+        "text": "Xu Bing",
+        "info": "A Chinese contemporary artist known for invented, illegible calligraphy-like scripts."
+      },
+      {
+        "text": "Zhang Xiaogang",
+        "info": "A Chinese painter known for haunting family-portrait style paintings from the 'Bloodline' series."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-19",
+    "category": "Art & Culture",
+    "question": "Known for room-sized mirrored installations filled with points of colored light and for covering surfaces in repetitive polka dots, this Japanese artist has voluntarily lived in a psychiatric institution since the 1970s, using art as a form of therapy. Who is she?",
+    "options": [
+      {
+        "text": "Yayoi Kusama",
+        "info": "Her 'Infinity Mirror Rooms' have become some of the most photographed art installations in the world."
+      },
+      {
+        "text": "Marina Abramović",
+        "info": "A Serbian performance artist known for endurance-based works, not polka dots or mirror rooms."
+      },
+      {
+        "text": "Yoko Ono",
+        "info": "A Japanese-American conceptual artist and musician, married to John Lennon, working in a different medium."
+      },
+      {
+        "text": "Cindy Sherman",
+        "info": "An American photographer known for staged self-portraits in different characters and costumes."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-20",
+    "category": "Science",
+    "question": "Her X-ray diffraction image, known as 'Photo 51,' was crucial evidence for discovering the double-helix structure of DNA, but she died before the Nobel Prize was awarded for it in 1962 and initially received little public credit. Who was she?",
+    "options": [
+      {
+        "text": "Rosalind Franklin",
+        "info": "Her image was shown to James Watson without her knowledge, and her contribution wasn't widely recognized until decades after her death."
+      },
+      {
+        "text": "Barbara McClintock",
+        "info": "An American geneticist who discovered 'jumping genes,' winning a Nobel Prize decades later, unrelated to DNA's structure."
+      },
+      {
+        "text": "Dorothy Hodgkin",
+        "info": "A British chemist who won a Nobel Prize for determining the structures of important biomolecules using X-ray crystallography, but not DNA's structure."
+      },
+      {
+        "text": "Rita Levi-Montalcini",
+        "info": "An Italian neurobiologist who discovered nerve growth factor, unrelated to this DNA research."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-21",
+    "category": "Science",
+    "question": "This Serbian-American inventor championed alternating current for electrical power distribution, competing fiercely against Thomas Edison's rival direct current system in what's remembered as the 'War of the Currents.' Who was he?",
+    "options": [
+      {
+        "text": "Nikola Tesla",
+        "info": "His AC system, commercialized with backing from George Westinghouse, ultimately became the standard for power grids worldwide."
+      },
+      {
+        "text": "Thomas Edison",
+        "info": "Championed direct current and ran a publicity campaign highlighting AC's dangers, but he was Tesla's rival, not the AC pioneer."
+      },
+      {
+        "text": "George Westinghouse",
+        "info": "The businessman who financed and commercialized Tesla's AC patents, though the underlying invention was Tesla's."
+      },
+      {
+        "text": "Guglielmo Marconi",
+        "info": "An Italian inventor known for pioneering long-distance radio transmission, a different field entirely."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-22",
+    "category": "Science",
+    "question": "Her hand calculations of orbital mechanics were considered so reliable that astronaut John Glenn personally asked her to verify the electronic computer's numbers before his 1962 orbital flight. Who was this NASA mathematician?",
+    "options": [
+      {
+        "text": "Katherine Johnson",
+        "info": "Her story, along with fellow NASA mathematicians Dorothy Vaughan and Mary Jackson, was told in the film 'Hidden Figures.'"
+      },
+      {
+        "text": "Margaret Hamilton",
+        "info": "Led the software engineering team for NASA's Apollo Guidance Computer, a slightly later and different NASA contribution."
+      },
+      {
+        "text": "Sally Ride",
+        "info": "The first American woman in space, in 1983, decades after Johnson's calculations for Glenn's flight."
+      },
+      {
+        "text": "Valentina Tereshkova",
+        "info": "A Soviet cosmonaut and the first woman in space, in 1963, a different role from Johnson's ground-based calculations."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-23",
+    "category": "Science",
+    "question": "Often nicknamed 'the powerhouse of the cell' in biology classrooms, these bean-shaped organelles generate most of a cell's chemical energy and even carry their own small ring of DNA, separate from the cell's nucleus. What are they called?",
+    "options": [
+      {
+        "text": "Mitochondria",
+        "info": "Believed to have originated as free-living bacteria absorbed by ancient cells in a mutually beneficial partnership, a theory called endosymbiosis."
+      },
+      {
+        "text": "Ribosomes",
+        "info": "Cellular structures that build proteins by reading genetic instructions, but don't generate the cell's energy."
+      },
+      {
+        "text": "Chloroplasts",
+        "info": "The energy-converting organelles found in plant cells specifically, using sunlight rather than the process mitochondria use."
+      },
+      {
+        "text": "Lysosomes",
+        "info": "Cellular structures that break down waste and cellular debris, sometimes nicknamed the cell's 'garbage disposal.'"
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-24",
+    "category": "Science",
+    "question": "In 1869, this Russian chemist arranged the known chemical elements by atomic weight and recurring properties into a table, leaving deliberate gaps for elements he predicted existed but hadn't yet been discovered. Who was he?",
+    "options": [
+      {
+        "text": "Dmitri Mendeleev",
+        "info": "Several of his predicted 'missing' elements, including gallium and germanium, were discovered within his own lifetime, matching his forecasts closely."
+      },
+      {
+        "text": "Antoine Lavoisier",
+        "info": "An 18th-century French chemist often called the father of modern chemistry, who compiled an early list of elements decades before Mendeleev's table."
+      },
+      {
+        "text": "Marie Curie",
+        "info": "Discovered the elements polonium and radium later, but didn't create the periodic table itself."
+      },
+      {
+        "text": "John Dalton",
+        "info": "An early 19th-century English chemist who developed modern atomic theory, before the periodic table existed."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-25",
+    "category": "Science",
+    "question": "Developed in 1935, this logarithmic scale for measuring earthquake magnitude means each whole-number increase represents roughly 32 times more released energy, not simply a linear step up. Whose name is it commonly associated with?",
+    "options": [
+      {
+        "text": "Charles Richter",
+        "info": "Developed the scale with colleague Beno Gutenberg at Caltech, though seismologists today mostly use updated moment magnitude scales instead."
+      },
+      {
+        "text": "Giuseppe Mercalli",
+        "info": "An Italian volcanologist who developed an earlier scale measuring earthquake intensity based on observed damage, not a magnitude calculation."
+      },
+      {
+        "text": "Beno Gutenberg",
+        "info": "Richter's close collaborator on the original scale, though it became publicly associated with Richter's name alone."
+      },
+      {
+        "text": "John Milne",
+        "info": "A British seismologist sometimes called the 'father of modern seismology' for his work on early seismographs, decades before this scale."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-26",
+    "category": "History & Geography",
+    "question": "Built in the 15th century high in the Andes and abandoned within about a hundred years, this Inca citadel remained largely unknown to the outside world until an American historian was guided there by local farmers in 1911. What is it called?",
+    "options": [
+      {
+        "text": "Machu Picchu",
+        "info": "Located in present-day Peru, it's now one of South America's most visited archaeological sites and a UNESCO World Heritage Site."
+      },
+      {
+        "text": "Chichen Itza",
+        "info": "A famous Maya pyramid complex, but located in Mexico, not Peru."
+      },
+      {
+        "text": "Tiwanaku",
+        "info": "An earlier pre-Inca archaeological site near Lake Titicaca in Bolivia, a different civilization and location."
+      },
+      {
+        "text": "Sacsayhuamán",
+        "info": "A separate Inca fortress complex near Cusco, known for its massive interlocking stone walls."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-27",
+    "category": "History & Geography",
+    "question": "Straddling the border of Nepal and Tibet, this is Earth's highest mountain above sea level, first confirmed summited in 1953 by a New Zealand beekeeper and a Nepali Sherpa mountaineer. What is it called?",
+    "options": [
+      {
+        "text": "Mount Everest",
+        "info": "Named after Sir George Everest, a former Surveyor General of India, though its Nepali name Sagarmatha and Tibetan name Chomolungma predate that."
+      },
+      {
+        "text": "K2",
+        "info": "The world's second-highest mountain, located in the Karakoram range on the Pakistan-China border."
+      },
+      {
+        "text": "Kangchenjunga",
+        "info": "The world's third-highest mountain, on the border of Nepal and India."
+      },
+      {
+        "text": "Annapurna",
+        "info": "A notoriously dangerous Himalayan peak in Nepal, with one of the highest fatality rates among 8,000-meter mountains."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-28",
+    "category": "History & Geography",
+    "question": "This Pacific island kingdom is the only country in Oceania never formally colonized by a foreign power, having instead negotiated a protectorate status with Britain that preserved its own monarchy. Which country is it?",
+    "options": [
+      {
+        "text": "Tonga",
+        "info": "Its monarchy traces back over a thousand years, making it one of the oldest continuous monarchies still in existence today."
+      },
+      {
+        "text": "Samoa",
+        "info": "Was administered first by Germany and later by New Zealand before gaining independence in 1962."
+      },
+      {
+        "text": "Fiji",
+        "info": "Was a British colony from 1874 until independence in 1970."
+      },
+      {
+        "text": "Vanuatu",
+        "info": "Was unusually jointly administered by both Britain and France as a condominium until 1980."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-29",
+    "category": "History & Geography",
+    "question": "Built and rebuilt over centuries by successive Chinese dynasties to defend against nomadic invasions from the north, this fortification stretches for thousands of kilometers, though the popular claim that it's visible from space with the naked eye is a myth. What is it called?",
+    "options": [
+      {
+        "text": "The Great Wall of China",
+        "info": "Most of the sections tourists visit today, near Beijing, date from the later Ming dynasty."
+      },
+      {
+        "text": "The Grand Canal",
+        "info": "Another massive Chinese infrastructure project, but a waterway connecting northern and southern China, not a wall."
+      },
+      {
+        "text": "Hadrian's Wall",
+        "info": "A much smaller Roman fortification across northern Britain, built to mark the empire's frontier."
+      },
+      {
+        "text": "The Great Zimbabwe walls",
+        "info": "Stone enclosure walls built by the Kingdom of Great Zimbabwe in southern Africa, an entirely separate structure."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-30",
+    "category": "History & Geography",
+    "question": "Known for an advanced writing system, precise astronomical calendars, and step pyramids like those at Tikal and Chichen Itza, this civilization flourished across present-day Mexico, Guatemala, Belize, and Honduras for over a thousand years before Spanish contact. What is it called?",
+    "options": [
+      {
+        "text": "The Maya",
+        "info": "Rather than collapsing entirely, many Maya cities were already in decline before European contact, and Maya peoples and languages still exist today."
+      },
+      {
+        "text": "The Aztec",
+        "info": "A later Mesoamerican civilization centered on the city of Tenochtitlan, in what's now central Mexico."
+      },
+      {
+        "text": "The Olmec",
+        "info": "An earlier Mesoamerican civilization, sometimes called Mesoamerica's 'mother culture,' predating the Maya's peak by centuries."
+      },
+      {
+        "text": "The Inca",
+        "info": "A civilization centered in the Andes of South America, geographically and culturally distinct from Mesoamerica."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-31",
+    "category": "History & Geography",
+    "question": "Aside from a brief occupation during World War II, this East African nation stands out for decisively defeating an invading European colonial army at the Battle of Adwa in 1896, preserving its independence at a time when most of the continent was being carved up by European powers. Which country is it?",
+    "options": [
+      {
+        "text": "Ethiopia",
+        "info": "Its victory over Italy at Adwa is still commemorated annually and made it a symbol of anti-colonial resistance across Africa."
+      },
+      {
+        "text": "Liberia",
+        "info": "Also avoided formal European colonization, but through a very different history, founded by freed African-American settlers with US backing."
+      },
+      {
+        "text": "Sudan",
+        "info": "Was ruled for decades as an Anglo-Egyptian condominium before gaining independence in 1956."
+      },
+      {
+        "text": "Somalia",
+        "info": "Was split between Italian and British colonial administrations before independence and later unification."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-32",
+    "category": "History & Geography",
+    "question": "During the last Ice Age, falling sea levels exposed a land bridge across a narrow body of water separating two continents, allowing the first humans to walk from Asia into the Americas. What is this strait called today?",
+    "options": [
+      {
+        "text": "The Bering Strait",
+        "info": "Named after Danish-Russian explorer Vitus Bering, who charted it for Russia in the 18th century."
+      },
+      {
+        "text": "The Strait of Gibraltar",
+        "info": "Separates Europe from Africa at the western end of the Mediterranean, a different strait entirely."
+      },
+      {
+        "text": "The Drake Passage",
+        "info": "The turbulent body of water between South America and Antarctica, notorious among sailors."
+      },
+      {
+        "text": "The Strait of Malacca",
+        "info": "A major shipping route between the Malay Peninsula and the island of Sumatra, in Southeast Asia."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-33",
+    "category": "History & Geography",
+    "question": "Carved directly into rose-colored sandstone cliffs by the Nabataean people over two thousand years ago, this ancient city in the desert of modern-day Jordan grew wealthy by controlling incense and spice trade routes, and later featured in a famous 'Indiana Jones' film. What is it called?",
+    "options": [
+      {
+        "text": "Petra",
+        "info": "Its most famous structure, the Treasury, was carved as a tomb but is often mistaken for having been a bank or storehouse."
+      },
+      {
+        "text": "Palmyra",
+        "info": "Another ancient desert trading city, but located in Syria rather than Jordan."
+      },
+      {
+        "text": "Baalbek",
+        "info": "An ancient Roman temple complex in Lebanon, known for some of the largest stone blocks ever quarried."
+      },
+      {
+        "text": "Ctesiphon",
+        "info": "An ancient Persian imperial capital in what's now Iraq, known for its massive brick archway."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-34",
+    "category": "History & Geography",
+    "question": "Stretching roughly 6,400 kilometers and connecting Chinese silk producers to Mediterranean markets, this ancient network of trade routes also carried spices, ideas, religions, and, less deliberately, diseases like the bubonic plague between Asia and Europe. What is it commonly called?",
+    "options": [
+      {
+        "text": "The Silk Road",
+        "info": "The name itself was coined only in the 19th century by a German geographer, long after the trade routes' peak activity."
+      },
+      {
+        "text": "The Amber Road",
+        "info": "A separate, much shorter trade route carrying amber from the Baltic Sea south to the Mediterranean."
+      },
+      {
+        "text": "The Incense Route",
+        "info": "A trade network carrying frankincense and myrrh from Arabia toward the Mediterranean, a distinct but related network."
+      },
+      {
+        "text": "The Grand Trunk Road",
+        "info": "One of South Asia's oldest and longest roads, connecting the Indian subcontinent, but a different route."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-35",
+    "category": "History & Geography",
+    "question": "From the 13th to 17th centuries, a confederation of merchant guilds and market towns along the Baltic and North Sea coasts banded together to protect shared trading interests, dominating commerce across Northern Europe for centuries without ever being a formal state. What was this confederation called?",
+    "options": [
+      {
+        "text": "The Hanseatic League",
+        "info": "Its most powerful member city, Lübeck, is still sometimes nicknamed the 'Queen of the Hanseatic League.'"
+      },
+      {
+        "text": "The Kalmar Union",
+        "info": "A political union joining the crowns of Denmark, Norway, and Sweden, a different kind of Nordic alliance."
+      },
+      {
+        "text": "The Holy Roman Empire",
+        "info": "A sprawling, loosely organized political entity covering much of Central Europe, but not a merchant trade confederation."
+      },
+      {
+        "text": "The Teutonic Order",
+        "info": "A German crusading military order that controlled territory along the Baltic coast, related but distinct from the merchant league."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-36",
+    "category": "History & Geography",
+    "question": "Fought intermittently between 1337 and 1453 over succession to the French throne, this conflict between two royal houses actually lasted 116 years and featured figures like Joan of Arc before the French side ultimately prevailed. What is it called?",
+    "options": [
+      {
+        "text": "The Hundred Years' War",
+        "info": "Despite the name, it wasn't one continuous war but a series of related conflicts across more than a century."
+      },
+      {
+        "text": "The War of the Roses",
+        "info": "A later English civil war between two rival branches of the House of Plantagenet, fought after this conflict ended."
+      },
+      {
+        "text": "The War of the Spanish Succession",
+        "info": "A later, separate European conflict fought in the early 18th century over the Spanish throne."
+      },
+      {
+        "text": "The Thirty Years' War",
+        "info": "A separate, later and even more devastating conflict, fought largely across Central Europe in the 17th century."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-37",
+    "category": "History & Geography",
+    "question": "During the brutal winter of 1939-40, this small Nordic country fought off a much larger Soviet invasion for over three months, inflicting disproportionate casualties partly through ski-mobile troops fighting in extreme cold, before eventually ceding some territory in peace talks. Which country was it?",
+    "options": [
+      {
+        "text": "Finland",
+        "info": "The conflict is remembered as the Winter War, and Finnish resistance became a symbol of small-nation resilience."
+      },
+      {
+        "text": "Norway",
+        "info": "Was invaded by Nazi Germany the following year, in 1940, a separate conflict from the Winter War."
+      },
+      {
+        "text": "Estonia",
+        "info": "A Baltic state annexed by the Soviet Union in 1940 without the sustained armed resistance Finland mounted."
+      },
+      {
+        "text": "Poland",
+        "info": "Was invaded by both Germany and the Soviet Union in 1939, but in a different campaign from the Winter War."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-38",
+    "category": "History & Geography",
+    "question": "When Soviet forces blockaded all road and rail access to a divided city in 1948, Western allies responded by flying in food, fuel, and supplies around the clock for nearly a year, keeping the city's residents fed without breaking the blockade militarily. What is this operation called?",
+    "options": [
+      {
+        "text": "The Berlin Airlift",
+        "info": "At its peak, cargo planes were landing in West Berlin roughly every 90 seconds."
+      },
+      {
+        "text": "The Marshall Plan",
+        "info": "A broader American program of economic aid to rebuild Western Europe after World War II, not this specific airlift."
+      },
+      {
+        "text": "Operation Overlord",
+        "info": "The Allied invasion of Normandy in 1944, an earlier and unrelated World War II operation."
+      },
+      {
+        "text": "The Prague Spring",
+        "info": "A later 1968 period of political liberalization in Czechoslovakia, crushed by a Soviet-led invasion — unrelated to Berlin."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-39",
+    "category": "General Knowledge",
+    "question": "Created in 1999 by a Japanese designer working for a mobile phone company, these small digital pictographs were originally just 176 simple 12-by-12 pixel images meant to make phone messages more expressive. What are they called?",
+    "options": [
+      {
+        "text": "Emoji",
+        "info": "The word comes from Japanese 'e' (picture) and 'moji' (character) — its resemblance to the English word 'emotion' is just a coincidence."
+      },
+      {
+        "text": "Emoticons",
+        "info": "The earlier, older concept of building faces from punctuation marks like ':-)', a text-based predecessor to emoji."
+      },
+      {
+        "text": "Kaomoji",
+        "info": "Japanese-style emoticons built from a wider range of characters, like '(^_^)', distinct from true pictographic emoji."
+      },
+      {
+        "text": "Stickers",
+        "info": "Larger, more detailed illustrated images used in messaging apps, a separate and later feature from emoji."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-40",
+    "category": "General Knowledge",
+    "question": "After a French newspaper mistakenly published his obituary while he was still alive, condemning him as a 'merchant of death' for inventing dynamite, this Swedish industrialist rewrote his will to fund a set of prizes meant to reward benefits to humanity instead. Who was he?",
+    "options": [
+      {
+        "text": "Alfred Nobel",
+        "info": "His prizes, first awarded in 1901, now span physics, chemistry, medicine, literature, peace, and later economics."
+      },
+      {
+        "text": "Andrew Carnegie",
+        "info": "A Scottish-American steel magnate known for large-scale philanthropy, particularly funding public libraries, not the Nobel Prizes."
+      },
+      {
+        "text": "John D. Rockefeller",
+        "info": "An American oil magnate whose foundation funded major philanthropic work, unrelated to the Nobel Prizes."
+      },
+      {
+        "text": "Cecil Rhodes",
+        "info": "A British businessman whose fortune founded the Rhodes Scholarship, a different prestigious award."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-41",
+    "category": "General Knowledge",
+    "question": "Despite its Japanese name, this number-placement puzzle was actually invented in the United States in the late 1970s under the name 'Number Place,' and only became a worldwide craze after a Japanese puzzle company popularized and renamed it. What is it called?",
+    "options": [
+      {
+        "text": "Sudoku",
+        "info": "The Japanese name roughly translates to 'single number,' referring to the rule that each digit can appear only once per row, column, and box."
+      },
+      {
+        "text": "Kakuro",
+        "info": "Another Japanese-popularized number puzzle, involving crossword-style grids and sums, distinct from sudoku."
+      },
+      {
+        "text": "Nonogram",
+        "info": "A picture logic puzzle solved by filling in grid squares according to numeric clues, unrelated to sudoku's number-placement rules."
+      },
+      {
+        "text": "KenKen",
+        "info": "A newer arithmetic-based grid puzzle invented by a Japanese math teacher, similar in spirit but not the same puzzle as sudoku."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-42",
+    "category": "General Knowledge",
+    "question": "In 1957, two engineers trying to invent a textured wallpaper accidentally sealed air bubbles between two shower curtains instead, and after that idea flopped, they successfully repurposed it as protective packaging material. What is it called?",
+    "options": [
+      {
+        "text": "Bubble wrap",
+        "info": "Was also briefly marketed as greenhouse insulation before its packaging use took off, and is now a trademarked Sealed Air Corporation brand name."
+      },
+      {
+        "text": "Styrofoam",
+        "info": "A separate rigid foam packaging and insulation material, made from polystyrene, invented earlier by Dow Chemical."
+      },
+      {
+        "text": "Packing peanuts",
+        "info": "Loose foam packing material used to fill empty space in boxes, a different invention from bubble wrap."
+      },
+      {
+        "text": "Shrink wrap",
+        "info": "A plastic film that tightens around a product when heated, a distinct packaging technology."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-43",
+    "category": "General Knowledge",
+    "question": "Harvested by hand from the tiny crimson threads at the center of a specific crocus flower, with each flower producing only three usable strands, this is by weight the most expensive spice in the world. What is it called?",
+    "options": [
+      {
+        "text": "Saffron",
+        "info": "It can take well over 150 flowers, all picked by hand, to yield just a single gram of the dried spice."
+      },
+      {
+        "text": "Vanilla",
+        "info": "The second most expensive spice by weight, derived from the seed pods of an orchid, and also labor-intensive to produce."
+      },
+      {
+        "text": "Cardamom",
+        "info": "Sometimes called the 'queen of spices,' valuable but far less expensive than saffron by weight."
+      },
+      {
+        "text": "Sumac",
+        "info": "A tangy, deep-red spice used widely in Middle Eastern cooking, but far more affordable than saffron."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-44",
+    "category": "General Knowledge",
+    "question": "Its name literally stands for 'Water Displacement, 40th attempt' — the successful formula a small California company landed on after 39 earlier tries while trying to develop a rust-preventing solvent for the aerospace industry. What product is it?",
+    "options": [
+      {
+        "text": "WD-40",
+        "info": "Originally developed in 1953 to protect the outer skin of Atlas missiles from corrosion, long before it became a household name."
+      },
+      {
+        "text": "Vaseline",
+        "info": "A petroleum jelly product with an unrelated origin story, discovered by a chemist noticing oil-rig workers using rod wax to heal cuts."
+      },
+      {
+        "text": "3-IN-ONE Oil",
+        "info": "An older lubricating oil brand, but not the product behind this particular naming story."
+      },
+      {
+        "text": "Loctite",
+        "info": "A brand of adhesives and sealants, with a different corporate origin from WD-40."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-45",
+    "category": "German Language",
+    "question": "This 19th-century German Romantic composer's surname literally combines the everyday word for the item a cobbler would resole with the ordinary word for 'man' — an old occupational name for a shoemaker. He suffered from mental illness later in life and was married to a celebrated pianist and composer in her own right. Who was he?",
+    "options": [
+      {
+        "text": "Robert Schumann",
+        "info": "His wife, Clara Schumann, was herself a renowned concert pianist and composer, and often more famous than him during their lifetimes."
+      },
+      {
+        "text": "Franz Schubert",
+        "info": "A contemporary Viennese composer whose surname's origin is debated, though some trace it to an old word related to shoving or pushing — not shoes."
+      },
+      {
+        "text": "Carl Maria von Weber",
+        "info": "An earlier Romantic composer, sometimes claimed to share indirect family ties to Mozart, with a surname tied to weaving rather than shoemaking."
+      },
+      {
+        "text": "Felix Mendelssohn",
+        "info": "A contemporary composer whose surname is a patronymic honoring his grandfather, unrelated to any trade."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-46",
+    "category": "German Language",
+    "question": "Called the 'Father of the Symphony' and a mentor to both Mozart and Beethoven, this composer has a surname rooted in the old German word for open, sandy grassland scattered with heather — the kind of terrain you'd associate with grazing sheep, not thick forest. Who was he?",
+    "options": [
+      {
+        "text": "Joseph Haydn",
+        "info": "Spent much of his career employed by the wealthy Esterházy family, composing over 100 symphonies."
+      },
+      {
+        "text": "Johann Nepomuk Hummel",
+        "info": "A composer and piano virtuoso of the following generation, once a pupil of Mozart's, with an unrelated surname origin."
+      },
+      {
+        "text": "Carl Czerny",
+        "info": "An Austrian composer and piano teacher, a student of Beethoven, whose surname likely has Czech rather than German roots."
+      },
+      {
+        "text": "Michael Haydn",
+        "info": "Joseph's younger brother, also a composer, sharing the same surname and its grassland origin."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-47",
+    "category": "German Language",
+    "question": "One of the most important German composers of the early Baroque era, active decades before Bach, his surname is the everyday German word you'd use for a protector or marksman — the same word that gives the zodiac sign Sagittarius its German name. Who was he?",
+    "options": [
+      {
+        "text": "Heinrich Schütz",
+        "info": "Studied in Venice under Giovanni Gabrieli and became a key figure in bringing Italian musical styles into German sacred music."
+      },
+      {
+        "text": "Michael Praetorius",
+        "info": "A contemporary German composer known for the dance collection 'Terpsichore,' with a Latinized surname unrelated to this word."
+      },
+      {
+        "text": "Dietrich Buxtehude",
+        "info": "A slightly later Baroque composer and organist whose surname likely derives from a Danish or North German place name."
+      },
+      {
+        "text": "Johann Pachelbel",
+        "info": "Best known today for his 'Canon in D,' a contemporary of Buxtehude with a surname of uncertain origin."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-48",
+    "category": "German Language",
+    "question": "A childhood pupil of Mozart's who later became one of Europe's most celebrated piano virtuosos, this composer's surname is the everyday German word for a large, fuzzy, buzzing garden insect — bigger and softer-looking than an ordinary bee. Who was he?",
+    "options": [
+      {
+        "text": "Johann Nepomuk Hummel",
+        "info": "Studied briefly under Mozart as a child and later became a rival to the young Beethoven as a pianist."
+      },
+      {
+        "text": "Carl Czerny",
+        "info": "Also studied under a famous composer as a child — Beethoven — and became renowned as a piano teacher himself."
+      },
+      {
+        "text": "Ignaz Moscheles",
+        "info": "A Bohemian-born piano virtuoso and composer of the same generation, later a friend of Mendelssohn's."
+      },
+      {
+        "text": "Muzio Clementi",
+        "info": "An Italian-born composer and piano virtuoso active in London, of an earlier generation than Hummel."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-49",
+    "category": "German Language",
+    "question": "In German folklore and now horror movies worldwide, this word describes a noisy, often mischievous invisible spirit blamed for banging on walls, moving furniture, or hurling objects across a room. Literally, its two halves translate to 'racket' and 'ghost.' What is the word?",
+    "options": [
+      {
+        "text": "Poltergeist",
+        "info": "From 'poltern' (to make a racket) and 'Geist' (ghost or spirit); it entered English largely through 20th-century horror fiction and film."
+      },
+      {
+        "text": "Doppelgänger",
+        "info": "Another German loanword used in English, but describing an uncanny double or look-alike, not a noisy spirit."
+      },
+      {
+        "text": "Kobold",
+        "info": "A different figure from German folklore — a household or mine-dwelling spirit, sometimes mischievous but not defined by loud noise."
+      },
+      {
+        "text": "Wraith",
+        "info": "An English word of Scottish origin for a ghost or apparition, not a German loanword at all."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  },
+  {
+    "id": "2026-08-01-50",
+    "category": "German Language",
+    "question": "This German loanword names the small, slightly guilty thrill of satisfaction you feel when something goes wrong for someone else — like watching a rival team blow a big lead. Breaking it into its two halves gives a literal clue to its meaning. What is the word?",
+    "options": [
+      {
+        "text": "Schadenfreude",
+        "info": "From 'Schaden' (harm/damage) and 'Freude' (joy); it's become common enough in English that it appears in many dictionaries without italics."
+      },
+      {
+        "text": "Gemütlichkeit",
+        "info": "A different German loanword describing a warm, cozy, sociable feeling — closer to English 'coziness' than to malicious joy."
+      },
+      {
+        "text": "Sehnsucht",
+        "info": "A German word for a deep, wistful yearning or longing, often for something intangible — not the pleasure of someone else's misfortune."
+      },
+      {
+        "text": "Torschlusspanik",
+        "info": "A German word literally meaning 'gate-closing panic,' describing anxiety about diminishing opportunities as time runs out — not this feeling."
+      }
+    ],
+    "correctIndex": 0,
+    "dateAdded": "2026-08-01"
+  }
+]
