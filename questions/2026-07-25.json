@@ -1127,7 +1127,7 @@
   {
     "id": "2026-07-25-46",
     "category": "German Language",
-    "question": "German surnames are often just old occupational or descriptive words, and this Baroque composer's is no exception — it's simply the everyday German word for a small brook or stream. Knowing that, who composed the Brandenburg Concertos and the Well-Tempered Clavier?",
+    "question": "German surnames are often just old occupational or descriptive words. This Baroque composer's surname survives today mostly in village and place names — it names the small, everyday kind of running water you'd find trickling past a barn, never a river you'd need a bridge to cross. Knowing that, who composed the Brandenburg Concertos and the Well-Tempered Clavier?",
     "options": [
       {
         "text": "Johann Sebastian Bach",
@@ -1152,23 +1152,23 @@
   {
     "id": "2026-07-25-47",
     "category": "German Language",
-    "question": "This 19th-century Viennese composer's surname happens to be a German word with two very different everyday meanings — a large flightless bird, or a bunch of flowers. Given that clue, who earned the nickname \"The Waltz King\" and composed \"The Blue Danube\"?",
+    "question": "This Austrian Baroque composer's surname is an archaic spelling of the everyday German word for a sly, russet-coated animal known for raiding henhouses. He's remembered less for his own music today than for a counterpoint textbook still studied by conservatory students centuries later. Who was he?",
     "options": [
       {
-        "text": "Johann Strauss II",
-        "info": "\"Strauss\" means both ostrich and bouquet in German."
+        "text": "Johann Joseph Fux",
+        "info": "\"Fux\" is an archaic spelling of \"Fuchs\" (fox); he's best remembered for \"Gradus ad Parnassum,\" a species-counterpoint manual studied by generations of composers including Haydn and Beethoven."
       },
       {
-        "text": "Richard Strauss",
-        "info": "A different, later German composer, unrelated to this specific clue's answer."
+        "text": "Georg Philipp Telemann",
+        "info": "One of the most prolific composers in history and a contemporary of Bach; his surname has no everyday German meaning."
       },
       {
-        "text": "Franz Liszt",
-        "info": "Hungarian composer-pianist, not linked to the \"Strauss\" surname."
+        "text": "Michael Praetorius",
+        "info": "German composer and theorist known for the dance collection \"Terpsichore\"; his Latinized surname obscures any word-based clue."
       },
       {
-        "text": "Ludwig van Beethoven",
-        "info": "German composer of a completely different era and surname."
+        "text": "Samuel Scheidt",
+        "info": "Early Baroque organist and composer from Halle; his surname relates to an old word for dividing or parting ways, not an animal."
       }
     ],
     "correctIndex": 0,
@@ -1227,7 +1227,7 @@
   {
     "id": "2026-07-25-50",
     "category": "German Language",
-    "question": "One of the 19th century's most celebrated piano virtuosos had a surname that, read as German, is the word for cunning, cleverness, or a sly trick. Who was this Hungarian-born composer and pianist, famous for his technical showmanship?",
+    "question": "One of the 19th century's most celebrated piano virtuosos had a surname that, read as German, describes the sort of sly workaround you'd resort to when playing by the rules won't get you what you want — a clever sidestep, not a straightforward push. Who was this Hungarian-born composer and pianist, famous for his blazing technical showmanship?",
     "options": [
       {
         "text": "Franz Liszt",

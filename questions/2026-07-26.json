@@ -4,10 +4,22 @@
     "category": "Sport",
     "question": "At the 1992 Barcelona Olympics, professional NBA players were allowed to compete for the first time, assembling a roster of legends like Michael Jordan, Magic Johnson, and Larry Bird that dominated every opponent by an average of over 40 points. Which country did this legendary 'Dream Team' represent?",
     "options": [
-      { "text": "USA", "info": "Won gold at Barcelona 1992 by an average margin of over 40 points per game." },
-      { "text": "Croatia", "info": "Faced the Dream Team in the 1992 gold medal game and took silver." },
-      { "text": "Lithuania", "info": "Also competed in 1992, famously wearing tie-dye jerseys sponsored by the Grateful Dead." },
-      { "text": "Spain", "info": "Hosted the 1992 Games but didn't reach the gold medal game." }
+      {
+        "text": "USA",
+        "info": "Won gold at Barcelona 1992 by an average margin of over 40 points per game."
+      },
+      {
+        "text": "Croatia",
+        "info": "Faced the Dream Team in the 1992 gold medal game and took silver."
+      },
+      {
+        "text": "Lithuania",
+        "info": "Also competed in 1992, famously wearing tie-dye jerseys sponsored by the Grateful Dead."
+      },
+      {
+        "text": "Spain",
+        "info": "Hosted the 1992 Games but didn't reach the gold medal game."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -17,10 +29,22 @@
     "category": "Sport",
     "question": "The Olympic marathon's odd distance of 26 miles and 385 yards wasn't set by the ancient Greek legend it's named after, but by a specific modern Olympic Games that extended the course to finish in front of a royal viewing box. Which Games fixed this now-standard distance?",
     "options": [
-      { "text": "1908 London Olympics", "info": "The course was extended so the race could finish in front of the royal box at White City Stadium." },
-      { "text": "1896 Athens Olympics", "info": "The first modern marathon, run at roughly 40 km, not the standardized modern distance." },
-      { "text": "1924 Paris Olympics", "info": "Adopted the 1908 distance as the permanent standard, but didn't create it." },
-      { "text": "1936 Berlin Olympics", "info": "Notable for Jesse Owens' four gold medals, not the marathon distance." }
+      {
+        "text": "1908 London Olympics",
+        "info": "The course was extended so the race could finish in front of the royal box at White City Stadium."
+      },
+      {
+        "text": "1896 Athens Olympics",
+        "info": "The first modern marathon, run at roughly 40 km, not the standardized modern distance."
+      },
+      {
+        "text": "1924 Paris Olympics",
+        "info": "Adopted the 1908 distance as the permanent standard, but didn't create it."
+      },
+      {
+        "text": "1936 Berlin Olympics",
+        "info": "Notable for Jesse Owens' four gold medals, not the marathon distance."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -30,10 +54,22 @@
     "category": "Sport",
     "question": "Between 2004 and 2016, one American swimmer won 23 Olympic gold medals, more than most entire countries have ever won across all sports combined. Who is he?",
     "options": [
-      { "text": "Michael Phelps", "info": "Won 23 Olympic golds across five Games, the most of any Olympian ever." },
-      { "text": "Mark Spitz", "info": "Held the record for golds in a single Games (7, in 1972) before Phelps surpassed it." },
-      { "text": "Ryan Lochte", "info": "A teammate and rival of Phelps's, but far behind his total medal count." },
-      { "text": "Ian Thorpe", "info": "Australian swimmer nicknamed 'Thorpedo,' with 5 Olympic golds." }
+      {
+        "text": "Michael Phelps",
+        "info": "Won 23 Olympic golds across five Games, the most of any Olympian ever."
+      },
+      {
+        "text": "Mark Spitz",
+        "info": "Held the record for golds in a single Games (7, in 1972) before Phelps surpassed it."
+      },
+      {
+        "text": "Ryan Lochte",
+        "info": "A teammate and rival of Phelps's, but far behind his total medal count."
+      },
+      {
+        "text": "Ian Thorpe",
+        "info": "Australian swimmer nicknamed 'Thorpedo,' with 5 Olympic golds."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -43,10 +79,22 @@
     "category": "Sport",
     "question": "In 1974, a heavyweight title fight nicknamed the 'Rumble in the Jungle' was held in Kinshasa, Zaire (today's Democratic Republic of Congo), where the underdog challenger used his famous 'rope-a-dope' tactic to reclaim the world title. Who was that challenger?",
     "options": [
-      { "text": "Muhammad Ali", "info": "Defeated George Foreman by knockout in the eighth round to reclaim the heavyweight title." },
-      { "text": "George Foreman", "info": "The reigning champion Ali defeated that night." },
-      { "text": "Joe Frazier", "info": "Ali's great rival, but not the challenger in the Rumble in the Jungle." },
-      { "text": "Sonny Liston", "info": "An earlier Ali opponent from the 1960s, not part of this fight." }
+      {
+        "text": "Muhammad Ali",
+        "info": "Defeated George Foreman by knockout in the eighth round to reclaim the heavyweight title."
+      },
+      {
+        "text": "George Foreman",
+        "info": "The reigning champion Ali defeated that night."
+      },
+      {
+        "text": "Joe Frazier",
+        "info": "Ali's great rival, but not the challenger in the Rumble in the Jungle."
+      },
+      {
+        "text": "Sonny Liston",
+        "info": "An earlier Ali opponent from the 1960s, not part of this fight."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -56,10 +104,22 @@
     "category": "Sport",
     "question": "Before international rugby matches, one national team performs a traditional Māori challenge with rhythmic chanting, foot-stamping, and fierce facial expressions, intended to intimidate opponents before kickoff. Which country's team is famous for this haka?",
     "options": [
-      { "text": "New Zealand", "info": "The All Blacks perform the haka, most famously the version called 'Ka Mate.'" },
-      { "text": "Australia", "info": "A fierce rugby rival of New Zealand's, but doesn't perform the haka." },
-      { "text": "Fiji", "info": "Performs its own pre-match challenge, called the cibi, not the haka." },
-      { "text": "Samoa", "info": "Performs the siva tau, a different traditional pre-match challenge." }
+      {
+        "text": "New Zealand",
+        "info": "The All Blacks perform the haka, most famously the version called 'Ka Mate.'"
+      },
+      {
+        "text": "Australia",
+        "info": "A fierce rugby rival of New Zealand's, but doesn't perform the haka."
+      },
+      {
+        "text": "Fiji",
+        "info": "Performs its own pre-match challenge, called the cibi, not the haka."
+      },
+      {
+        "text": "Samoa",
+        "info": "Performs the siva tau, a different traditional pre-match challenge."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -69,10 +129,22 @@
     "category": "Sport",
     "question": "Though it's now most passionately followed in South Asia and cricket-mad island nations, this bat-and-ball sport's earliest recorded matches were played by shepherds and farmers in medieval fields. In which country did cricket originate?",
     "options": [
-      { "text": "England", "info": "Cricket's earliest recorded matches date to 16th-century southern England." },
-      { "text": "India", "info": "Now cricket's most passionate fanbase and biggest market, but not its birthplace." },
-      { "text": "Australia", "info": "A cricket powerhouse and home to the historic Ashes rivalry, but not its birthplace." },
-      { "text": "West Indies", "info": "A dominant cricket force for decades, but not where the sport began." }
+      {
+        "text": "England",
+        "info": "Cricket's earliest recorded matches date to 16th-century southern England."
+      },
+      {
+        "text": "India",
+        "info": "Now cricket's most passionate fanbase and biggest market, but not its birthplace."
+      },
+      {
+        "text": "Australia",
+        "info": "A cricket powerhouse and home to the historic Ashes rivalry, but not its birthplace."
+      },
+      {
+        "text": "West Indies",
+        "info": "A dominant cricket force for decades, but not where the sport began."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -82,10 +154,22 @@
     "category": "Movies & TV",
     "question": "In 1977, a low-budget space opera about a farm boy, a princess, and a smuggler became a cultural phenomenon and launched one of the biggest franchises in film history. Who created and directed the original Star Wars?",
     "options": [
-      { "text": "George Lucas", "info": "Wrote and directed the original 1977 Star Wars film." },
-      { "text": "Steven Spielberg", "info": "A close friend and collaborator of Lucas's, but didn't direct Star Wars." },
-      { "text": "Ridley Scott", "info": "Directed Alien around the same era, a different sci-fi franchise." },
-      { "text": "James Cameron", "info": "Later directed Titanic and Avatar, not Star Wars." }
+      {
+        "text": "George Lucas",
+        "info": "Wrote and directed the original 1977 Star Wars film."
+      },
+      {
+        "text": "Steven Spielberg",
+        "info": "A close friend and collaborator of Lucas's, but didn't direct Star Wars."
+      },
+      {
+        "text": "Ridley Scott",
+        "info": "Directed Alien around the same era, a different sci-fi franchise."
+      },
+      {
+        "text": "James Cameron",
+        "info": "Later directed Titanic and Avatar, not Star Wars."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -95,10 +179,22 @@
     "category": "Movies & TV",
     "question": "Centered in Mumbai and known for song-and-dance numbers woven into nearly every genre, this film industry produces more movies per year than any other in the world. What is it commonly nicknamed?",
     "options": [
-      { "text": "Bollywood", "info": "India's Hindi-language film industry, based in Mumbai (formerly Bombay)." },
-      { "text": "Nollywood", "info": "Nigeria's prolific film industry, the world's second-largest by output." },
-      { "text": "Lollywood", "info": "Pakistan's film industry, based in Lahore." },
-      { "text": "Tollywood", "info": "Refers to India's Telugu- or Bengali-language film industries." }
+      {
+        "text": "Bollywood",
+        "info": "India's Hindi-language film industry, based in Mumbai (formerly Bombay)."
+      },
+      {
+        "text": "Nollywood",
+        "info": "Nigeria's prolific film industry, the world's second-largest by output."
+      },
+      {
+        "text": "Lollywood",
+        "info": "Pakistan's film industry, based in Lahore."
+      },
+      {
+        "text": "Tollywood",
+        "info": "Refers to India's Telugu- or Bengali-language film industries."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -108,10 +204,22 @@
     "category": "Movies & TV",
     "question": "In 2020, a dark comedy-thriller about class divide became the first non-English-language film ever to win the Academy Award for Best Picture. Which South Korean director made it?",
     "options": [
-      { "text": "Bong Joon-ho", "info": "Directed Parasite, which swept four Oscars including Best Picture." },
-      { "text": "Park Chan-wook", "info": "Known for Oldboy, another acclaimed South Korean director." },
-      { "text": "Kim Ki-duk", "info": "South Korean director known for spare, meditative films." },
-      { "text": "Lee Chang-dong", "info": "Acclaimed South Korean director of Burning and Poetry." }
+      {
+        "text": "Bong Joon-ho",
+        "info": "Directed Parasite, which swept four Oscars including Best Picture."
+      },
+      {
+        "text": "Park Chan-wook",
+        "info": "Known for Oldboy, another acclaimed South Korean director."
+      },
+      {
+        "text": "Kim Ki-duk",
+        "info": "South Korean director known for spare, meditative films."
+      },
+      {
+        "text": "Lee Chang-dong",
+        "info": "Acclaimed South Korean director of Burning and Poetry."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -121,10 +229,22 @@
     "category": "Movies & TV",
     "question": "A chemistry teacher turned methamphetamine kingpin was the subject of a critically acclaimed drama that ran from 2008 to 2013 and later spawned the spinoff 'Better Call Saul.' Which US cable network originally aired 'Breaking Bad'?",
     "options": [
-      { "text": "AMC", "info": "Aired Breaking Bad from 2008 to 2013, and Better Call Saul afterward." },
-      { "text": "HBO", "info": "Home to prestige dramas like The Sopranos, but not Breaking Bad." },
-      { "text": "FX", "info": "Known for shows like It's Always Sunny in Philadelphia, not Breaking Bad." },
-      { "text": "Showtime", "info": "Known for dramas like Dexter and Homeland, not Breaking Bad." }
+      {
+        "text": "AMC",
+        "info": "Aired Breaking Bad from 2008 to 2013, and Better Call Saul afterward."
+      },
+      {
+        "text": "HBO",
+        "info": "Home to prestige dramas like The Sopranos, but not Breaking Bad."
+      },
+      {
+        "text": "FX",
+        "info": "Known for shows like It's Always Sunny in Philadelphia, not Breaking Bad."
+      },
+      {
+        "text": "Showtime",
+        "info": "Known for dramas like Dexter and Homeland, not Breaking Bad."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -134,10 +254,22 @@
     "category": "Movies & TV",
     "question": "For over a decade, one 1997 film about a doomed ocean liner held the record for highest-grossing movie of all time, until the same director's own 'Avatar' eventually topped it. Who directed 'Titanic'?",
     "options": [
-      { "text": "James Cameron", "info": "Directed both Titanic (1997) and Avatar (2009), each a box-office record holder." },
-      { "text": "Steven Spielberg", "info": "Directed other blockbusters like Jaws and Jurassic Park, not Titanic." },
-      { "text": "Ron Howard", "info": "Directed Apollo 13, another 1990s disaster-adjacent film, not Titanic." },
-      { "text": "Michael Bay", "info": "Known for big-budget action films, but didn't direct Titanic." }
+      {
+        "text": "James Cameron",
+        "info": "Directed both Titanic (1997) and Avatar (2009), each a box-office record holder."
+      },
+      {
+        "text": "Steven Spielberg",
+        "info": "Directed other blockbusters like Jaws and Jurassic Park, not Titanic."
+      },
+      {
+        "text": "Ron Howard",
+        "info": "Directed Apollo 13, another 1990s disaster-adjacent film, not Titanic."
+      },
+      {
+        "text": "Michael Bay",
+        "info": "Known for big-budget action films, but didn't direct Titanic."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -147,10 +279,22 @@
     "category": "Movies & TV",
     "question": "Known for hand-drawn animation, environmental themes, and films like 'Spirited Away' and 'My Neighbor Totoro,' this Japanese studio was co-founded by a director often called the 'Japanese Walt Disney.' Who is he?",
     "options": [
-      { "text": "Hayao Miyazaki", "info": "Co-founded Studio Ghibli and directed most of its best-known films." },
-      { "text": "Akira Kurosawa", "info": "Legendary Japanese live-action director of Seven Samurai, not an animator." },
-      { "text": "Satoshi Kon", "info": "Acclaimed Japanese anime director known for Perfect Blue and Paprika." },
-      { "text": "Isao Takahata", "info": "Ghibli's co-founder, directed Grave of the Fireflies, but not these particular films." }
+      {
+        "text": "Hayao Miyazaki",
+        "info": "Co-founded Studio Ghibli and directed most of its best-known films."
+      },
+      {
+        "text": "Akira Kurosawa",
+        "info": "Legendary Japanese live-action director of Seven Samurai, not an animator."
+      },
+      {
+        "text": "Satoshi Kon",
+        "info": "Acclaimed Japanese anime director known for Perfect Blue and Paprika."
+      },
+      {
+        "text": "Isao Takahata",
+        "info": "Ghibli's co-founder, directed Grave of the Fireflies, but not these particular films."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -160,10 +304,22 @@
     "category": "Art & Culture",
     "question": "Commissioned for a Moscow theater and now a holiday season staple worldwide, a ballet about a magical nutcracker toy that comes to life on Christmas Eve premiered in 1892. Which Russian composer wrote it, along with 'Swan Lake'?",
     "options": [
-      { "text": "Pyotr Ilyich Tchaikovsky", "info": "Composed both The Nutcracker and Swan Lake." },
-      { "text": "Igor Stravinsky", "info": "Composed The Rite of Spring and The Firebird, a generation later." },
-      { "text": "Sergei Prokofiev", "info": "Composed Romeo and Juliet and Peter and the Wolf, not the Nutcracker." },
-      { "text": "Dmitri Shostakovich", "info": "20th-century Soviet composer known for symphonies, not this ballet." }
+      {
+        "text": "Pyotr Ilyich Tchaikovsky",
+        "info": "Composed both The Nutcracker and Swan Lake."
+      },
+      {
+        "text": "Igor Stravinsky",
+        "info": "Composed The Rite of Spring and The Firebird, a generation later."
+      },
+      {
+        "text": "Sergei Prokofiev",
+        "info": "Composed Romeo and Juliet and Peter and the Wolf, not the Nutcracker."
+      },
+      {
+        "text": "Dmitri Shostakovich",
+        "info": "20th-century Soviet composer known for symphonies, not this ballet."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -173,10 +329,22 @@
     "category": "Art & Culture",
     "question": "Nicknamed 'The Red Priest' for his flame-colored hair and clerical training, this Baroque composer wrote a set of four violin concertos that musically depict spring, summer, autumn, and winter. Who was he?",
     "options": [
-      { "text": "Antonio Vivaldi", "info": "Composed The Four Seasons, one of the most recorded works in classical music." },
-      { "text": "Johann Sebastian Bach", "info": "A contemporary Baroque composer, but not the writer of The Four Seasons." },
-      { "text": "Arcangelo Corelli", "info": "An earlier Italian Baroque composer known for concerti grossi." },
-      { "text": "Domenico Scarlatti", "info": "Italian Baroque composer famous for harpsichord sonatas." }
+      {
+        "text": "Antonio Vivaldi",
+        "info": "Composed The Four Seasons, one of the most recorded works in classical music."
+      },
+      {
+        "text": "Johann Sebastian Bach",
+        "info": "A contemporary Baroque composer, but not the writer of The Four Seasons."
+      },
+      {
+        "text": "Arcangelo Corelli",
+        "info": "An earlier Italian Baroque composer known for concerti grossi."
+      },
+      {
+        "text": "Domenico Scarlatti",
+        "info": "Italian Baroque composer famous for harpsichord sonatas."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -186,10 +354,22 @@
     "category": "Art & Culture",
     "question": "A child prodigy who was composing and touring European royal courts by age six, this Austrian composer left behind an unfinished Requiem Mass at his death in 1791. Who was he?",
     "options": [
-      { "text": "Wolfgang Amadeus Mozart", "info": "Died before finishing his Requiem, which was later completed by a student." },
-      { "text": "Joseph Haydn", "info": "Mozart's older friend and mentor, sometimes called the 'Father of the Symphony.'" },
-      { "text": "Antonio Salieri", "info": "A court composer and Mozart's rumored rival, though the rivalry is largely legend." },
-      { "text": "Christoph Willibald Gluck", "info": "An earlier opera reformer, not the composer of this unfinished Requiem." }
+      {
+        "text": "Wolfgang Amadeus Mozart",
+        "info": "Died before finishing his Requiem, which was later completed by a student."
+      },
+      {
+        "text": "Joseph Haydn",
+        "info": "Mozart's older friend and mentor, sometimes called the 'Father of the Symphony.'"
+      },
+      {
+        "text": "Antonio Salieri",
+        "info": "A court composer and Mozart's rumored rival, though the rivalry is largely legend."
+      },
+      {
+        "text": "Christoph Willibald Gluck",
+        "info": "An earlier opera reformer, not the composer of this unfinished Requiem."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -199,10 +379,22 @@
     "category": "Art & Culture",
     "question": "Opening in 1778 after a fire destroyed Milan's previous royal theater, this opera house has hosted the premieres of works by Verdi and Puccini and remains one of the most prestigious opera venues in the world. What's it called?",
     "options": [
-      { "text": "La Scala", "info": "Milan's legendary opera house, opened in 1778." },
-      { "text": "The Vienna State Opera", "info": "Another world-famous opera house, but located in Austria, not Milan." },
-      { "text": "The Royal Opera House", "info": "London's leading opera venue, in Covent Garden." },
-      { "text": "The Bolshoi Theatre", "info": "Moscow's historic opera and ballet theatre, not in Italy." }
+      {
+        "text": "La Scala",
+        "info": "Milan's legendary opera house, opened in 1778."
+      },
+      {
+        "text": "The Vienna State Opera",
+        "info": "Another world-famous opera house, but located in Austria, not Milan."
+      },
+      {
+        "text": "The Royal Opera House",
+        "info": "London's leading opera venue, in Covent Garden."
+      },
+      {
+        "text": "The Bolshoi Theatre",
+        "info": "Moscow's historic opera and ballet theatre, not in Italy."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -212,10 +404,22 @@
     "category": "Art & Culture",
     "question": "Lying on his back atop scaffolding for roughly four years, this Renaissance artist painted the ceiling of the Sistine Chapel, including the iconic scene of God reaching out to touch Adam's finger. Who was he?",
     "options": [
-      { "text": "Michelangelo", "info": "Painted the Sistine Chapel ceiling between 1508 and 1512." },
-      { "text": "Raphael", "info": "Painted The School of Athens in a nearby Vatican room, not the ceiling." },
-      { "text": "Leonardo da Vinci", "info": "Painted the Mona Lisa and The Last Supper, not the Sistine ceiling." },
-      { "text": "Donatello", "info": "An earlier Renaissance sculptor, best known for his bronze David." }
+      {
+        "text": "Michelangelo",
+        "info": "Painted the Sistine Chapel ceiling between 1508 and 1512."
+      },
+      {
+        "text": "Raphael",
+        "info": "Painted The School of Athens in a nearby Vatican room, not the ceiling."
+      },
+      {
+        "text": "Leonardo da Vinci",
+        "info": "Painted the Mona Lisa and The Last Supper, not the Sistine ceiling."
+      },
+      {
+        "text": "Donatello",
+        "info": "An earlier Renaissance sculptor, best known for his bronze David."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -225,10 +429,22 @@
     "category": "Art & Culture",
     "question": "Known for unflinching self-portraits exploring pain, identity, and Mexican culture, often featuring her own unibrow and vivid symbolism, this 20th-century painter was married to muralist Diego Rivera. Who was she?",
     "options": [
-      { "text": "Frida Kahlo", "info": "Painted dozens of self-portraits exploring physical and emotional pain." },
-      { "text": "Diego Rivera", "info": "Kahlo's husband, himself famous for large political murals rather than self-portraits." },
-      { "text": "Remedios Varo", "info": "A Spanish-Mexican surrealist painter, a contemporary of Kahlo's." },
-      { "text": "Tarsila do Amaral", "info": "A Brazilian modernist painter, not married to Rivera." }
+      {
+        "text": "Frida Kahlo",
+        "info": "Painted dozens of self-portraits exploring physical and emotional pain."
+      },
+      {
+        "text": "Diego Rivera",
+        "info": "Kahlo's husband, himself famous for large political murals rather than self-portraits."
+      },
+      {
+        "text": "Remedios Varo",
+        "info": "A Spanish-Mexican surrealist painter, a contemporary of Kahlo's."
+      },
+      {
+        "text": "Tarsila do Amaral",
+        "info": "A Brazilian modernist painter, not married to Rivera."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -238,10 +454,22 @@
     "category": "Science",
     "question": "During a five-year voyage aboard HMS Beagle, this British naturalist studied finches and tortoises on the Galápagos Islands, observations that later fed into his theory of evolution by natural selection. Who was he?",
     "options": [
-      { "text": "Charles Darwin", "info": "Published On the Origin of Species in 1859, decades after his Beagle voyage." },
-      { "text": "Alfred Russel Wallace", "info": "Independently developed a similar theory of natural selection around the same time." },
-      { "text": "Gregor Mendel", "info": "Austrian monk whose pea-plant experiments founded modern genetics." },
-      { "text": "Thomas Huxley", "info": "Nicknamed 'Darwin's Bulldog' for fiercely defending his theory publicly." }
+      {
+        "text": "Charles Darwin",
+        "info": "Published On the Origin of Species in 1859, decades after his Beagle voyage."
+      },
+      {
+        "text": "Alfred Russel Wallace",
+        "info": "Independently developed a similar theory of natural selection around the same time."
+      },
+      {
+        "text": "Gregor Mendel",
+        "info": "Austrian monk whose pea-plant experiments founded modern genetics."
+      },
+      {
+        "text": "Thomas Huxley",
+        "info": "Nicknamed 'Darwin's Bulldog' for fiercely defending his theory publicly."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -251,10 +479,22 @@
     "category": "Science",
     "question": "In 1928, a Scottish scientist returned from vacation to find mold had contaminated one of his bacteria cultures — and noticed the mold seemed to be killing the bacteria around it. That accidental discovery led to the first antibiotic. Who made it?",
     "options": [
-      { "text": "Alexander Fleming", "info": "His discovery of penicillin later earned him a Nobel Prize." },
-      { "text": "Louis Pasteur", "info": "Pioneered germ theory and pasteurization decades earlier, not penicillin." },
-      { "text": "Robert Koch", "info": "Identified the bacteria behind tuberculosis and cholera, not penicillin." },
-      { "text": "Jonas Salk", "info": "Developed the polio vaccine in the 1950s, unrelated to antibiotics." }
+      {
+        "text": "Alexander Fleming",
+        "info": "His discovery of penicillin later earned him a Nobel Prize."
+      },
+      {
+        "text": "Louis Pasteur",
+        "info": "Pioneered germ theory and pasteurization decades earlier, not penicillin."
+      },
+      {
+        "text": "Robert Koch",
+        "info": "Identified the bacteria behind tuberculosis and cholera, not penicillin."
+      },
+      {
+        "text": "Jonas Salk",
+        "info": "Developed the polio vaccine in the 1950s, unrelated to antibiotics."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -264,10 +504,22 @@
     "category": "Science",
     "question": "Long thought to be effectively instantaneous, light actually travels at a specific, finite speed that Einstein's theory of relativity treats as an unbreakable cosmic speed limit. Roughly how fast does light travel in a vacuum?",
     "options": [
-      { "text": "About 300,000 kilometers per second", "info": "The precise value is 299,792,458 meters per second." },
-      { "text": "About 300,000 kilometers per hour", "info": "Far too slow — that's roughly the speed of a fast jet, not light." },
-      { "text": "About 3,000 kilometers per second", "info": "About 100 times too slow to be light's actual speed." },
-      { "text": "About 30,000 kilometers per second", "info": "About 10 times too slow to be light's actual speed." }
+      {
+        "text": "About 300,000 kilometers per second",
+        "info": "The precise value is 299,792,458 meters per second."
+      },
+      {
+        "text": "About 300,000 kilometers per hour",
+        "info": "Far too slow — that's roughly the speed of a fast jet, not light."
+      },
+      {
+        "text": "About 3,000 kilometers per second",
+        "info": "About 100 times too slow to be light's actual speed."
+      },
+      {
+        "text": "About 30,000 kilometers per second",
+        "info": "About 10 times too slow to be light's actual speed."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -277,10 +529,22 @@
     "category": "Science",
     "question": "Inside chloroplasts, plants capture sunlight and use it to convert carbon dioxide and water into glucose and oxygen, a process essential to almost all life on Earth. What is this process called?",
     "options": [
-      { "text": "Photosynthesis", "info": "Converts light energy into chemical energy stored as glucose." },
-      { "text": "Respiration", "info": "The process cells use to release energy from glucose, roughly the reverse." },
-      { "text": "Fermentation", "info": "A different energy-releasing process used by yeast and some bacteria." },
-      { "text": "Transpiration", "info": "The evaporation of water from plant leaves, a separate process." }
+      {
+        "text": "Photosynthesis",
+        "info": "Converts light energy into chemical energy stored as glucose."
+      },
+      {
+        "text": "Respiration",
+        "info": "The process cells use to release energy from glucose, roughly the reverse."
+      },
+      {
+        "text": "Fermentation",
+        "info": "A different energy-releasing process used by yeast and some bacteria."
+      },
+      {
+        "text": "Transpiration",
+        "info": "The evaporation of water from plant leaves, a separate process."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -290,10 +554,22 @@
     "category": "Science",
     "question": "According to popular legend, this English scientist first conceived of universal gravitation after watching an apple fall from a tree in his family's garden, later formalizing the laws of motion in his 1687 work 'Principia Mathematica.' Who was he?",
     "options": [
-      { "text": "Isaac Newton", "info": "Formulated the laws of motion and universal gravitation." },
-      { "text": "Galileo Galilei", "info": "Studied falling objects and motion decades earlier, but didn't formulate universal gravitation." },
-      { "text": "Johannes Kepler", "info": "Described planetary orbits mathematically, without explaining the underlying force." },
-      { "text": "Robert Hooke", "info": "A rival scientist who also worked on gravity, and clashed with Newton over credit." }
+      {
+        "text": "Isaac Newton",
+        "info": "Formulated the laws of motion and universal gravitation."
+      },
+      {
+        "text": "Galileo Galilei",
+        "info": "Studied falling objects and motion decades earlier, but didn't formulate universal gravitation."
+      },
+      {
+        "text": "Johannes Kepler",
+        "info": "Described planetary orbits mathematically, without explaining the underlying force."
+      },
+      {
+        "text": "Robert Hooke",
+        "info": "A rival scientist who also worked on gravity, and clashed with Newton over credit."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -303,10 +579,22 @@
     "category": "Science",
     "question": "Each typical human cell nucleus contains DNA packaged into a specific number of chromosomes, arranged in 23 pairs, one set inherited from each parent. How many chromosomes does that add up to?",
     "options": [
-      { "text": "46", "info": "23 pairs, one inherited from each parent." },
-      { "text": "23", "info": "That's the number of pairs, not the total chromosome count." },
-      { "text": "44", "info": "Close, but two short of the actual human total." },
-      { "text": "48", "info": "That's the chromosome count for chimpanzees, our closest living relatives." }
+      {
+        "text": "46",
+        "info": "23 pairs, one inherited from each parent."
+      },
+      {
+        "text": "23",
+        "info": "That's the number of pairs, not the total chromosome count."
+      },
+      {
+        "text": "44",
+        "info": "Close, but two short of the actual human total."
+      },
+      {
+        "text": "48",
+        "info": "That's the chromosome count for chimpanzees, our closest living relatives."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -316,10 +604,22 @@
     "category": "History & Geography",
     "question": "Built in the 12th century as a Hindu temple and later converted for Buddhist worship, this vast complex sprawling across the jungle is considered the largest religious monument in the world. In which country is it located?",
     "options": [
-      { "text": "Cambodia", "info": "Angkor Wat was built by the Khmer Empire near Siem Reap." },
-      { "text": "Indonesia", "info": "Home to Borobudur, another huge ancient temple, but not Angkor Wat." },
-      { "text": "Myanmar", "info": "Home to thousands of ancient temples at Bagan, but not Angkor Wat." },
-      { "text": "Thailand", "info": "Shares regional Buddhist temple traditions, but not this particular monument." }
+      {
+        "text": "Cambodia",
+        "info": "Angkor Wat was built by the Khmer Empire near Siem Reap."
+      },
+      {
+        "text": "Indonesia",
+        "info": "Home to Borobudur, another huge ancient temple, but not Angkor Wat."
+      },
+      {
+        "text": "Myanmar",
+        "info": "Home to thousands of ancient temples at Bagan, but not Angkor Wat."
+      },
+      {
+        "text": "Thailand",
+        "info": "Shares regional Buddhist temple traditions, but not this particular monument."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -329,10 +629,22 @@
     "category": "History & Geography",
     "question": "In 1324, a West African ruler set out on a pilgrimage to Mecca with a caravan so enormous and laden with gold that his spending reportedly disrupted the economies of the cities he passed through, including Cairo. Which empire did he rule?",
     "options": [
-      { "text": "The Mali Empire", "info": "Ruled by Mansa Musa, often cited as history's wealthiest individual." },
-      { "text": "The Songhai Empire", "info": "A later West African empire that eventually eclipsed Mali." },
-      { "text": "The Ashanti Empire", "info": "A West African kingdom based further south, in what's now Ghana." },
-      { "text": "The Ethiopian Empire", "info": "An East African empire, unrelated to this famous pilgrimage." }
+      {
+        "text": "The Mali Empire",
+        "info": "Ruled by Mansa Musa, often cited as history's wealthiest individual."
+      },
+      {
+        "text": "The Songhai Empire",
+        "info": "A later West African empire that eventually eclipsed Mali."
+      },
+      {
+        "text": "The Ashanti Empire",
+        "info": "A West African kingdom based further south, in what's now Ghana."
+      },
+      {
+        "text": "The Ethiopian Empire",
+        "info": "An East African empire, unrelated to this famous pilgrimage."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -342,10 +654,22 @@
     "category": "History & Geography",
     "question": "By volume of water discharged, this South American river dwarfs every other river on Earth, carrying more water than the next several largest rivers combined. Which river is it?",
     "options": [
-      { "text": "The Amazon River", "info": "Discharges more water than the next several largest rivers combined." },
-      { "text": "The Nile", "info": "Often cited as the longest river by length, but carries far less water." },
-      { "text": "The Mississippi", "info": "North America's largest river system, but a fraction of the Amazon's discharge." },
-      { "text": "The Yangtze", "info": "Asia's longest river, but well behind the Amazon in volume." }
+      {
+        "text": "The Amazon River",
+        "info": "Discharges more water than the next several largest rivers combined."
+      },
+      {
+        "text": "The Nile",
+        "info": "Often cited as the longest river by length, but carries far less water."
+      },
+      {
+        "text": "The Mississippi",
+        "info": "North America's largest river system, but a fraction of the Amazon's discharge."
+      },
+      {
+        "text": "The Yangtze",
+        "info": "Asia's longest river, but well behind the Amazon in volume."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -355,10 +679,22 @@
     "category": "History & Geography",
     "question": "Built on an island in a lake and connected to the mainland by causeways, this Aztec capital amazed Spanish conquistadors with its scale before it was destroyed and rebuilt as the foundation of today's Mexico City. What was it called?",
     "options": [
-      { "text": "Tenochtitlan", "info": "The Aztec capital, conquered by Hernán Cortés in 1521." },
-      { "text": "Cusco", "info": "The Inca capital, located in the Andes of Peru, not the Aztec Empire." },
-      { "text": "Teotihuacan", "info": "An earlier, mysterious Mesoamerican city, already abandoned by Aztec times." },
-      { "text": "Chichen Itza", "info": "A major Maya city in the Yucatán, not the Aztec capital." }
+      {
+        "text": "Tenochtitlan",
+        "info": "The Aztec capital, conquered by Hernán Cortés in 1521."
+      },
+      {
+        "text": "Cusco",
+        "info": "The Inca capital, located in the Andes of Peru, not the Aztec Empire."
+      },
+      {
+        "text": "Teotihuacan",
+        "info": "An earlier, mysterious Mesoamerican city, already abandoned by Aztec times."
+      },
+      {
+        "text": "Chichen Itza",
+        "info": "A major Maya city in the Yucatán, not the Aztec capital."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -368,10 +704,22 @@
     "category": "History & Geography",
     "question": "Some estimates put the arrival of the first humans in this continent at over 65,000 years ago, making its Indigenous peoples' culture among the oldest continuous living cultures on Earth. Which continent?",
     "options": [
-      { "text": "Australia", "info": "Aboriginal Australians' culture is often cited as the oldest continuous living culture." },
-      { "text": "South America", "info": "Humans arrived there much later, tens of thousands of years after Australia." },
-      { "text": "North America", "info": "Also settled later than Australia, via land bridges from Asia." },
-      { "text": "Antarctica", "info": "Has no Indigenous population at all — it was never permanently inhabited." }
+      {
+        "text": "Australia",
+        "info": "Aboriginal Australians' culture is often cited as the oldest continuous living culture."
+      },
+      {
+        "text": "South America",
+        "info": "Humans arrived there much later, tens of thousands of years after Australia."
+      },
+      {
+        "text": "North America",
+        "info": "Also settled later than Australia, via land bridges from Asia."
+      },
+      {
+        "text": "Antarctica",
+        "info": "Has no Indigenous population at all — it was never permanently inhabited."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -381,10 +729,22 @@
     "category": "History & Geography",
     "question": "Completed in 1914 after a failed earlier French attempt, this artificial waterway cuts through a narrow strip of land to let ships pass between the Atlantic and Pacific Oceans without sailing around South America. What's it called?",
     "options": [
-      { "text": "The Panama Canal", "info": "Completed by the United States in 1914 after France's earlier attempt failed." },
-      { "text": "The Suez Canal", "info": "Connects the Mediterranean and Red Seas, in Egypt, not the Americas." },
-      { "text": "The Corinth Canal", "info": "A much smaller canal cutting through mainland Greece." },
-      { "text": "The Kiel Canal", "info": "Connects the North Sea and Baltic Sea, through northern Germany." }
+      {
+        "text": "The Panama Canal",
+        "info": "Completed by the United States in 1914 after France's earlier attempt failed."
+      },
+      {
+        "text": "The Suez Canal",
+        "info": "Connects the Mediterranean and Red Seas, in Egypt, not the Americas."
+      },
+      {
+        "text": "The Corinth Canal",
+        "info": "A much smaller canal cutting through mainland Greece."
+      },
+      {
+        "text": "The Kiel Canal",
+        "info": "Connects the North Sea and Baltic Sea, through northern Germany."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -394,10 +754,22 @@
     "category": "History & Geography",
     "question": "Rising dramatically from surrounding savanna to over 5,800 meters, its snow-capped peak visible for miles despite sitting just south of the equator, this is Africa's tallest mountain. In which country is it located?",
     "options": [
-      { "text": "Tanzania", "info": "Mount Kilimanjaro is Africa's highest peak, at about 5,895 meters." },
-      { "text": "Kenya", "info": "Home to its own notable peak, Mount Kenya, but not Kilimanjaro." },
-      { "text": "Uganda", "info": "Home to the Rwenzori Mountains, not Kilimanjaro." },
-      { "text": "Ethiopia", "info": "Has high mountainous terrain, but not Africa's tallest peak." }
+      {
+        "text": "Tanzania",
+        "info": "Mount Kilimanjaro is Africa's highest peak, at about 5,895 meters."
+      },
+      {
+        "text": "Kenya",
+        "info": "Home to its own notable peak, Mount Kenya, but not Kilimanjaro."
+      },
+      {
+        "text": "Uganda",
+        "info": "Home to the Rwenzori Mountains, not Kilimanjaro."
+      },
+      {
+        "text": "Ethiopia",
+        "info": "Has high mountainous terrain, but not Africa's tallest peak."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -407,10 +779,22 @@
     "category": "History & Geography",
     "question": "In the early 1200s, one leader united the nomadic tribes of the Mongolian steppe and launched a series of conquests that would create the largest contiguous land empire in history, stretching from Korea to Eastern Europe. Who was he?",
     "options": [
-      { "text": "Genghis Khan", "info": "Founded the Mongol Empire, the largest contiguous land empire in history." },
-      { "text": "Kublai Khan", "info": "Genghis Khan's grandson, who later founded China's Yuan Dynasty." },
-      { "text": "Timur (Tamerlane)", "info": "A later Central Asian conqueror, active in the 14th century." },
-      { "text": "Attila the Hun", "info": "Led an earlier, separate nomadic empire centuries before the Mongols." }
+      {
+        "text": "Genghis Khan",
+        "info": "Founded the Mongol Empire, the largest contiguous land empire in history."
+      },
+      {
+        "text": "Kublai Khan",
+        "info": "Genghis Khan's grandson, who later founded China's Yuan Dynasty."
+      },
+      {
+        "text": "Timur (Tamerlane)",
+        "info": "A later Central Asian conqueror, active in the 14th century."
+      },
+      {
+        "text": "Attila the Hun",
+        "info": "Led an earlier, separate nomadic empire centuries before the Mongols."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -420,10 +804,22 @@
     "category": "History & Geography",
     "question": "In 1868, after centuries of relative isolation under shogun rule, this East Asian country began a rapid, top-down transformation into an industrialized, modern military and economic power. What is this transformation commonly called?",
     "options": [
-      { "text": "The Meiji Restoration", "info": "Restored imperial rule in Japan and launched rapid industrialization." },
-      { "text": "The Cultural Revolution", "info": "A very different, later political upheaval in Communist China." },
-      { "text": "The Taiping Rebellion", "info": "A massive 19th-century Chinese civil war, unrelated to Japan's reforms." },
-      { "text": "The Xinhai Revolution", "info": "The 1911 revolution that ended China's imperial dynasty system." }
+      {
+        "text": "The Meiji Restoration",
+        "info": "Restored imperial rule in Japan and launched rapid industrialization."
+      },
+      {
+        "text": "The Cultural Revolution",
+        "info": "A very different, later political upheaval in Communist China."
+      },
+      {
+        "text": "The Taiping Rebellion",
+        "info": "A massive 19th-century Chinese civil war, unrelated to Japan's reforms."
+      },
+      {
+        "text": "The Xinhai Revolution",
+        "info": "The 1911 revolution that ended China's imperial dynasty system."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -433,10 +829,22 @@
     "category": "History & Geography",
     "question": "At just over 0.4 square kilometers, this independent city-state entirely surrounded by Rome is the smallest country in the world by both area and population. What is it called?",
     "options": [
-      { "text": "Vatican City", "info": "The world's smallest sovereign state, home to the Pope." },
-      { "text": "San Marino", "info": "Another tiny European microstate, but larger than the Vatican and not inside Rome." },
-      { "text": "Monaco", "info": "A small, densely populated country on the French Riviera, not in Italy." },
-      { "text": "Liechtenstein", "info": "A small Alpine country between Austria and Switzerland, not in Italy." }
+      {
+        "text": "Vatican City",
+        "info": "The world's smallest sovereign state, home to the Pope."
+      },
+      {
+        "text": "San Marino",
+        "info": "Another tiny European microstate, but larger than the Vatican and not inside Rome."
+      },
+      {
+        "text": "Monaco",
+        "info": "A small, densely populated country on the French Riviera, not in Italy."
+      },
+      {
+        "text": "Liechtenstein",
+        "info": "A small Alpine country between Austria and Switzerland, not in Italy."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -446,10 +854,22 @@
     "category": "History & Geography",
     "question": "Founded around 930 AD by early Norse settlers who gathered annually at a site called Þingvellir to settle disputes and make laws, this assembly is often cited as the world's oldest still-functioning parliament. Which country's parliament is it?",
     "options": [
-      { "text": "Iceland", "info": "The Althing has met, in some form, since around 930 AD." },
-      { "text": "Norway", "info": "The homeland of many of Iceland's original settlers, but not where this assembly meets." },
-      { "text": "Denmark", "info": "Ruled Iceland for centuries later, but didn't found this ancient assembly." },
-      { "text": "The Faroe Islands", "info": "Also has an old Norse-founded assembly, but a younger and smaller one." }
+      {
+        "text": "Iceland",
+        "info": "The Althing has met, in some form, since around 930 AD."
+      },
+      {
+        "text": "Norway",
+        "info": "The homeland of many of Iceland's original settlers, but not where this assembly meets."
+      },
+      {
+        "text": "Denmark",
+        "info": "Ruled Iceland for centuries later, but didn't found this ancient assembly."
+      },
+      {
+        "text": "The Faroe Islands",
+        "info": "Also has an old Norse-founded assembly, but a younger and smaller one."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -459,10 +879,22 @@
     "category": "History & Geography",
     "question": "Perched on a limestone rock at the southern tip of the Iberian Peninsula, this small territory has been under British control since 1713, despite Spain's continuing claims to it. What's it called?",
     "options": [
-      { "text": "Gibraltar", "info": "A British Overseas Territory since the Treaty of Utrecht in 1713." },
-      { "text": "Ceuta", "info": "A Spanish-controlled enclave on the North African coast, not British." },
-      { "text": "Andorra", "info": "An independent microstate in the Pyrenees, not a British territory." },
-      { "text": "Menorca", "info": "A Spanish Balearic island, once British-controlled but not today." }
+      {
+        "text": "Gibraltar",
+        "info": "A British Overseas Territory since the Treaty of Utrecht in 1713."
+      },
+      {
+        "text": "Ceuta",
+        "info": "A Spanish-controlled enclave on the North African coast, not British."
+      },
+      {
+        "text": "Andorra",
+        "info": "An independent microstate in the Pyrenees, not a British territory."
+      },
+      {
+        "text": "Menorca",
+        "info": "A Spanish Balearic island, once British-controlled but not today."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -472,10 +904,22 @@
     "category": "History & Geography",
     "question": "Roughly a quarter of this country's land lies below sea level, protected by an extensive system of dikes, dams, and pumps, with large areas of reclaimed \"polder\" farmland won directly from the sea over centuries. Which country is it?",
     "options": [
-      { "text": "The Netherlands", "info": "About a quarter of its land lies below sea level." },
-      { "text": "Belgium", "info": "Shares a coastline and some low-lying terrain, but far less below sea level." },
-      { "text": "Denmark", "info": "Low and flat, but doesn't rely on this scale of land reclamation from the sea." },
-      { "text": "Germany", "info": "Has North Sea coastline, but nowhere near this proportion below sea level." }
+      {
+        "text": "The Netherlands",
+        "info": "About a quarter of its land lies below sea level."
+      },
+      {
+        "text": "Belgium",
+        "info": "Shares a coastline and some low-lying terrain, but far less below sea level."
+      },
+      {
+        "text": "Denmark",
+        "info": "Low and flat, but doesn't rely on this scale of land reclamation from the sea."
+      },
+      {
+        "text": "Germany",
+        "info": "Has North Sea coastline, but nowhere near this proportion below sea level."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -485,10 +929,22 @@
     "category": "General Knowledge",
     "question": "Invented in 1974 by a Hungarian architecture professor as a teaching tool to help explain three-dimensional geometry, this twisty puzzle cube became one of the best-selling toys of all time. Who invented it?",
     "options": [
-      { "text": "Ernő Rubik", "info": "Originally called it the 'Magic Cube' before it was renamed after him." },
-      { "text": "Alexey Pajitnov", "info": "Created a different iconic puzzle: the video game Tetris." },
-      { "text": "John Conway", "info": "A mathematician known for the Game of Life, not the Rubik's Cube." },
-      { "text": "Milton Bradley", "info": "An American board game manufacturer, not the cube's inventor." }
+      {
+        "text": "Ernő Rubik",
+        "info": "Originally called it the 'Magic Cube' before it was renamed after him."
+      },
+      {
+        "text": "Alexey Pajitnov",
+        "info": "Created a different iconic puzzle: the video game Tetris."
+      },
+      {
+        "text": "John Conway",
+        "info": "A mathematician known for the Game of Life, not the Rubik's Cube."
+      },
+      {
+        "text": "Milton Bradley",
+        "info": "An American board game manufacturer, not the cube's inventor."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -498,10 +954,22 @@
     "category": "General Knowledge",
     "question": "Blinded in a childhood accident, this 19th-century Frenchman developed a system of raised dots that could be read by touch, now used worldwide to let blind and visually impaired people read and write. What's his name, now used for the system itself?",
     "options": [
-      { "text": "Louis Braille", "info": "Developed the tactile reading system as a teenager in the 1820s." },
-      { "text": "Antoine de Saint-Exupéry", "info": "French author of The Little Prince, unrelated to this writing system." },
-      { "text": "Victor Hugo", "info": "French novelist known for Les Misérables, not the braille system." },
-      { "text": "Jean Nicot", "info": "The French diplomat nicotine is named after, unrelated to braille." }
+      {
+        "text": "Louis Braille",
+        "info": "Developed the tactile reading system as a teenager in the 1820s."
+      },
+      {
+        "text": "Antoine de Saint-Exupéry",
+        "info": "French author of The Little Prince, unrelated to this writing system."
+      },
+      {
+        "text": "Victor Hugo",
+        "info": "French novelist known for Les Misérables, not the braille system."
+      },
+      {
+        "text": "Jean Nicot",
+        "info": "The French diplomat nicotine is named after, unrelated to braille."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -511,10 +979,22 @@
     "category": "General Knowledge",
     "question": "By European Union law, only sparkling wine produced in a specific northeastern French region, using specific grape varieties and methods, is legally allowed to carry this name — everything else must be called sparkling wine or something else entirely. What is this protected name?",
     "options": [
-      { "text": "Champagne", "info": "Legally restricted to sparkling wine from the Champagne region of France." },
-      { "text": "Prosecco", "info": "Italian sparkling wine, made differently and from different grapes." },
-      { "text": "Cava", "info": "Spanish sparkling wine, made in the traditional method but not from Champagne." },
-      { "text": "Crémant", "info": "French sparkling wine made outside the Champagne region." }
+      {
+        "text": "Champagne",
+        "info": "Legally restricted to sparkling wine from the Champagne region of France."
+      },
+      {
+        "text": "Prosecco",
+        "info": "Italian sparkling wine, made differently and from different grapes."
+      },
+      {
+        "text": "Cava",
+        "info": "Spanish sparkling wine, made in the traditional method but not from Champagne."
+      },
+      {
+        "text": "Crémant",
+        "info": "French sparkling wine made outside the Champagne region."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -524,10 +1004,22 @@
     "category": "General Knowledge",
     "question": "Designed in the 1870s for early mechanical typewriters, this keyboard letter layout was arranged partly to keep commonly paired letters physically apart, reducing jams in the machine's typebars. What is this layout commonly called, after its top-left letter row?",
     "options": [
-      { "text": "QWERTY", "info": "Named for the first six letters on the top row." },
-      { "text": "AZERTY", "info": "A French variant of the keyboard layout, with some letters swapped." },
-      { "text": "QWERTZ", "info": "A German-language variant layout, with Y and Z swapped." },
-      { "text": "Dvorak", "info": "A later keyboard layout designed for typing efficiency, not to prevent jams." }
+      {
+        "text": "QWERTY",
+        "info": "Named for the first six letters on the top row."
+      },
+      {
+        "text": "AZERTY",
+        "info": "A French variant of the keyboard layout, with some letters swapped."
+      },
+      {
+        "text": "QWERTZ",
+        "info": "A German-language variant layout, with Y and Z swapped."
+      },
+      {
+        "text": "Dvorak",
+        "info": "A later keyboard layout designed for typing efficiency, not to prevent jams."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -537,10 +1029,22 @@
     "category": "General Knowledge",
     "question": "A researcher at this American company was trying to develop a super-strong adhesive in 1968 but accidentally created a very weak, reusable one instead — an invention that sat unused for years until a colleague used it to bookmark his hymn book, leading to one of the best-selling office products ever. Which company was it?",
     "options": [
-      { "text": "3M", "info": "The accidental adhesive became the basis for Post-it Notes, launched in 1980." },
-      { "text": "DuPont", "info": "American chemical company known for inventing nylon and Teflon." },
-      { "text": "Procter & Gamble", "info": "A major US consumer goods company, unrelated to Post-it Notes." },
-      { "text": "General Electric", "info": "An American industrial conglomerate, not the inventor of Post-it Notes." }
+      {
+        "text": "3M",
+        "info": "The accidental adhesive became the basis for Post-it Notes, launched in 1980."
+      },
+      {
+        "text": "DuPont",
+        "info": "American chemical company known for inventing nylon and Teflon."
+      },
+      {
+        "text": "Procter & Gamble",
+        "info": "A major US consumer goods company, unrelated to Post-it Notes."
+      },
+      {
+        "text": "General Electric",
+        "info": "An American industrial conglomerate, not the inventor of Post-it Notes."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -550,10 +1054,22 @@
     "category": "General Knowledge",
     "question": "Invented in 1886 by an Atlanta pharmacist as a patent medicine and originally sold at soda fountains, this drink's exact flavor recipe remains one of the most famous trade secrets in business history. What's the drink?",
     "options": [
-      { "text": "Coca-Cola", "info": "Created by pharmacist John Pemberton in Atlanta, Georgia." },
-      { "text": "Pepsi", "info": "Invented a few years later, in 1893, by a different pharmacist in North Carolina." },
-      { "text": "Dr Pepper", "info": "Invented around the same era in Waco, Texas, by a different pharmacist." },
-      { "text": "Root beer", "info": "A broader category of drink with roots in earlier folk recipes, not a single 1886 invention." }
+      {
+        "text": "Coca-Cola",
+        "info": "Created by pharmacist John Pemberton in Atlanta, Georgia."
+      },
+      {
+        "text": "Pepsi",
+        "info": "Invented a few years later, in 1893, by a different pharmacist in North Carolina."
+      },
+      {
+        "text": "Dr Pepper",
+        "info": "Invented around the same era in Waco, Texas, by a different pharmacist."
+      },
+      {
+        "text": "Root beer",
+        "info": "A broader category of drink with roots in earlier folk recipes, not a single 1886 invention."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -561,12 +1077,24 @@
   {
     "id": "2026-07-26-44",
     "category": "German Language",
-    "question": "Many German surnames come from old trades, and this early Romantic opera composer's surname is simply the everyday German word for someone who weaves cloth. With that clue, who composed the opera 'Der Freischütz'?",
+    "question": "Many German surnames trace back to old trades, and this early Romantic opera composer's is one of them — someone who'd sit at a loom all day, turning raw thread into cloth, a craft found in nearly every pre-industrial German town. With that clue, who composed the opera 'Der Freischütz'?",
     "options": [
-      { "text": "Carl Maria von Weber", "info": "\"Weber\" means weaver in German." },
-      { "text": "Felix Mendelssohn", "info": "Composed the Wedding March and a famous Violin Concerto, unrelated to this surname clue." },
-      { "text": "Robert Schumann", "info": "German Romantic composer known for piano works and song cycles, different surname." },
-      { "text": "Giacomo Meyerbeer", "info": "German-born opera composer, but with a different surname meaning." }
+      {
+        "text": "Carl Maria von Weber",
+        "info": "\"Weber\" means weaver in German."
+      },
+      {
+        "text": "Felix Mendelssohn",
+        "info": "Composed the Wedding March and a famous Violin Concerto, unrelated to this surname clue."
+      },
+      {
+        "text": "Robert Schumann",
+        "info": "German Romantic composer known for piano works and song cycles, different surname."
+      },
+      {
+        "text": "Giacomo Meyerbeer",
+        "info": "German-born opera composer, but with a different surname meaning."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -574,12 +1102,24 @@
   {
     "id": "2026-07-26-45",
     "category": "German Language",
-    "question": "This 18th-century opera composer's surname is the German word for luck or happiness — a fitting name for someone credited with reforming opera to be more dramatically natural. Who was he?",
+    "question": "This 18th-century opera composer's surname is the kind of word a German speaker might blurt out on the spot after narrowly avoiding disaster — a fittingly cheerful name for someone credited with reforming opera to be more dramatically natural. Who was he?",
     "options": [
-      { "text": "Christoph Willibald Gluck", "info": "\"Glück\" means luck/happiness in German." },
-      { "text": "Georg Friedrich Händel", "info": "Baroque composer of Messiah, from an earlier generation." },
-      { "text": "Joseph Haydn", "info": "Classical-era composer nicknamed the \"Father of the Symphony,\" with a different surname." },
-      { "text": "Carl Orff", "info": "20th-century German composer best known for Carmina Burana." }
+      {
+        "text": "Christoph Willibald Gluck",
+        "info": "\"Glück\" means luck/happiness in German."
+      },
+      {
+        "text": "Georg Friedrich Händel",
+        "info": "Baroque composer of Messiah, from an earlier generation."
+      },
+      {
+        "text": "Joseph Haydn",
+        "info": "Classical-era composer nicknamed the \"Father of the Symphony,\" with a different surname."
+      },
+      {
+        "text": "Carl Orff",
+        "info": "20th-century German composer best known for Carmina Burana."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -587,12 +1127,24 @@
   {
     "id": "2026-07-26-46",
     "category": "German Language",
-    "question": "This late-Romantic Austrian composer and conductor's surname is the everyday German word for a person who paints pictures. Given that clue, who composed nine sprawling symphonies and led the Vienna Court Opera?",
+    "question": "This late-Romantic Austrian composer and conductor's surname is an old occupational name for someone hired to decorate a wall or capture a likeness on canvas — not someone who writes music. Given that clue, who composed nine sprawling symphonies and led the Vienna Court Opera?",
     "options": [
-      { "text": "Gustav Mahler", "info": "\"Mahler\" means painter in German." },
-      { "text": "Anton Bruckner", "info": "Another late-Romantic Austrian symphonist, but with a different surname meaning." },
-      { "text": "Richard Strauss", "info": "German composer of tone poems and operas, active in the same era." },
-      { "text": "Arnold Schoenberg", "info": "Austrian composer who pioneered atonal and twelve-tone music." }
+      {
+        "text": "Gustav Mahler",
+        "info": "\"Mahler\" means painter in German."
+      },
+      {
+        "text": "Anton Bruckner",
+        "info": "Another late-Romantic Austrian symphonist, but with a different surname meaning."
+      },
+      {
+        "text": "Richard Strauss",
+        "info": "German composer of tone poems and operas, active in the same era."
+      },
+      {
+        "text": "Arnold Schoenberg",
+        "info": "Austrian composer who pioneered atonal and twelve-tone music."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -600,12 +1152,24 @@
   {
     "id": "2026-07-26-47",
     "category": "German Language",
-    "question": "This Austrian composer's surname traces back to an old term for someone who lived by or tended a bridge, from the German word for bridge, 'Brücke.' Who wrote massive, cathedral-like symphonies while working as an organist in Linz and Vienna?",
+    "question": "This Austrian composer's surname is an old occupational name for someone who lived beside, or was responsible for maintaining, a river crossing — the kind of structure you'd need to get a loaded cart safely to the other bank. Who wrote massive, cathedral-like symphonies while working as an organist in Linz and Vienna?",
     "options": [
-      { "text": "Anton Bruckner", "info": "\"Bruckner\" derives from \"Brücke,\" meaning bridge." },
-      { "text": "Johannes Brahms", "info": "German Romantic composer of four symphonies, with a different surname origin." },
-      { "text": "Franz Schubert", "info": "Austrian composer of Lieder and symphonies, a generation earlier." },
-      { "text": "Hugo Wolf", "info": "Austrian composer known for art songs, not symphonies." }
+      {
+        "text": "Anton Bruckner",
+        "info": "\"Bruckner\" derives from \"Brücke,\" meaning bridge."
+      },
+      {
+        "text": "Johannes Brahms",
+        "info": "German Romantic composer of four symphonies, with a different surname origin."
+      },
+      {
+        "text": "Franz Schubert",
+        "info": "Austrian composer of Lieder and symphonies, a generation earlier."
+      },
+      {
+        "text": "Hugo Wolf",
+        "info": "Austrian composer known for art songs, not symphonies."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -615,10 +1179,22 @@
     "category": "German Language",
     "question": "In a symphony orchestra, one player sits closest to the conductor, tunes the orchestra before the performance, and sometimes plays solo violin passages within a piece. What is the German-derived title for this role, literally meaning 'concert master'?",
     "options": [
-      { "text": "Konzertmeister", "info": "The principal first violinist, seated closest to the conductor." },
-      { "text": "Kapellmeister", "info": "Historically referred to the director of an orchestra or chapel choir, not the lead violinist." },
-      { "text": "Dirigent", "info": "The German word for conductor, a separate role." },
-      { "text": "Intendant", "info": "The administrative director of an opera house or theater, not a player." }
+      {
+        "text": "Konzertmeister",
+        "info": "The principal first violinist, seated closest to the conductor."
+      },
+      {
+        "text": "Kapellmeister",
+        "info": "Historically referred to the director of an orchestra or chapel choir, not the lead violinist."
+      },
+      {
+        "text": "Dirigent",
+        "info": "The German word for conductor, a separate role."
+      },
+      {
+        "text": "Intendant",
+        "info": "The administrative director of an opera house or theater, not a player."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -628,10 +1204,22 @@
     "category": "German Language",
     "question": "English borrowed this German word to describe an eerie look-alike or double of a living person, sometimes considered an omen in folklore. Literally translated, what do the two German words that make it up mean?",
     "options": [
-      { "text": "Double walker", "info": "From \"Doppel\" (double) and \"Gänger\" (walker/goer)." },
-      { "text": "Shadow self", "info": "A poetic-sounding guess, but not the literal German meaning." },
-      { "text": "Mirror image", "info": "Describes the concept loosely, but isn't the literal translation." },
-      { "text": "Second soul", "info": "Not the literal meaning of the German compound word." }
+      {
+        "text": "Double walker",
+        "info": "From \"Doppel\" (double) and \"Gänger\" (walker/goer)."
+      },
+      {
+        "text": "Shadow self",
+        "info": "A poetic-sounding guess, but not the literal German meaning."
+      },
+      {
+        "text": "Mirror image",
+        "info": "Describes the concept loosely, but isn't the literal translation."
+      },
+      {
+        "text": "Second soul",
+        "info": "Not the literal meaning of the German compound word."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"
@@ -641,10 +1229,22 @@
     "category": "German Language",
     "question": "This German loanword entered English to describe a strong desire to travel and explore the world, and is built from the German words for 'to hike/wander' and 'desire.' What does it literally mean?",
     "options": [
-      { "text": "Desire to wander", "info": "From \"wandern\" (to hike/wander) and \"Lust\" (desire)." },
-      { "text": "Fear of travel", "info": "The opposite of what the word actually describes." },
-      { "text": "Love of maps", "info": "Not the literal components of this compound word." },
-      { "text": "Homesickness", "info": "That's closer to the German word \"Heimweh,\" not Wanderlust." }
+      {
+        "text": "Desire to wander",
+        "info": "From \"wandern\" (to hike/wander) and \"Lust\" (desire)."
+      },
+      {
+        "text": "Fear of travel",
+        "info": "The opposite of what the word actually describes."
+      },
+      {
+        "text": "Love of maps",
+        "info": "Not the literal components of this compound word."
+      },
+      {
+        "text": "Homesickness",
+        "info": "That's closer to the German word \"Heimweh,\" not Wanderlust."
+      }
     ],
     "correctIndex": 0,
     "dateAdded": "2026-07-26"

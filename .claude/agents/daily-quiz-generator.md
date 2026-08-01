@@ -174,12 +174,36 @@ for lack of a verifiable source.
     the German word for X." That hands over the answer to anyone doing
     simple word-matching, without needing to know anything about the
     person or work itself. Too easy — avoid it.
-  - Instead, work the meaning in obliquely: describe it through an image,
-    scenario, or partial cognate that takes a beat of thought to connect
-    (e.g. rather than "his surname means 'brook'," something like "his
-    surname is the everyday German word for the kind of small water you'd
-    hop across on an Alpine hike, not the kind you'd need a boat for" —
-    same fact, but it takes actual thought instead of a straight lookup).
+  - **Also never use the template "[surname] is/means the everyday German
+    word for ___" at all** — even when the blank is dressed up in
+    descriptive language rather than a bare dictionary gloss, that
+    sentence structure itself is the giveaway: it explicitly announces "a
+    direct word-equivalence exists, go decode it," which is all the
+    word-matching shortcut needs. This is a real mistake this agent has
+    made before — a past question read "This composer's surname, spelled
+    slightly differently, is the everyday German word you'd use to
+    explain a reason — 'since' or 'because.'" (Kurt Weill / "weil"). The
+    flowery description didn't help; announcing the equivalence at all
+    was the problem. **Don't write that sentence shape, ever, regardless
+    of what's in the blank.**
+  - Instead, embed the word inside a scenario where the solver has to
+    notice it themselves — never state that a translation or equivalence
+    exists. Two ways that work well:
+    - **Drop the actual word into a short piece of realistic German**
+      (a sentence, an exclamation, a label) and ask the solver to spot it
+      and transform it slightly — e.g. instead of naming "weil" and
+      translating it, write: "Imagine overhearing someone explain why
+      their train was late: '...weil der Zug Verspätung hatte.' Add one
+      letter to that first word and you have this composer's surname."
+      The solver has to parse real German and extract the word themselves
+      — nobody hands them the equivalence.
+    - **Describe the underlying thing/action without ever saying "this is
+      the word for it"** — e.g. instead of "Bach means brook," write
+      "this composer's surname survives today mostly in place names — it
+      names the small, everyday kind of running water you'd find
+      trickling past a barn, never a river you'd need a bridge to cross."
+      The description implies a meaning exists without labeling the
+      sentence as a definition.
   - Don't stack the linguistic clue with an equally strong giveaway
     biographical detail in the same sentence (e.g. naming the composer's
     single most famous, instantly-recognizable work right alongside the
