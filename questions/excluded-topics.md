@@ -20,5 +20,15 @@ question to avoid. Do not remove entries. Do not regenerate this file.
 - **Austrian families of musicians** (e.g. the Strauss family, the von
   Trapp family) as a general topic — avoid trivia centered on a famous
   Austrian musical family/dynasty.
+- **Gorillaz band members' character names** (2D, Murdoc Niccals, Noodle,
+  Russel Hobbs, or the band's virtual/animated concept generally).
 
 _Added 2026-07-31._
+
+- **[Placeholder] A song used in a musical.** The real quiz asked about a
+  specific song's use in a specific musical, but the exact title wasn't
+  given yet — ask the user which song/musical before relying on this
+  entry; until then, treat "songs featured in musicals" as a sensitive
+  topic and prefer other subjects when possible.
+
+_Added 2026-08-01._

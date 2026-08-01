@@ -249,6 +249,27 @@ button {
   color: var(--cream);
 }
 
+.audio-block {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audio-block audio {
+  width: 100%;
+}
+
+.audio-credit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cream-dim);
+}
+
 .options {
   display: flex;
   flex-direction: column;

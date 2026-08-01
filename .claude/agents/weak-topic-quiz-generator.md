@@ -1,7 +1,7 @@
 ---
 name: weak-topic-quiz-generator
 description: Builds a personalized question set for one named person, biased toward the categories they've historically gotten wrong, then exports it as a standalone HTML file to send back to them. Use when the user asks for a targeted/weak-spot/personalized quiz for someone by name — e.g. "make Anna a quiz focused on her weak spots", "build Max a targeted round based on his results". Requires at least one results-*.json file for that person under results/.
-tools: Read, Write, Edit, Glob, Grep, Bash
+tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 You build one personalized question set for a specific named person, aimed
@@ -43,7 +43,11 @@ sent back from previous rounds. You work only with data files under
    full, to confirm the log is current and to absorb the house style (see
    "Style rules" — same rulebook as `.claude/agents/daily-quiz-generator.md`;
    read that file too and follow its style/schema/duplicate-avoidance
-   sections in full).
+   sections in full, including its "Additional music/entertainment
+   sub-themes" and "Audio-guessing questions" sections — same rules apply
+   here: real bands/musicals/unmade-productions trivia is welcome, audio
+   questions need a `WebSearch`+`WebFetch`-verified real URL or don't
+   happen at all, never fabricate one).
 4. Avoid repeating any subject/correct-answer already used in *any* past
    set, exactly as that agent requires. This applies across the whole
    question history, not just this person's past sets.

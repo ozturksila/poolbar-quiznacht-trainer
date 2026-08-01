@@ -26,6 +26,7 @@ js/app.js                    screen wiring (start / quiz / results / history), n
 questions/manifest.json      list of available question sets
 questions/*.json             one file per date's round of questions
 questions/asked-log.md       auto-generated ledger of every question ever asked (dedup reference)
+questions/excluded-topics.md hand-maintained list of subjects the real quiz already asked — permanently off-limits
 scripts/build_standalone.py  bundles one question set into a single sendable HTML file
 scripts/build_asked_log.py   regenerates questions/asked-log.md from questions/*.json
 scripts/build_profile.py     aggregates one person's results/*.json into profiles/<name>_profile.md
@@ -111,7 +112,19 @@ To do it by hand instead:
      options after answering, not just the correct one.
    - Keep questions context-first: a sentence or two of backstory/clue
      before the actual question. German-language questions should hinge on
-     what a German word or surname means, not grammar drills.
+     what a German word or surname means, not grammar drills — but never a
+     flat "means X in German" giveaway; work the meaning in obliquely.
+   - Optional `audio` field for audio-guessing questions ("guess the
+     composer/piece," "guess the original behind this cover"):
+     `"audio": { "url": "https://...", "credit": "Public domain via Wikimedia Commons" }`.
+     Only ever use a real, verified, freely-licensed recording (Wikimedia
+     Commons / IMSLP for public-domain classical, Free Music Archive for
+     CC-licensed covers) — never a fabricated or unverified URL. Omit the
+     field entirely for ordinary text-only questions.
+   - Music/entertainment questions aren't only classical anymore — bands
+     and their members/personas, songs used in musicals, and unmade or
+     nearly-unmade films/series/directors are all fair game alongside
+     classical music and film/TV trivia.
 
 2. Add an entry to `questions/manifest.json`:
 

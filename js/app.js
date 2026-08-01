@@ -134,6 +134,20 @@ function renderDots() {
   });
 }
 
+function renderAudio(audio) {
+  const container = document.getElementById("quiz-audio");
+  if (!audio || !audio.url) {
+    container.innerHTML = "";
+    container.style.display = "none";
+    return;
+  }
+  container.style.display = "block";
+  container.innerHTML = `
+    <audio controls preload="none" src="${audio.url}"></audio>
+    ${audio.credit ? `<span class="audio-credit">${audio.credit}</span>` : ""}
+  `;
+}
+
 function renderQuestion() {
   answered = false;
   const q = round.current;
@@ -142,6 +156,7 @@ function renderQuestion() {
   document.getElementById("quiz-score").textContent = `Score ${round.score}`;
   document.getElementById("quiz-category").textContent = q.category;
   document.getElementById("quiz-question").textContent = q.question;
+  renderAudio(q.audio);
   renderDots();
 
   const optionsEl = document.getElementById("quiz-options");

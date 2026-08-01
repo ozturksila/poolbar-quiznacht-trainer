@@ -1,7 +1,7 @@
 ---
 name: daily-quiz-generator
 description: Generates a new daily question set for the Poolbar Quiznacht Trainer (this quiztrainer project) and exports it as a standalone, sendable HTML file. Use when the user asks to create, add, or generate a new day's quiz, questions, or question set — e.g. "make tomorrow's quiz", "generate day 3", "add a new question set", "create today's questions". Reads every existing question set first to learn the house style and avoid repeating topics, then writes a new questions/YYYY-MM-DD.json file, registers it in questions/manifest.json, and builds dist/YYYY-MM-DD.html.
-tools: Read, Write, Edit, Glob, Grep, Bash
+tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
 ---
 
 You generate one new daily question set for the Poolbar Quiznacht Trainer, a
@@ -101,6 +101,67 @@ For a 50-question set, aim roughly for:
 
 Scale these proportions if asked for a different total question count.
 
+**Additional music/entertainment sub-themes** — fold these into Art &
+Culture and Movies & TV alongside classical music and film/TV, don't let
+classical music be the *only* music sub-theme every time:
+
+- **Bands and their members/personas** — lineup trivia, stage personas,
+  fictional or virtual band concepts (the user gave "a band whose members
+  are named/animated characters" as the *shape* of question they want more
+  of — write new questions in that spirit about *other* bands with a
+  similar gimmick or notable lineup trivia; never write about the specific
+  band the user mentioned, see `questions/excluded-topics.md`).
+- **Songs used in musicals** — a song's use/placement in a stage or film
+  musical, its composer/lyricist, or the musical's history.
+- **Unmade or nearly-unmade productions** — films, series, or musicals
+  that were announced/in development but never got made, or a director
+  who was attached to a famous project before it changed hands or fell
+  through entirely.
+
+These are regular text-only questions (same schema, same style rules) —
+no audio needed. See "Audio-guessing questions" below for the separate,
+optional audio-clip question type.
+
+## Audio-guessing questions (optional, hard verification requirement)
+
+You may include a small number of audio-based questions — the player
+listens to an embedded clip and guesses either **the piece/composer**, or
+**the original song a given cover version is based on**. This is a real
+but experimental feature; quality and honesty matter more than quantity.
+
+**Absolute rule: never fabricate an audio URL.** An invented-but-plausible
+Wikimedia/IMSLP-looking link is worse than no audio question at all — it
+just shows a broken player to whoever's playing. For every candidate audio
+question:
+
+1. Use `WebSearch` to find a specific, real recording that's public domain
+   or clearly freely-licensed (Wikimedia Commons and IMSLP are the best
+   sources for public-domain classical recordings; freely-licensed covers
+   are much rarer — Wikimedia Commons or Free Music Archive CC0/CC-BY
+   tracks only, never a random YouTube/Spotify link).
+2. Use `WebFetch` on the direct file URL (not just the search result page)
+   to confirm it actually resolves and looks like a real audio file before
+   using it.
+3. If you can't find and verify a real, clearly-licensed source after a
+   reasonable search, **drop the audio idea for that subject** and either
+   write a normal text-only question instead, or move on to a different
+   subject. Don't force it.
+4. Include the license/source as the `credit` (e.g. "Public domain
+   recording via Wikimedia Commons") — never omit attribution.
+
+Schema addition for an audio question: add an optional `audio` object to
+the question: `{ "url": "...", "credit": "..." }`. Everything else about
+the question (options, info blurbs, category) stays the same — the
+question text should read naturally whether or not the audio loads (e.g.
+"Listen to the clip above — which composer wrote this?"), and audio
+questions still count toward the classical-music or band/pop-music
+sub-theme quotas above, not as a separate category.
+
+A handful per set (roughly 1-3) is a reasonable target when good sources
+exist — zero is fine too if nothing verifiable turns up. Report in Step 8
+which questions (if any) got real audio and which candidates you dropped
+for lack of a verifiable source.
+
 ## Style rules (match the existing sets exactly)
 
 - **Context-first phrasing.** Every question gives a sentence or two of
@@ -155,7 +216,10 @@ Scale these proportions if asked for a different total question count.
 
 1. Write the new question set to `questions/YYYY-MM-DD.json`, matching
    the existing schema exactly:
-   `{ id, category, question, options: [{ text, info }], correctIndex, dateAdded }`.
+   `{ id, category, question, options: [{ text, info }], correctIndex, dateAdded }`,
+   plus an optional `audio: { url, credit }` field for the (rare) verified
+   audio-guessing questions described above — omit it entirely for every
+   normal text-only question.
 2. Append a new entry to `questions/manifest.json`'s `sets` array:
    `{ id: "YYYY-MM-DD", file: "YYYY-MM-DD.json", label: "YYYY-MM-DD", questionCount: <n> }`.
    The `label` is just the date — no "Day N" prefix, no other framing.
