@@ -125,37 +125,61 @@ optional audio-clip question type.
 ## Audio-guessing questions (optional, hard verification requirement)
 
 You may include a small number of audio-based questions — the player
-listens to an embedded clip and guesses either **the piece/composer**, or
-**the original song a given cover version is based on**. This is a real
-but experimental feature; quality and honesty matter more than quantity.
+listens to or watches an embedded clip and guesses **the piece/artist**,
+or **the original song a given cover version is based on**. This isn't
+limited to classical music — pop, rock, and other genres from any era
+(present day back through the 2000s and earlier) are all fair game
+alongside classical. This feature has been tested end-to-end and works;
+quality and verification still matter more than quantity.
 
-**Absolute rule: never fabricate an audio URL.** An invented-but-plausible
-Wikimedia/IMSLP-looking link is worse than no audio question at all — it
-just shows a broken player to whoever's playing. For every candidate audio
-question:
+**Absolute rule: never fabricate a URL or video ID.** An invented-but-
+plausible-looking link is worse than no audio question at all — it just
+shows a broken player. There are two supported source types, pick
+whichever fits the subject:
 
-1. Use `WebSearch` to find a specific, real recording that's public domain
-   or clearly freely-licensed (Wikimedia Commons and IMSLP are the best
-   sources for public-domain classical recordings; freely-licensed covers
-   are much rarer — Wikimedia Commons or Free Music Archive CC0/CC-BY
-   tracks only, never a random YouTube/Spotify link).
-2. Use `WebFetch` on the direct file URL (not just the search result page)
-   to confirm it actually resolves and looks like a real audio file before
-   using it.
-3. If you can't find and verify a real, clearly-licensed source after a
-   reasonable search, **drop the audio idea for that subject** and either
-   write a normal text-only question instead, or move on to a different
-   subject. Don't force it.
-4. Include the license/source as the `credit` (e.g. "Public domain
-   recording via Wikimedia Commons") — never omit attribution.
+**1. Direct audio file** (`"audio": { "type": "file", "url": "...", "credit": "..." }`)
+— best for public-domain classical recordings.
+1. Use `WebSearch` to find a specific, real recording that's public
+   domain or clearly freely-licensed (Wikimedia Commons and IMSLP are the
+   best sources).
+2. Use `WebFetch` on the direct file URL (not just the search result
+   page) to confirm it describes a real, appropriately-licensed audio
+   file — then independently confirm the URL actually resolves via
+   `curl -sI <url>` and check for a `200` status and an audio
+   `content-type` before using it. Don't trust the page description
+   alone; both checks are required.
 
-Schema addition for an audio question: add an optional `audio` object to
-the question: `{ "url": "...", "credit": "..." }`. Everything else about
-the question (options, info blurbs, category) stays the same — the
-question text should read naturally whether or not the audio loads (e.g.
-"Listen to the clip above — which composer wrote this?"), and audio
-questions still count toward the classical-music or band/pop-music
-sub-theme quotas above, not as a separate category.
+**2. YouTube embed** (`"audio": { "type": "youtube", "videoId": "...", "credit": "..." }`)
+— the practical option for pop/rock/anything not public domain, and for
+"guess the original behind this cover" questions (search for a cover on
+an established channel, e.g. Postmodern Jukebox, rather than trying to
+source the copyrighted original directly).
+1. Use `WebSearch` to find the specific official or well-established
+   video (official artist/VEVO channel for originals; a known, credited
+   cover channel for cover versions).
+2. Verify it's real via YouTube's oEmbed endpoint — run:
+   `curl -s "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<ID>&format=json"`
+   and confirm it returns a real `title`/`author_name` (not an error).
+   Use the returned title/author to sanity-check this is actually the
+   video you think it is before using its ID.
+3. Use the video ID only (not the full URL) in the `audio.videoId` field.
+
+**Either type:**
+- If you can't find and verify a real source after a reasonable search,
+  **drop the audio idea for that subject** and either write a normal
+  text-only question instead, or move on to a different subject. Don't
+  force it.
+- Always include a `credit` string naming the performer/channel and
+  license/source (e.g. "Public domain recording via Wikimedia Commons",
+  or "OutKast – official video, via OutkastVEVO on YouTube") — never omit
+  attribution.
+- Everything else about the question (options, info blurbs, category)
+  stays the same — phrase the question to read naturally whether the
+  audio is heard or not (e.g. "Listen to the clip below — which composer
+  wrote this?" / "Watch the clip below — which act recorded this?").
+  Audio questions count toward the classical-music or band/pop-music
+  sub-theme quotas above, not as a separate category — Art & Culture is
+  the natural home for most of them.
 
 A handful per set (roughly 1-3) is a reasonable target when good sources
 exist — zero is fine too if nothing verifiable turns up. Report in Step 8

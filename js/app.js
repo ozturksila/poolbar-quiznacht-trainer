@@ -136,15 +136,45 @@ function renderDots() {
 
 function renderAudio(audio) {
   const container = document.getElementById("quiz-audio");
-  if (!audio || !audio.url) {
+  const hasSource = audio && (audio.url || audio.videoId);
+  if (!hasSource) {
     container.innerHTML = "";
     container.style.display = "none";
     return;
   }
   container.style.display = "block";
+
+  if (audio.type === "youtube" && audio.videoId) {
+    const start = audio.start ? `&start=${audio.start}` : "";
+    // Blurred + hidden behind a "listen only" button until answered: the
+    // YouTube embed's own thumbnail/title overlay would otherwise name the
+    // artist/song outright before anyone even presses play.
+    container.innerHTML = `
+      <div class="yt-wrap hidden" id="yt-wrap">
+        <iframe
+          id="yt-frame"
+          src="https://www.youtube-nocookie.com/embed/${audio.videoId}?enablejsapi=1&controls=1&modestbranding=1&rel=0${start}"
+          title="Audio clip"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <button type="button" class="yt-reveal-btn" id="yt-play-btn">▶ Play clip — video hidden until you answer</button>
+      </div>
+      ${audio.credit ? `<span class="audio-credit hidden" id="audio-credit">${audio.credit}</span>` : ""}
+    `;
+    document.getElementById("yt-play-btn").addEventListener("click", (e) => {
+      const frame = document.getElementById("yt-frame");
+      frame.contentWindow.postMessage(JSON.stringify({ event: "command", func: "playVideo", args: [] }), "*");
+      e.target.textContent = "🔊 Playing — video hidden until you answer";
+    });
+    return;
+  }
+
   container.innerHTML = `
     <audio controls preload="none" src="${audio.url}"></audio>
-    ${audio.credit ? `<span class="audio-credit">${audio.credit}</span>` : ""}
+    ${audio.credit ? `<span class="audio-credit hidden" id="audio-credit">${audio.credit}</span>` : ""}
   `;
 }
 
@@ -185,6 +215,15 @@ function selectAnswer(selectedIndex) {
 
   const q = round.current;
   const correct = round.submitAnswer(selectedIndex);
+
+  const ytWrap = document.getElementById("yt-wrap");
+  if (ytWrap) {
+    ytWrap.classList.remove("hidden");
+    const btn = document.getElementById("yt-play-btn");
+    if (btn) btn.remove();
+  }
+  const audioCredit = document.getElementById("audio-credit");
+  if (audioCredit) audioCredit.classList.remove("hidden");
 
   const optionEls = document.querySelectorAll("#quiz-options .option");
   optionEls.forEach((el) => {

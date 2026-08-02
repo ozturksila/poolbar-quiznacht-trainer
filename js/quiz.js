@@ -35,6 +35,7 @@ class QuizRound {
       id: q.id,
       category: q.category,
       question: q.question,
+      audio: q.audio,
       options,
       correctIndex,
     };

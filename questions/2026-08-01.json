@@ -302,23 +302,28 @@
   {
     "id": "2026-08-01-13",
     "category": "Art & Culture",
-    "question": "Composed in just 24 days in 1741, this oratorio includes the famous 'Hallelujah' chorus, and tradition holds that audiences stand during it because England's King George II supposedly rose to his feet at the London premiere. Who composed it?",
+    "question": "Listen to the clip below, then answer: which German composer wrote this fiery, tempo-shifting dance — one of a set of 21 he based on Roma folk melodies rather than composing entirely from scratch?",
+    "audio": {
+      "type": "file",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Johannes_Brahms_-_Ungarischer_Tanz_5_g-moll.ogg",
+      "credit": "Fulda Symphonic Orchestra, cond. Simon Schindler, piano: Johannes Volker Schmidt — EFF Open Audio License, via Wikimedia Commons"
+    },
     "options": [
       {
-        "text": "George Frideric Handel",
-        "info": "A German-born composer who spent most of his career in England, also known for his orchestral suite 'Water Music.'"
+        "text": "Johannes Brahms",
+        "info": "Composed 21 Hungarian Dances based on Romani/Hungarian folk themes; No. 5 is by far the most famous."
       },
       {
-        "text": "Johann Sebastian Bach",
-        "info": "A contemporary German composer, famous for the 'Brandenburg Concertos' and church cantatas, but didn't write 'Messiah.'"
+        "text": "Antonín Dvořák",
+        "info": "Wrote his own \"Slavonic Dances\" in a similar folk-inspired style, but this isn't one of them."
       },
       {
-        "text": "Henry Purcell",
-        "info": "An earlier English Baroque composer, known for the opera 'Dido and Aeneas.'"
+        "text": "Franz Liszt",
+        "info": "Also drew heavily on Hungarian folk material in his \"Hungarian Rhapsodies,\" but didn't compose this particular piece."
       },
       {
-        "text": "Antonio Vivaldi",
-        "info": "An Italian Baroque composer best known for 'The Four Seasons,' working in a different musical tradition."
+        "text": "Edvard Grieg",
+        "info": "Norwegian composer known for incorporating folk melodies into concert works like \"Peer Gynt,\" but not this piece."
       }
     ],
     "correctIndex": 0,
@@ -327,23 +332,28 @@
   {
     "id": "2026-08-01-14",
     "category": "Art & Culture",
-    "question": "Written during a stay in the United States in the 1890s, this Czech composer's ninth symphony was inspired partly by African American spirituals and Native American melodies he encountered, and includes a famous largo movement later adapted into the song 'Goin' Home.' Who composed it?",
+    "question": "Listen to the clip below — this piece is often performed today as a setting of the Latin prayer 'Ave Maria,' though the composer actually wrote it as a song about a different woman altogether, a character from a Walter Scott poem. Who composed it?",
+    "audio": {
+      "type": "file",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Franz_Schubert_-_Ellens_dritter_Gesang.oga",
+      "credit": "Performed by Dorothea Fayne (voice) and Uwe Streibel (piano) — CC BY 3.0, via Wikimedia Commons"
+    },
     "options": [
       {
-        "text": "Antonín Dvořák",
-        "info": "Directed a New York conservatory for several years and encouraged American composers to draw on their own folk traditions."
+        "text": "Franz Schubert",
+        "info": "Composed \"Ellens dritter Gesang\" (Ellen's Third Song) for Walter Scott's poem \"The Lady of the Lake\"; its \"Ave Maria\" opening line led to its now-common association with the prayer."
       },
       {
-        "text": "Bedřich Smetana",
-        "info": "An earlier Czech composer known for the symphonic cycle 'Má vlast,' celebrating Bohemian landscapes and legends."
+        "text": "Johannes Brahms",
+        "info": "Also wrote choral and vocal works, but not this piece."
       },
       {
-        "text": "Leoš Janáček",
-        "info": "A later Czech composer known for operas like 'Jenůfa,' working in a more modernist style."
+        "text": "Felix Mendelssohn",
+        "info": "Composed sacred vocal works of his own, but this isn't one of them."
       },
       {
-        "text": "Jean Sibelius",
-        "info": "A Finnish composer known for 'Finlandia,' from a different national musical tradition entirely."
+        "text": "Robert Schumann",
+        "info": "A contemporary Romantic composer known for song cycles (\"Lieder\"), but didn't write this piece."
       }
     ],
     "correctIndex": 0,
@@ -352,23 +362,28 @@
   {
     "id": "2026-08-01-15",
     "category": "Art & Culture",
-    "question": "Commissioned for the opening of a new opera house in Cairo and set in ancient Egypt, this grand opera features a famous triumphal march often performed at outdoor spectacles with live elephants and horses. Who composed it?",
+    "question": "Watch the clip below — this 2003 chart-topper mixes hip hop and funk-pop, was performed almost entirely by one half of a duo (his bandmate barely appears on the track at all), and famously tells listeners to 'shake it like a Polaroid picture.' Which act recorded it?",
+    "audio": {
+      "type": "youtube",
+      "videoId": "8Nl7KZtUBfs",
+      "credit": "OutKast – 'Hey Ya!' official video, via OutkastVEVO on YouTube"
+    },
     "options": [
       {
-        "text": "Giuseppe Verdi",
-        "info": "One of the most performed opera composers in history, also known for 'La Traviata' and 'Rigoletto.'"
+        "text": "OutKast",
+        "info": "\"Hey Ya!\" was written and performed almost entirely by André 3000, with Big Boi largely absent from the track itself."
       },
       {
-        "text": "Giacomo Puccini",
-        "info": "A later Italian opera composer known for 'La Bohème' and 'Madama Butterfly,' a generation after Verdi."
+        "text": "Gnarls Barkley",
+        "info": "Another genre-blending 2000s duo (Cee-Lo Green and Danger Mouse), best known for \"Crazy,\" released a few years later."
       },
       {
-        "text": "Gioachino Rossini",
-        "info": "An earlier Italian opera composer known for comic works like 'The Barber of Seville.'"
+        "text": "Black Eyed Peas",
+        "info": "Also blended hip hop with pop hooks in the 2000s, but didn't record this particular song."
       },
       {
-        "text": "Ruggero Leoncavallo",
-        "info": "An Italian opera composer known for 'Pagliacci,' a contemporary of Puccini rather than Verdi."
+        "text": "N.E.R.D.",
+        "info": "Pharrell Williams' rock-funk side project, active in the same era, but unrelated to this track."
       }
     ],
     "correctIndex": 0,
@@ -377,23 +392,28 @@
   {
     "id": "2026-08-01-16",
     "category": "Art & Culture",
-    "question": "Each movement of this early 20th-century orchestral suite is named after a planet and its corresponding astrological character, from the martial aggression of 'Mars' to the serene mysticism of 'Neptune' — and it was written before Pluto's discovery, so it isn't included. Who composed 'The Planets'?",
+    "question": "Listen to this vintage-style cover below — big band horns and soulful vocals reworking a much harder-edged song. Which 1970s rock band recorded the original, a power ballad about chasing a dream until it comes true?",
+    "audio": {
+      "type": "youtube",
+      "videoId": "Yq4KA0mUnC8",
+      "credit": "Cover: Postmodern Jukebox ft. Morgan James, via PostmodernJukebox on YouTube — original song by Aerosmith"
+    },
     "options": [
       {
-        "text": "Gustav Holst",
-        "info": "An English composer of German and Swedish descent, whose daughter Imogen later became a composer and conductor herself."
+        "text": "Aerosmith",
+        "info": "\"Dream On,\" from their 1973 debut album, is the original being covered here in a vintage soul style."
       },
       {
-        "text": "Ralph Vaughan Williams",
-        "info": "A contemporary and close friend of Holst's, also an English composer, known for 'The Lark Ascending.'"
+        "text": "Led Zeppelin",
+        "info": "Another iconic 1970s rock act known for epic ballads, but didn't record this particular song."
       },
       {
-        "text": "Benjamin Britten",
-        "info": "A later English composer known for the opera 'Peter Grimes' and 'The Young Person's Guide to the Orchestra.'"
+        "text": "Journey",
+        "info": "Famous for arena rock ballads like \"Don't Stop Believin',\" from a slightly later era than this song."
       },
       {
-        "text": "Edward Elgar",
-        "info": "An earlier English composer best known for the 'Pomp and Circumstance' marches and the 'Enigma Variations.'"
+        "text": "Fleetwood Mac",
+        "info": "Also known for emotionally driven rock songs in the 1970s, but not this one."
       }
     ],
     "correctIndex": 0,
