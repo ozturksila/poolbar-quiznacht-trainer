@@ -29,6 +29,12 @@
       "file": "2026-08-02.json",
       "label": "2026-08-02",
       "questionCount": 50
+    },
+    {
+      "id": "2026-08-04",
+      "file": "2026-08-04.json",
+      "label": "2026-08-04",
+      "questionCount": 50
     }
   ]
 }
