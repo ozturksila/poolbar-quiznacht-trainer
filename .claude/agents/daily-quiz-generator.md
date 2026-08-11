@@ -164,6 +164,23 @@ source the copyrighted original directly).
 3. Use the video ID only (not the full URL) in the `audio.videoId` field.
 
 **Either type:**
+- **The answer must never appear in the clip's own title or channel
+  name (hard rule).** The app blurs the video until the player answers,
+  but that blur is the last line of defence, not the only one — design
+  the question so it still works if the blur ever fails. Check the
+  oEmbed `title` and `author_name` against your intended answer before
+  committing to a clip; if the answer shows up in either, either reframe
+  the question so the answer is something else, or drop the clip.
+  - **Bad:** clip titled "The White Stripes – Seven Nation Army", answer
+    "The White Stripes". The title simply states the answer.
+  - **Good:** clip titled "The Verve – Bitter Sweet Symphony", question
+    asks whose song was sampled, answer "The Rolling Stones". The title
+    names the performer, but the performer isn't what's being asked.
+  - Question shapes that satisfy this naturally: cover → name the
+    original artist; sample → name the sampled song or act; who directed
+    the video; which film/artwork it homages; what year or location; what
+    dance or trend it launched; which instrument or studio trick made the
+    signature sound.
 - If you can't find and verify a real source after a reasonable search,
   **drop the audio idea for that subject** and either write a normal
   text-only question instead, or move on to a different subject. Don't
