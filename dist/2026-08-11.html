@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poolbar Quiznacht Trainer</title>
+<style>
+:root {
+  --felt-dark: #06341f;
+  --felt: #0c4a2e;
+  --felt-light: #145c3a;
+  --brass: #c9a227;
+  --brass-bright: #e8c34a;
+  --cream: #f3ecd9;
+  --cream-dim: #cfc6ab;
+  --red: #b3432b;
+  --red-bright: #e0553a;
+  --green-ok: #4c9a5b;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+  --font-body: "Georgia", "Iowan Old Style", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, var(--felt-light) 0%, var(--felt) 45%, var(--felt-dark) 100%);
+  color: var(--cream);
+  font-family: var(--font-body);
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px 48px;
+}
+
+#app {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Header / branding */
+.brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand h1 {
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  color: var(--brass-bright);
+  font-size: 1.5rem;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px var(--shadow);
+}
+
+.brand .sub {
+  color: var(--cream-dim);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 14px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  color: #23180a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 0 #8a6c15, 0 6px 14px var(--shadow);
+  transition: transform 0.08s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #8a6c15, 0 3px 8px var(--shadow);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(243, 236, 217, 0.4);
+  box-shadow: none;
+}
+
+.btn.secondary:hover {
+  border-color: var(--brass-bright);
+  color: var(--brass-bright);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Start screen */
+.set-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.set-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.set-option input {
+  accent-color: var(--brass);
+}
+
+.name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 4px 0 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.name-field input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--cream);
+}
+
+.name-field input:focus {
+  outline: none;
+  border-color: var(--brass-bright);
+}
+
+.embedded-set-label {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  padding: 10px 12px;
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: 8px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(243, 236, 217, 0.18);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.dot.done-correct {
+  background: var(--green-ok);
+  border-color: var(--green-ok);
+}
+
+.dot.done-wrong {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.dot.current {
+  background: var(--brass-bright);
+  border-color: var(--brass-bright);
+}
+
+/* Question */
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brass);
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.12rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  color: var(--cream);
+}
+
+.audio-block {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audio-block audio {
+  width: 100%;
+}
+
+.yt-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.yt-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.yt-wrap.hidden iframe {
+  filter: blur(28px) brightness(0.55);
+  pointer-events: none;
+}
+
+.yt-reveal-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  background: rgba(6, 52, 31, 0.35);
+  border: none;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.yt-wrap.hidden .yt-reveal-btn {
+  display: flex;
+}
+
+.audio-credit {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cream-dim);
+}
+
+.audio-credit.hidden {
+  display: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(243, 236, 217, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--cream);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.option:hover:not(.disabled) {
+  border-color: var(--brass-bright);
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.option .letter {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.option .opt-body {
+  flex: 1;
+}
+
+.option .opt-info {
+  display: none;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  line-height: 1.4;
+}
+
+.option.revealed .opt-info {
+  display: block;
+}
+
+.option.correct {
+  border-color: var(--green-ok);
+  background: rgba(76, 154, 91, 0.18);
+}
+
+.option.correct .letter {
+  color: var(--green-ok);
+}
+
+.option.wrong {
+  border-color: var(--red-bright);
+  background: rgba(179, 67, 43, 0.18);
+}
+
+.option.wrong .letter {
+  color: var(--red-bright);
+}
+
+.option.disabled {
+  cursor: default;
+}
+
+/* Results */
+.results-score {
+  text-align: center;
+  font-family: var(--font-mono);
+  margin: 10px 0 24px;
+}
+
+.results-score .big {
+  font-size: 2.6rem;
+  color: var(--brass-bright);
+}
+
+.results-score .pct {
+  color: var(--cream-dim);
+  font-size: 0.9rem;
+}
+
+/* History */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px dashed rgba(243, 236, 217, 0.15);
+  padding: 8px 2px;
+  color: var(--cream-dim);
+}
+
+.history-row .score {
+  color: var(--brass-bright);
+}
+
+.empty-note {
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  color: var(--brass-bright);
+  letter-spacing: 0.03em;
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+  .card {
+    padding: 18px 14px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="brand">
+    <h1>Poolbar Quiznacht Trainer</h1>
+    <div class="sub">Vorarlberg pub quiz practice</div>
+  </div>
+
+  <section id="screen-start" class="screen active">
+    <div class="card">
+      <h2>Choose a question set</h2>
+      <div id="set-list" class="set-list">
+        <div class="empty-note">Loading question sets…</div>
+      </div>
+      <label class="name-field">
+        <span>Your name (optional)</span>
+        <input type="text" id="player-name" placeholder="You" maxlength="40" />
+      </label>
+      <div class="btn-row">
+        <button id="btn-start" class="btn">Start Quiz</button>
+        <button id="btn-view-history" class="btn secondary">History</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-quiz" class="screen">
+    <div class="card">
+      <div class="scoreboard">
+        <span id="quiz-progress">Q 1/50</span>
+        <span id="quiz-score">Score 0</span>
+      </div>
+      <div id="quiz-dots" class="dots"></div>
+      <div id="quiz-category" class="category-tag"></div>
+      <p id="quiz-question" class="question-text"></p>
+      <div id="quiz-audio" class="audio-block" style="display:none"></div>
+      <div id="quiz-options" class="options"></div>
+      <div class="btn-row">
+        <button id="btn-next" class="btn" style="display:none">Next Question</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-results" class="screen">
+    <div class="card">
+      <h2>Round complete</h2>
+      <div class="results-score">
+        <div class="big" id="results-score">0 / 0</div>
+        <div class="pct" id="results-pct">0%</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-play-again" class="btn">Play Again</button>
+        <button id="btn-download-results" class="btn secondary">Download Results</button>
+        <button id="btn-results-history" class="btn secondary">History</button>
+        <button id="btn-results-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-history" class="screen">
+    <div class="card">
+      <h2>Score history</h2>
+      <div id="history-list" class="history-list">
+        <div class="empty-note">No rounds played yet.</div>
+      </div>
+      <div class="btn-row">
+        <button id="btn-history-home" class="btn secondary">Home</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+window.EMBEDDED_SET_META = {"id": "2026-08-11", "label": "2026-08-11", "questionCount": 50};
+window.EMBEDDED_QUESTIONS = [{"id": "2026-08-11-01", "category": "Sport", "question": "In a 1986 World Cup quarter-final in Mexico City, one player scored twice within four minutes: the first goal was punched in with a fist and allowed to stand, the second involved dribbling past half the opposing team from inside his own half. Who was he?", "options": [{"text": "Diego Maradona", "info": "He later described the handball goal as scored 'a little with the head of Maradona and a little with the hand of God'; the second was voted Goal of the Century in a FIFA poll."}, {"text": "Michel Platini", "info": "France's playmaker was at that same tournament and had just won three consecutive Ballon d'Or awards, but this was not his match."}, {"text": "Zico", "info": "The Brazilian midfielder was also playing in Mexico in 1986 and famously missed a penalty against France in the quarter-finals."}, {"text": "Enzo Francescoli", "info": "The elegant Uruguayan forward was one of South America's biggest stars of the era, and a player Zinedine Zidane named his son after."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-02", "category": "Sport", "question": "After a home defeat in 1882, a British newspaper printed a mock obituary declaring that a sport had died and that 'the body will be cremated and the ashes taken to Australia.' The joke stuck, and the resulting contest is now played for a tiny terracotta urn. Which rivalry is it?", "options": [{"text": "The Ashes", "info": "England and Australia have contested it since 1882-83; the urn itself is only about 11 centimetres tall and normally stays in a museum at Lord's rather than travelling with the winners."}, {"text": "The Bledisloe Cup", "info": "The trophy contested between the rugby union sides of Australia and New Zealand, donated by a New Zealand governor-general in the 1930s."}, {"text": "The Ranfurly Shield", "info": "A New Zealand domestic rugby trophy held on a challenge basis, meaning it can only change hands when the holder loses at home."}, {"text": "The Currie Cup", "info": "South Africa's oldest domestic rugby competition, named after a shipping magnate who donated the original trophy in 1889."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-03", "category": "Sport", "question": "Developed by enslaved Africans in colonial Brazil and often disguised as dance so that plantation owners would not recognise it as combat training, this art form is practised in a circle to the twanging of a single-string bow called a berimbau. What is it?", "options": [{"text": "Capoeira", "info": "It was outlawed in Brazil after abolition and only legalised in the 1930s, when Mestre Bimba was allowed to open a formal academy in Salvador."}, {"text": "Silat", "info": "A family of martial arts from the Malay world, also often performed to music, but with no Brazilian connection."}, {"text": "Kalaripayattu", "info": "A weapons-and-grappling tradition from Kerala in southern India, sometimes claimed as one of the world's oldest martial arts."}, {"text": "Krav Maga", "info": "A modern self-defence system developed in the 20th century for the Israeli military, with no ritual or musical element."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-04", "category": "Sport", "question": "In 1977 a group of naval officers in Honolulu argued over whether swimmers, cyclists or runners were the fittest athletes. Rather than settle it verbally, they stapled three existing local races together and told the fifteen starters that whoever finished first could 'brag for the rest of their life.' What did this argument create?", "options": [{"text": "The Ironman triathlon", "info": "The first edition was held in 1978 and combined a 3.9 km swim, a 180 km bike ride and a full marathon; twelve of the fifteen starters finished."}, {"text": "The modern pentathlon", "info": "A much older event, devised for the 1912 Olympics around the idea of a soldier riding, shooting, fencing, swimming and running behind enemy lines."}, {"text": "The decathlon", "info": "A ten-event athletics competition whose winner has traditionally been called the world's greatest athlete, but which dates back to the early 1900s."}, {"text": "CrossFit", "info": "A branded fitness regime and competition founded in California around 2000, decades after this argument took place."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-05", "category": "Sport", "question": "At the 1990 World Cup, a team nobody expected beat the reigning champions in the opening match and reached the quarter-finals, largely thanks to a 38-year-old striker who had been coaxed out of semi-retirement and celebrated each goal by dancing at the corner flag. Which country was it?", "options": [{"text": "Cameroon", "info": "Roger Milla scored four goals off the bench; the Indomitable Lions lost 3-2 to England in extra time and remain one of only a handful of African sides to reach a World Cup quarter-final."}, {"text": "Morocco", "info": "They had been the first African team to top a World Cup group, in 1986, but did not qualify for the 1990 tournament."}, {"text": "Ivory Coast", "info": "Their golden generation of Drogba and the Touré brothers came two decades later and never got past the group stage."}, {"text": "Zambia", "info": "Their celebrated national side of the early 1990s was largely lost in a 1993 plane crash off Gabon."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-06", "category": "Sport", "question": "One horse race is such a fixture of national life that its host city gets a public holiday for it and the phrase 'the race that stops a nation' is used without irony. Run over 3,200 metres on the first Tuesday in November, which race is it?", "options": [{"text": "The Melbourne Cup", "info": "First run in 1861 and now watched by a large share of the Australian population; the state of Victoria grants a public holiday in the metropolitan Melbourne area on race day."}, {"text": "The Dubai World Cup", "info": "One of the richest races in the world by prize money, run at Meydan in late March, but a comparatively recent creation from 1996."}, {"text": "The Grand National", "info": "A steeplechase over huge fences at Aintree near Liverpool, run in spring and famous for its long-shot winners."}, {"text": "The Kentucky Derby", "info": "Run on the first Saturday in May over a much shorter distance, and known for mint juleps and elaborate hats rather than a public holiday."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-07", "category": "Sport", "question": "In the summer of 1972 a match in Reykjavík was treated as a proxy battle of the Cold War. The American challenger forfeited the second game over complaints about cameras and noise, then won anyway, ending 24 years of Soviet dominance in the discipline. Who was he?", "options": [{"text": "Bobby Fischer", "info": "He beat Boris Spassky 12½-8½ to become world chess champion, then never defended the title and forfeited it in 1975 when his conditions were not met."}, {"text": "Samuel Reshevsky", "info": "A Polish-American prodigy who gave simultaneous exhibitions as a child and was a leading US player, but never a world title challenger."}, {"text": "Paul Keres", "info": "An Estonian grandmaster nicknamed 'the eternal second' for finishing runner-up in candidates tournaments four times."}, {"text": "Viktor Korchnoi", "info": "He defected from the Soviet Union in 1976 and challenged for the title twice, losing both matches to Anatoly Karpov."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-08", "category": "Movies & TV", "question": "Before making the film usually voted the greatest of all time, this 25-year-old had a studio contract giving him unheard-of creative freedom and spent months preparing an adaptation of Joseph Conrad's 'Heart of Darkness', shot entirely from the main character's point of view. The budget killed it. Who was he?", "options": [{"text": "Orson Welles", "info": "RKO cancelled the project in 1940; he made 'Citizen Kane' instead, and the point-of-view idea resurfaced decades later in other films."}, {"text": "John Huston", "info": "He made his directing debut with 'The Maltese Falcon' in 1941 and later adapted 'Moby-Dick', but not this Conrad novella."}, {"text": "Josef von Sternberg", "info": "He directed 'The Blue Angel' and did abandon an unfinished epic in the 1930s, but a different one - 'I, Claudius'."}, {"text": "Erich von Stroheim", "info": "Famous for having his own nine-hour film 'Greed' cut to a fraction of its length by the studio."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-09", "category": "Movies & TV", "question": "He spent roughly eight years developing a superhero comedy for Marvel, co-wrote the script and shot test footage, then walked away weeks before shooting began in 2014 over 'creative differences'. He kept a story credit and went off to make 'Baby Driver' instead. Who is he?", "options": [{"text": "Edgar Wright", "info": "'Ant-Man' was eventually directed by Peyton Reed; Wright's departure became the best-known example of a director clashing with Marvel's house style."}, {"text": "Guy Ritchie", "info": "He has been attached to plenty of studio projects but never to this one; his blockbuster detour was 'Aladdin'."}, {"text": "Matthew Vaughn", "info": "He did leave a comic-book franchise late in development - 'X-Men: Days of Future Past' - but it was not this film."}, {"text": "Joe Cornish", "info": "The 'Attack the Block' director co-wrote the early drafts alongside Wright but was not the one attached to direct."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-10", "category": "Movies & TV", "question": "Set in 1962 Hong Kong, this film follows two neighbours who suspect their spouses of an affair and slowly fall for each other while barely touching; the spouses are never shown, and a slow waltz theme repeats over shots of a woman climbing stairs with a noodle tin. Who directed it?", "options": [{"text": "Wong Kar-wai", "info": "'In the Mood for Love' (2000) was shot over 15 months largely without a finished script, and Tony Leung won Best Actor at Cannes for it."}, {"text": "John Woo", "info": "The other great Hong Kong export of the era, but known for balletic gunfights in films like 'Hard Boiled'."}, {"text": "Tsai Ming-liang", "info": "A Malaysian-Taiwanese director whose films share the slow pace and urban loneliness, but not this story."}, {"text": "Edward Yang", "info": "His Taipei epic 'Yi Yi' won the Cannes directing prize the same year this film competed there."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-11", "category": "Movies & TV", "question": "In 1966 a British series faced losing its lead actor to ill health after three years. Rather than recast quietly or end the show, the writers invented an in-story explanation that let the central character change his face and personality entirely - a device that has kept the programme running on and off ever since. Which series?", "options": [{"text": "Doctor Who", "info": "William Hartnell's departure led to the concept of regeneration, first used when Patrick Troughton took over in 'The Tenth Planet'."}, {"text": "The Avengers", "info": "This spy series did swap its female leads repeatedly in the 1960s, but simply replaced one character with a new one."}, {"text": "Danger Man", "info": "Patrick McGoohan's series ran in two distinct formats before he moved on to create 'The Prisoner'."}, {"text": "Z-Cars", "info": "A long-running BBC police drama of the same era, which rotated its cast in the ordinary way."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-12", "category": "Movies & TV", "question": "At the 1973 Academy Awards, the winner of Best Actor refused the statuette and sent an Apache activist, Sacheen Littlefeather, to the podium to explain that the refusal was a protest over the treatment of Native Americans in film and at Wounded Knee. Whose award was it?", "options": [{"text": "Marlon Brando", "info": "He had won for 'The Godfather'; the boos and cheers in the hall made it one of the most-replayed Oscar moments ever."}, {"text": "George C. Scott", "info": "He also refused an Oscar, for 'Patton' in 1971, but did it by staying at home and calling the ceremony a meat parade."}, {"text": "Peter O'Toole", "info": "Nominated eight times without winning a competitive award, he initially tried to decline an honorary Oscar in 2003."}, {"text": "Jack Nicholson", "info": "He was nominated in the early 1970s but did not win Best Actor until 'One Flew Over the Cuckoo's Nest'."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-13", "category": "Movies & TV", "question": "In 1979 a director kept most of the cast in the dark about the mechanics of one dinner-table scene and had buckets of blood and offal ready off-camera, so that the actors' shock at what burst out of John Hurt's chest was largely genuine. Who directed that film?", "options": [{"text": "Ridley Scott", "info": "'Alien' was only his second feature; the creature design came from Swiss artist H. R. Giger, whose work Dan O'Bannon had pushed on the producers."}, {"text": "John Carpenter", "info": "His own body-horror classic 'The Thing' came three years later and had its own famously improvised-looking effects reveal."}, {"text": "David Cronenberg", "info": "The Canadian director had already made 'Rabid' and 'The Brood', but his best-known chest-bursting effects came in 'Videodrome' and 'The Fly'."}, {"text": "Tobe Hooper", "info": "Best known for 'The Texas Chain Saw Massacre' in 1974 and later 'Poltergeist'."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-14", "category": "Movies & TV", "question": "In 1968 a made-for-television band drawn from a newspaper comic strip released a bubblegum single that became the biggest-selling record of 1969 in the United States - despite the group existing only as cartoon characters voiced by anonymous session singers. Which band?", "options": [{"text": "The Archies", "info": "'Sugar, Sugar' topped the charts worldwide; lead vocals were by session singer Ron Dante, and the band could never tour because its members were drawings."}, {"text": "The Banana Splits", "info": "Another late-1960s children's television act, but performed by people in full-body animal costumes rather than animation."}, {"text": "Josie and the Pussycats", "info": "A cartoon girl group from the same comics publisher, launched a couple of years later and never scoring a comparable hit."}, {"text": "The Chipmunks", "info": "Ross Bagdasarian's sped-up vocal act predates this by a decade and had its own novelty chart success."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-15", "category": "Art & Culture", "question": "Listen to the clip below. It opens a symphony premiered in Vienna in December 1808 at a marathon four-hour concert in an unheated theatre, with an under-rehearsed orchestra and a composer who was already losing his hearing. Who wrote it?", "audio": {"type": "file", "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Ludwig_van_Beethoven_-_symphony_no._5_in_c_minor%2C_op._67_-_i._allegro_con_brio.ogg", "credit": "Skidmore College Orchestra, released into the public domain via Musopen and Wikimedia Commons"}, "options": [{"text": "Ludwig van Beethoven", "info": "The Fifth Symphony shared that chaotic evening with the Sixth, the Fourth Piano Concerto and the Choral Fantasy; he had to stop and restart one piece mid-performance."}, {"text": "Carl Maria von Weber", "info": "A younger contemporary whose opera 'Der Freischütz' helped launch German Romantic opera, but who wrote nothing like this."}, {"text": "Luigi Cherubini", "info": "An Italian composer working in Paris whose overtures were admired by exactly the composer who wrote this piece."}, {"text": "Muzio Clementi", "info": "A pianist and publisher who actually printed some of this composer's works in London, but is remembered mainly for keyboard sonatinas."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-16", "category": "Art & Culture", "question": "Listen to the clip below. This orchestral picture of a witches' sabbath on a mountainside was never performed in its composer's lifetime; a colleague reworked it after his death from alcoholism in 1881, and that version is the one the world knows. Who originally wrote it?", "audio": {"type": "file", "url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Modest_Mussorgsky_-_night_on_bald_mountain.ogg", "credit": "Skidmore College Orchestra, public domain recording via Musopen and Wikimedia Commons"}, "options": [{"text": "Modest Mussorgsky", "info": "He drafted 'Night on Bald Mountain' in 1867 in about twelve days; his friend Rimsky-Korsakov smoothed and reorchestrated it in 1886."}, {"text": "Alexander Borodin", "info": "A member of the same Russian circle who worked as a research chemist and left his own opera unfinished at his death."}, {"text": "Mily Balakirev", "info": "The organising force behind that group of Russian nationalist composers, who rejected this very score when it was shown to him."}, {"text": "Anatoly Lyadov", "info": "A Russian miniaturist famous for procrastination - he was offered the commission for 'The Firebird' and failed to deliver."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-17", "category": "Art & Culture", "question": "Watch the clip below. The swirling string loop running through this 1997 hit was lifted from an orchestral easy-listening arrangement of an older song, and the resulting lawsuit handed almost all the royalties and the songwriting credit to the original band for over twenty years. Whose song was sampled?", "audio": {"type": "youtube", "videoId": "1lyu1KKwC74", "credit": "The Verve - official video, via TheVerveVEVO on YouTube"}, "options": [{"text": "The Rolling Stones", "info": "The loop came from an Andrew Oldham Orchestra version of 'The Last Time'; Jagger and Richards only signed the credit back to Richard Ashcroft in 2019."}, {"text": "The Kinks", "info": "Ray Davies has won his own sampling and plagiarism disputes over the years, but this was not one of them."}, {"text": "The Zombies", "info": "Their 1968 album 'Odessey and Oracle' is a favourite sampling source for later bands, though not here."}, {"text": "The Hollies", "info": "A Manchester group of the same generation whose harmonies were widely imitated, but whose catalogue is not involved."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-18", "category": "Art & Culture", "question": "Watch the clip below. The famous descending riff is not played on a bass at all - the duo had no bass player, so the guitar was routed through a pitch-shifting pedal an octave down. Within a few years football crowds across Europe were chanting it. Which act recorded it?", "audio": {"type": "youtube", "videoId": "0J2QdDbelmY", "credit": "The White Stripes - official music video, via The White Stripes on YouTube"}, "options": [{"text": "The White Stripes", "info": "Jack and Meg White released 'Seven Nation Army' in 2003 on 'Elephant', recorded on eight-track analogue tape with no computers."}, {"text": "The Black Keys", "info": "Another blues-rock guitar-and-drums duo from Ohio, often confused with this band but formed slightly later."}, {"text": "The Kills", "info": "A guitar-and-vocals duo of the same era who used drum machines rather than a live drummer."}, {"text": "Royal Blood", "info": "A British duo that genuinely does build its sound on a bass guitar pushed through guitar amps - but a decade later."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-19", "category": "Art & Culture", "question": "At its 1910 premiere in Munich, a symphony required two large choirs, a children's choir, eight vocal soloists and a vastly enlarged orchestra. An impresario advertised it with a nickname the composer disliked, and it became the greatest public triumph of his life - he died a year later. Who wrote it?", "options": [{"text": "Gustav Mahler", "info": "His Eighth Symphony was billed as the 'Symphony of a Thousand'; he had spent most of his career conducting rather than composing, including a decade running the Vienna Court Opera."}, {"text": "Richard Strauss", "info": "A contemporary who also wrote for huge forces, in tone poems like 'Ein Heldenleben', but who lived until 1949."}, {"text": "Max Reger", "info": "A prolific German composer of dense organ and orchestral works who died young in 1916, but wrote no such symphony."}, {"text": "Alexander Zemlinsky", "info": "A Viennese composer and conductor, Schoenberg's teacher and brother-in-law, whose lush late-Romantic works are far less often performed."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-20", "category": "Art & Culture", "question": "She gave her first public concert at nine, toured Europe as one of the most admired pianists of the 19th century, bore eight children, survived her husband's confinement in an asylum, and spent forty years afterwards performing and editing his music while composing very little of her own. Who was she?", "options": [{"text": "Clara Schumann", "info": "Her father sued to stop her marriage; she went on to give more than 1,300 concerts and helped establish the modern idea of a recital played from memory."}, {"text": "Fanny Mendelssohn", "info": "A gifted composer whose family discouraged publication, several of her songs appearing under her brother Felix's name - but she died in 1847."}, {"text": "Marie Pleyel", "info": "A Belgian virtuoso pianist of the same era, married into the famous piano-making family."}, {"text": "Teresa Carreño", "info": "A Venezuelan pianist known as 'the Valkyrie of the Piano', born a generation later and active mainly in the Americas."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-21", "category": "Art & Culture", "question": "One 19th-century composer had a theatre built to his own specifications in a small Bavarian town: the orchestra is sunk into a hood beneath the stage so the audience cannot see the players, there are no side boxes, and the auditorium goes fully dark during the performance. Who was he?", "options": [{"text": "Richard Wagner", "info": "The Bayreuth Festspielhaus opened in 1876 with the first complete 'Ring' cycle; its covered pit and darkened hall became standards other opera houses copied."}, {"text": "Giacomo Meyerbeer", "info": "The dominant figure of Parisian grand opera in the 1830s and 40s, whose spectacle was staged in existing theatres."}, {"text": "Hector Berlioz", "info": "He dreamed of enormous forces and wrote a treatise on orchestration, but never got a purpose-built house of his own."}, {"text": "Franz Liszt", "info": "He championed this kind of music theatre in Weimar and was closely connected to the family behind the theatre, but did not build it."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-22", "category": "Art & Culture", "question": "Patented in 1928 by a Russian physicist who had been working on proximity sensors, this instrument is played without being touched: the performer moves their hands near two antennas, one controlling pitch and the other volume. What is it?", "options": [{"text": "The theremin", "info": "Léon Theremin demonstrated it to Lenin, later worked for Soviet intelligence, and virtuoso Clara Rockmore turned the device into a genuine concert instrument."}, {"text": "The ondes Martenot", "info": "A French electronic instrument from the same era, but played with a keyboard and a ring on a wire, and famously used by Messiaen."}, {"text": "The Trautonium", "info": "A German electronic instrument of the 1930s, played by pressing a resistor wire onto a rail; it produced the bird sounds in Hitchcock's 'The Birds'."}, {"text": "The glass harmonica", "info": "Benjamin Franklin's invention of spinning glass bowls, played by touching them with wet fingers - so very much a contact instrument."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-23", "category": "Art & Culture", "question": "Fewer than 40 paintings are securely attributed to this Delft artist, who died in debt and was largely forgotten for two centuries. His revival in the 1800s was so complete that a 20th-century forger made a fortune selling fake 'lost' works of his to collectors, including Hermann Göring. Who is he?", "options": [{"text": "Johannes Vermeer", "info": "The forger Han van Meegeren proved his innocence of treason only by demonstrating in court that he had painted the 'Vermeer' he sold to the Nazis himself."}, {"text": "Pieter de Hooch", "info": "A contemporary who painted very similar sunlit Dutch courtyards and interiors, and whose works were sometimes re-signed with the more valuable name."}, {"text": "Carel Fabritius", "info": "A Delft painter of 'The Goldfinch' who died at 32 when the city's gunpowder store exploded in 1654, destroying most of his output."}, {"text": "Gerard ter Borch", "info": "A Dutch master of satin dresses and quiet domestic scenes, working in Deventer rather than Delft."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-24", "category": "Art & Culture", "question": "In 1930 two New York skyscrapers were racing to be the world's tallest. One team quietly assembled a 38-metre steel spire inside its own building's crown, then hoisted it into place in about 90 minutes, snatching the record from a rival that had already declared victory. Which building was it?", "options": [{"text": "The Chrysler Building", "info": "William Van Alen's Art Deco tower held the title for only 11 months before the Empire State Building overtook it; its crown is clad in stainless steel."}, {"text": "40 Wall Street", "info": "The rival in that race, which briefly claimed the record and whose architect had been Van Alen's former partner."}, {"text": "The Woolworth Building", "info": "Nicknamed 'the Cathedral of Commerce', it had been the world's tallest since 1913 but was out of the running by 1930."}, {"text": "The Flatiron Building", "info": "An 1902 wedge-shaped landmark famous for the wind gusts at its corner, but only 22 storeys tall."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-25", "category": "Science", "question": "In a 1925 doctoral thesis, a young astronomer concluded that stars are made overwhelmingly of hydrogen and helium. A senior colleague persuaded her to call the result 'almost certainly not real' - then published the same conclusion himself four years later. Who was she?", "options": [{"text": "Cecilia Payne-Gaposchkin", "info": "Her thesis has been called the most brilliant ever written in astronomy; she later became the first woman to head a department at Harvard."}, {"text": "Annie Jump Cannon", "info": "She classified hundreds of thousands of stellar spectra and devised the O-B-A-F-G-K-M sequence this work depended on."}, {"text": "Henrietta Swan Leavitt", "info": "Her period-luminosity relation for Cepheid variables gave astronomers their first reliable cosmic yardstick, but she died in 1921."}, {"text": "Williamina Fleming", "info": "A Scottish former housekeeper who became a leading member of the Harvard computers and catalogued over 10,000 stars."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-26", "category": "Science", "question": "A bookbinder's apprentice with almost no formal schooling, he talked his way into a laboratory job, later showed that moving a magnet through a coil of wire produces a current, and turned down both a knighthood and the presidency of the Royal Society. Who was he?", "options": [{"text": "Michael Faraday", "info": "His 1831 discovery of electromagnetic induction underlies every generator and transformer; he also started the Royal Institution's Christmas Lectures for children."}, {"text": "Joseph Henry", "info": "The American physicist who independently found induction at about the same time and gave his name to the unit of inductance."}, {"text": "Humphry Davy", "info": "The celebrated chemist who actually hired this apprentice as an assistant, and who invented a miners' safety lamp."}, {"text": "James Clerk Maxwell", "info": "He translated the field concept into four equations a generation later, keeping a portrait of this experimenter on his wall."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-27", "category": "Science", "question": "Before 1909, farmers depended on Chilean mineral deposits and seabird droppings for nitrogen fertiliser, and chemists feared mass starvation as those ran out. A process was then devised that pulls nitrogen straight out of the air under extreme pressure - and roughly half the nitrogen in your body today has passed through it. What is it called?", "options": [{"text": "The Haber-Bosch process", "info": "Fritz Haber found the reaction and Carl Bosch scaled it to industry; the same ammonia also fed the German explosives industry in the First World War."}, {"text": "The Ostwald process", "info": "A genuine and related industrial step, but it converts ammonia into nitric acid rather than fixing nitrogen from the air."}, {"text": "The Solvay process", "info": "An 1860s method for making sodium carbonate from brine and limestone, with no nitrogen involved."}, {"text": "The Bessemer process", "info": "A 19th-century method of blowing air through molten pig iron to make steel cheaply."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-28", "category": "Science", "question": "In 1985 British scientists reported a seasonal collapse in ozone over Antarctica so severe that satellite software had been discarding the readings as errors. Two years later an international treaty phased out the chemicals responsible - and it is now the only UN treaty ever ratified by every country on Earth. Which agreement?", "options": [{"text": "The Montreal Protocol", "info": "Signed in 1987, it banned CFCs used in aerosols and refrigeration; the ozone layer is now projected to recover to 1980 levels around the middle of this century."}, {"text": "The Kyoto Protocol", "info": "A 1997 agreement on greenhouse gas emissions that several major emitters never ratified or later withdrew from."}, {"text": "The Basel Convention", "info": "A 1989 treaty restricting the international movement of hazardous waste, unrelated to the atmosphere."}, {"text": "The Stockholm Convention", "info": "A 2001 agreement on persistent organic pollutants such as DDT and PCBs."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-29", "category": "Science", "question": "In November 1895 a physicist noticed a screen glowing on the far side of his darkened lab while a covered discharge tube was running. Six weeks later he produced an image of his wife's hand, bones and wedding ring clearly visible; she reportedly said, 'I have seen my death.' Who was he?", "options": [{"text": "Wilhelm Conrad Röntgen", "info": "He refused to patent the discovery, wanting it freely available, and used his 1901 Nobel Prize money - the first in physics - to endow his university."}, {"text": "Philipp Lenard", "info": "He built the cathode ray tubes this work relied on and spent decades bitterly claiming more credit for the discovery."}, {"text": "Henri Becquerel", "info": "Inspired by this discovery, he found that uranium salts fogged photographic plates on their own, revealing natural radioactivity."}, {"text": "Heinrich Hertz", "info": "He had demonstrated radio waves a few years earlier and died in 1894, before this discovery was made."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-30", "category": "Science", "question": "Forced to flee Berlin in 1938, she worked out with her nephew, during a walk in the Swedish snow, what her former colleague's puzzling experimental results meant: the uranium nucleus had split in two. He took the 1944 Nobel Prize for chemistry alone. Who was she?", "options": [{"text": "Lise Meitner", "info": "She and Otto Frisch named the process 'fission' by analogy with dividing cells; element 109, meitnerium, is named after her."}, {"text": "Ida Noddack", "info": "A German chemist who had suggested as early as 1934 that a nucleus might break into pieces, and was ignored."}, {"text": "Marguerite Perey", "info": "A former assistant of Marie Curie who discovered francium in 1939 and became the first woman elected to the French Academy of Sciences."}, {"text": "Irène Joliot-Curie", "info": "She shared a Nobel Prize for artificial radioactivity and narrowly missed identifying fission herself in experiments with Pavel Savitch."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-31", "category": "Science", "question": "In 1846 a French mathematician noticed Uranus was not where it should be, calculated where an unseen body must sit to tug it off course, and posted the coordinates to an observatory in Berlin. The staff there found the new planet the same night, within a degree of the prediction. Which planet was it?", "options": [{"text": "Neptune", "info": "Urbain Le Verrier's prediction was confirmed by Johann Galle on 23 September 1846; England's John Couch Adams had reached similar figures without being acted on."}, {"text": "Uranus", "info": "It had been spotted by William Herschel in 1781 by direct observation, not calculation - and its wobble is what prompted this search."}, {"text": "Pluto", "info": "Found in 1930 after a similar prediction, though that calculation turned out to be based on faulty data and the discovery was largely luck."}, {"text": "Ceres", "info": "The largest asteroid, discovered in 1801 and briefly counted as a planet before being reclassified."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-32", "category": "History & Geography", "question": "In 1954 a European colonial army dug in on a remote valley floor, confident its enemy could never haul artillery through the surrounding jungle hills. The guns arrived anyway, dismantled and carried by bicycle and porter, and after 56 days the garrison surrendered - ending that power's presence in Indochina. Where did this happen?", "options": [{"text": "Dien Bien Phu", "info": "The French defeat there led directly to the Geneva Accords, the partition of Vietnam and, over the following decade, American involvement."}, {"text": "Khe Sanh", "info": "A US Marine base besieged in 1968 during a later war, often compared to this earlier battle at the time."}, {"text": "Lang Son", "info": "A northern Vietnamese border town fought over by the French in 1940 and again in the 1979 war with China."}, {"text": "Hue", "info": "The old imperial capital, scene of brutal urban fighting during the 1968 Tet Offensive."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-33", "category": "History & Geography", "question": "Setting out from Tangier in 1325 at the age of 21, one traveller spent nearly three decades on the road, reaching West Africa, the Maldives, Sumatra and China, and covering perhaps 120,000 kilometres before dictating an account of it back home. Who was he?", "options": [{"text": "Ibn Battuta", "info": "His book is usually known as the 'Rihla'; the sultan of Morocco assigned a scholar to write it down after his return, since he had kept few notes."}, {"text": "Al-Idrisi", "info": "A 12th-century geographer who compiled a celebrated world map and book for the Norman king Roger II of Sicily."}, {"text": "Ibn Khaldun", "info": "A North African thinker of the following generation, remembered for pioneering social history in the 'Muqaddimah'."}, {"text": "Ahmad ibn Fadlan", "info": "A 10th-century envoy from Baghdad whose account of Volga Vikings is one of the few eyewitness descriptions of a ship burial."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-34", "category": "History & Geography", "question": "In August 1883 an eruption in the Sunda Strait was heard nearly 5,000 kilometres away in Australia and Mauritius, burst eardrums on ships dozens of kilometres off, and threw enough dust into the sky to cool global temperatures and redden sunsets for years. Which volcano was it?", "options": [{"text": "Krakatoa", "info": "Roughly two-thirds of the island collapsed; the tsunamis it generated killed the large majority of the more than 36,000 victims. A new cone, Anak Krakatau, has since grown in its place."}, {"text": "Tambora", "info": "Its 1815 eruption on Sumbawa was even larger by volume and caused the 'year without a summer' in Europe and North America."}, {"text": "Mount Pinatubo", "info": "A 1991 Philippine eruption whose sulphur haze measurably cooled the planet for a couple of years."}, {"text": "Mount Pelée", "info": "Its 1902 eruption on Martinique destroyed the town of Saint-Pierre in minutes, leaving only a handful of survivors."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-35", "category": "History & Geography", "question": "On the morning of 27 August 1896, after a disputed succession on an East African island, British warships opened fire on the sultan's palace. The sultan fled and the flag came down after about 38 minutes, giving this the usual title of the shortest war in recorded history. Which conflict?", "options": [{"text": "The Anglo-Zanzibar War", "info": "Sultan Khalid bin Barghash was replaced by a British-approved successor, and Zanzibar was later billed for the shells fired at it."}, {"text": "The Anglo-Ashanti Wars", "info": "A series of much longer conflicts in what is now Ghana, running on and off through the 19th century."}, {"text": "The Abyssinian Expedition", "info": "An 1868 British campaign into the Ethiopian highlands to free imprisoned hostages, which took months of road-building."}, {"text": "The Herero Wars", "info": "A brutal colonial campaign in German South West Africa from 1904, lasting years and now recognised as a genocide."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-36", "category": "History & Geography", "question": "The Inca ran an empire of some ten million people, with tax records, census data and storehouse inventories - but no writing system of the kind Europeans recognised. Instead, administrators encoded information in bundles of knotted, coloured cords. What are these called?", "options": [{"text": "Quipu", "info": "Knot type, position and cord colour carried the meaning, in a base-ten arrangement; most were burned by Spanish authorities and only a few hundred survive."}, {"text": "Codices", "info": "Folding bark-paper books used in Mesoamerica by the Maya and Aztecs, a very different technology."}, {"text": "Wampum", "info": "Belts of purple and white shell beads used for records, treaties and gifts among northeastern North American nations."}, {"text": "Chinampas", "info": "Not a record at all - the raised agricultural plots built in the lake beds of central Mexico."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-37", "category": "History & Geography", "question": "In 1946 the United States moved 167 residents off a remote Pacific atoll 'for the good of mankind', then detonated 23 nuclear devices there over twelve years, including one that vaporised several islands. The residents have still not been able to return permanently. Which atoll?", "options": [{"text": "Bikini Atoll", "info": "Part of the Marshall Islands, it is now a UNESCO World Heritage Site; the 1954 Castle Bravo test was far larger than predicted and contaminated a Japanese fishing boat."}, {"text": "Mururoa", "info": "The French Pacific test site in the Tuamotus, used for atmospheric and later underground tests from 1966."}, {"text": "Johnston Atoll", "info": "A US-controlled atoll used for high-altitude nuclear tests and later for destroying chemical weapons stockpiles."}, {"text": "Kiritimati", "info": "Also known as Christmas Island in Kiribati, used by Britain and the US for tests, but never evacuated in this way."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-38", "category": "History & Geography", "question": "In 1897 a steamer docked in Seattle carrying, in the newspapers' words, 'a ton of gold'. Within a year around 100,000 people set off for a subarctic river valley, most having to haul a year's worth of supplies over a mountain pass before the authorities would let them in. Which rush was it?", "options": [{"text": "The Klondike Gold Rush", "info": "The goldfields lay in Canada's Yukon near Dawson City; Mounted Police at the Chilkoot Pass turned back anyone without roughly a tonne of food and gear."}, {"text": "The California Gold Rush", "info": "The far larger 1849 rush that made San Francisco, but half a century earlier and with no such supply rule."}, {"text": "The Witwatersrand Gold Rush", "info": "The 1886 South African discovery that created Johannesburg and reshaped the region's politics."}, {"text": "The Victorian Gold Rush", "info": "The 1850s Australian rush that drew diggers to Ballarat and led to the Eureka Stockade rebellion."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-39", "category": "History & Geography", "question": "Around a quarter of the world's traded goods and much of East Asia's oil pass through a narrow channel between Sumatra and the Malay Peninsula, barely 2.7 kilometres wide at its tightest point - a chokepoint that has attracted pirates for centuries. Which waterway?", "options": [{"text": "The Strait of Malacca", "info": "Its shallowness and traffic have pushed the largest tankers onto longer routes through the Lombok and Sunda straits instead."}, {"text": "The Strait of Hormuz", "info": "The other great oil chokepoint, between Iran and Oman, but at the mouth of the Persian Gulf rather than in Southeast Asia."}, {"text": "The Bab-el-Mandeb", "info": "The strait between Djibouti and Yemen that funnels Red Sea traffic towards the Suez Canal."}, {"text": "The Taiwan Strait", "info": "A busy and strategically tense passage, but roughly 130 kilometres wide at its narrowest."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-40", "category": "History & Geography", "question": "An 1830 act of the US Congress, pushed through by President Andrew Jackson, forced tens of thousands of Cherokee, Choctaw, Creek, Chickasaw and Seminole people west of the Mississippi. Thousands died of cold, hunger and disease on the marches. What are those forced removals known as?", "options": [{"text": "The Trail of Tears", "info": "The Cherokee had actually won their case at the Supreme Court in 'Worcester v. Georgia'; the ruling was simply not enforced and removal went ahead in 1838."}, {"text": "The Long Walk", "info": "A different forced march, of the Navajo to Bosque Redondo in New Mexico in 1864."}, {"text": "The Middle Passage", "info": "The Atlantic crossing endured by enslaved Africans, not a removal within North America."}, {"text": "The Oregon Trail", "info": "A voluntary migration route west, used by settlers heading for farmland in the 1840s and 50s."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-41", "category": "History & Geography", "question": "Stretching some 2,500 kilometres across Morocco, Algeria and Tunisia, this range walls off a fertile Mediterranean strip from the desert behind it and gave its name, via Greek myth, to a book of maps. Which mountains?", "options": [{"text": "The Atlas Mountains", "info": "Its highest point, Toubkal, tops 4,100 metres and holds snow into summer; Mercator's 1595 map collection was named for the same mythological figure."}, {"text": "The Drakensberg", "info": "Southern Africa's great escarpment, running along the edge of the South African plateau and through Lesotho."}, {"text": "The Ahaggar Mountains", "info": "A volcanic massif deep in the Algerian Sahara, homeland of the Kel Ahaggar Tuareg."}, {"text": "The Ethiopian Highlands", "info": "Sometimes called the roof of Africa, but far to the east and geologically unrelated."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-42", "category": "History & Geography", "question": "For roughly a thousand years, one state was governed by an elected head chosen for life by an elaborate lottery-and-ballot procedure designed to stop any family buying the office, and its shipyard could reportedly turn out a fully fitted galley in a single day. Which republic?", "options": [{"text": "The Republic of Venice", "info": "The doge was picked through ten rounds alternating drawing lots and voting; the Arsenale worked on something close to an assembly line centuries before Ford."}, {"text": "The Republic of Genoa", "info": "Venice's great maritime rival, also ruled by a doge, but with a far shorter term of office and a much stormier political history."}, {"text": "The Dutch Republic", "info": "A 16th-to-18th-century federation of provinces led by a stadtholder, and a shipbuilding power, but only lasting about two centuries."}, {"text": "The Republic of Ragusa", "info": "Modern Dubrovnik, a small maritime republic that elected its rector for just one month at a time."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-43", "category": "History & Geography", "question": "This Alpine microstate abolished its army in 1868 on grounds of cost. Legend has it that its last deployment, to the Italian border, sent out 80 men and brought home 81 - having picked up a friendly Italian along the way. Which country?", "options": [{"text": "Liechtenstein", "info": "It has no army to this day, and in 2007 a company of Swiss soldiers accidentally marched two kilometres into it during a night exercise; the reaction was amusement."}, {"text": "Monaco", "info": "It keeps a small palace guard, the Compagnie des Carabiniers du Prince, and relies on France for defence."}, {"text": "San Marino", "info": "It maintains ceremonial military corps and a small guard, and famously declared war on nobody while sheltering refugees in 1944."}, {"text": "Andorra", "info": "It has no standing army either, but its defence is guaranteed by Spain and France rather than by a 19th-century cost-saving vote."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-44", "category": "History & Geography", "question": "Sandwiched between Poland and Lithuania on the Baltic, this territory belongs to a country it does not physically touch - the result of borders redrawn in 1945, when its German population was expelled and the city was renamed after a Soviet official. Which region?", "options": [{"text": "Kaliningrad", "info": "Formerly Königsberg, home of Immanuel Kant and once the capital of East Prussia; it is Russia's only Baltic port that stays ice-free all year."}, {"text": "Transnistria", "info": "A breakaway strip along the Dniester in Moldova, unrecognised internationally, but not on the Baltic."}, {"text": "Nakhchivan", "info": "An exclave of Azerbaijan separated from the main country by Armenian territory, in the South Caucasus."}, {"text": "Cabinda", "info": "An oil-rich Angolan exclave cut off from the rest of the country by a strip of the Democratic Republic of the Congo."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-45", "category": "General Knowledge", "question": "In 1872 a Latvian-born tailor in Reno wrote to his fabric supplier in San Francisco with an idea for reinforcing work trousers with metal fasteners at the pockets, but could not afford the patent fee alone. The supplier paid, and the two men patented it jointly in 1873. Which company grew from that?", "options": [{"text": "Levi Strauss & Co.", "info": "The tailor was Jacob Davis, who moved to San Francisco to run production; the rivet patent is why those trousers are dated to 1873."}, {"text": "Lee", "info": "Founded in Kansas in 1889, it later introduced the zip fly and the all-in-one union suit for workers."}, {"text": "Wrangler", "info": "A brand launched in 1947 and designed with rodeo riders in mind, decades after the rivet patent expired."}, {"text": "Carhartt", "info": "Founded in Detroit in 1889 making overalls for railroad workers, and known for duck canvas rather than riveted denim."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-46", "category": "General Knowledge", "question": "In 1902 a US president on a hunting trip in Mississippi refused to shoot a bear that his guides had tied to a tree for him. A newspaper cartoon of the episode inspired a Brooklyn shopkeeper to put a stuffed toy in his window with the president's nickname attached. What was created?", "options": [{"text": "The teddy bear", "info": "Morris Michtom asked Theodore Roosevelt's permission to use the name; at almost the same moment the Steiff company in Germany was independently producing jointed toy bears."}, {"text": "The rocking horse", "info": "A nursery staple since at least the 17th century, long predating this incident."}, {"text": "The Raggedy Ann doll", "info": "Created by illustrator Johnny Gruelle and patented in 1915, with a storybook rather than a president behind it."}, {"text": "The piñata", "info": "A far older tradition with roots in China and Europe before becoming central to Mexican celebrations."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-47", "category": "General Knowledge", "question": "Invented in 1986 by a British magazine as a light-hearted way to explain purchasing power parity, this measure compares how much a single standardised fast-food item costs in different countries to judge whether a currency is over- or undervalued. What is it called?", "options": [{"text": "The Big Mac Index", "info": "Published by 'The Economist', it works because the burger is made to near-identical specifications almost everywhere; it later inspired a similar index based on a Swedish furniture chain's bookshelf."}, {"text": "The Gini coefficient", "info": "A real and serious statistic, but it measures inequality of income distribution within a country."}, {"text": "The Consumer Price Index", "info": "The standard official measure of inflation, based on a large basket of goods and services rather than one product."}, {"text": "The Misery Index", "info": "An economic indicator that simply adds the unemployment rate to the inflation rate."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-48", "category": "General Knowledge", "question": "When an 11th-century Byzantine princess brought a set of small two-pronged eating implements to her wedding in Venice, clergy were scandalised, arguing that human fingers were good enough and that using them was an affront to God. What object caused the outrage?", "options": [{"text": "The table fork", "info": "It took several more centuries to spread through Europe, arriving in France with Catherine de' Medici's court and only becoming normal in England in the 1600s."}, {"text": "The napkin", "info": "Roman diners already used cloths at table, so it would have raised no eyebrows in Venice."}, {"text": "The drinking glass", "info": "Venice was about to become Europe's centre of glassmaking, with the furnaces moved to Murano in 1291 because of fire risk."}, {"text": "The mirror", "info": "Also a Venetian speciality later on, but a household object rather than a dining scandal."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-49", "category": "General Knowledge", "question": "In 1937 an Oklahoma grocery owner bolted wheels and folding chair frames together to let customers buy more than they could carry. Shoppers refused to touch it - men thought it looked weak, women said it resembled a pram - so he hired actors to push it around the shop. What was it?", "options": [{"text": "The shopping trolley", "info": "Sylvan Goldman's invention made him a millionaire, and stores were later redesigned around the width of aisles it needed."}, {"text": "The vending machine", "info": "Coin-operated dispensers were already in use in Britain from the 1880s, selling postcards and cigarettes."}, {"text": "The conveyor checkout belt", "info": "A later supermarket fixture, arriving as self-service stores grew through the 1940s and 50s."}, {"text": "The wheelie suitcase", "info": "Patented in 1970 by Bernard Sadow, whose luggage was also initially dismissed as unmanly."}], "correctIndex": 0, "dateAdded": "2026-08-11"}, {"id": "2026-08-11-50", "category": "General Knowledge", "question": "Its founder originally registered the business under the name 'Cadabra', dropped it when a lawyer misheard it over the phone as something resembling 'cadaver', and eventually chose a name beginning with A partly so it would appear early in alphabetical listings. Which company?", "options": [{"text": "Amazon", "info": "Jeff Bezos also liked that the name suggested something enormous; the company sold its first book, a computer science text, in 1995."}, {"text": "eBay", "info": "Pierre Omidyar's site was first called AuctionWeb and was renamed after his consulting firm, Echo Bay."}, {"text": "Alibaba", "info": "Jack Ma picked the name in a San Francisco coffee shop because people worldwide recognised the 'open sesame' story."}, {"text": "Yahoo", "info": "Its founders took the word from 'Gulliver's Travels' and backronymed it into a description of their directory."}], "correctIndex": 0, "dateAdded": "2026-08-11"}];
+
+const HISTORY_KEY = "poolbar-quiz-history";
+
+function getHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (err) {
+    console.error("Failed to read quiz history", err);
+    return [];
+  }
+}
+
+function addRoundToHistory(round) {
+  const history = getHistory();
+  history.unshift(round);
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch (err) {
+    console.error("Failed to save quiz history", err);
+  }
+  return history;
+}
+
+window.QuizStorage = { getHistory, addRoundToHistory };
+
+function shuffle(array) {
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+async function loadManifest() {
+  const res = await fetch("questions/manifest.json");
+  if (!res.ok) throw new Error("Could not load questions/manifest.json");
+  return res.json();
+}
+
+async function loadQuestionSet(fileName) {
+  const res = await fetch(`questions/${fileName}`);
+  if (!res.ok) throw new Error(`Could not load questions/${fileName}`);
+  return res.json();
+}
+
+class QuizRound {
+  constructor(questions) {
+    this.questions = shuffle(questions).map((q) => this.prepareQuestion(q));
+    this.currentIndex = 0;
+    this.score = 0;
+    this.answers = []; // { questionId, correct }
+  }
+
+  prepareQuestion(q) {
+    const order = shuffle(q.options.map((_, i) => i));
+    const options = order.map((originalIndex) => q.options[originalIndex]);
+    const correctIndex = order.indexOf(q.correctIndex);
+    return {
+      id: q.id,
+      category: q.category,
+      question: q.question,
+      audio: q.audio,
+      options,
+      correctIndex,
+    };
+  }
+
+  get total() {
+    return this.questions.length;
+  }
+
+  get current() {
+    return this.questions[this.currentIndex];
+  }
+
+  get isLast() {
+    return this.currentIndex === this.total - 1;
+  }
+
+  submitAnswer(selectedIndex) {
+    const correct = selectedIndex === this.current.correctIndex;
+    if (correct) this.score++;
+    this.answers.push({
+      questionId: this.current.id,
+      category: this.current.category,
+      correct,
+    });
+    return correct;
+  }
+
+  advance() {
+    this.currentIndex++;
+  }
+
+  byCategory() {
+    const stats = {};
+    this.answers.forEach((a) => {
+      if (!stats[a.category]) stats[a.category] = { correct: 0, total: 0 };
+      stats[a.category].total++;
+      if (a.correct) stats[a.category].correct++;
+    });
+    return stats;
+  }
+}
+
+window.Quiz = { shuffle, loadManifest, loadQuestionSet, QuizRound };
+
+const LETTERS = ["A", "B", "C", "D"];
+const isEmbedded = Array.isArray(window.EMBEDDED_QUESTIONS);
+
+const screens = {
+  start: document.getElementById("screen-start"),
+  quiz: document.getElementById("screen-quiz"),
+  results: document.getElementById("screen-results"),
+  history: document.getElementById("screen-history"),
+};
+
+let manifest = null;
+let round = null;
+let answered = false;
+let playerName = "You";
+let currentSetId = null;
+let lastResult = null;
+
+function showScreen(name) {
+  Object.values(screens).forEach((el) => el.classList.remove("active"));
+  screens[name].classList.add("active");
+}
+
+function slugify(text) {
+  return (text || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "player";
+}
+
+async function init() {
+  if (isEmbedded) {
+    renderEmbeddedSetLabel();
+  } else {
+    try {
+      manifest = await Quiz.loadManifest();
+      renderSetList();
+    } catch (err) {
+      document.getElementById("set-list").innerHTML =
+        `<div class="empty-note">Failed to load question sets: ${err.message}</div>`;
+    }
+  }
+
+  document.getElementById("btn-start").addEventListener("click", startQuiz);
+  document.getElementById("btn-view-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-next").addEventListener("click", nextQuestion);
+  document.getElementById("btn-play-again").addEventListener("click", startQuiz);
+  document.getElementById("btn-download-results").addEventListener("click", downloadResults);
+  document.getElementById("btn-results-history").addEventListener("click", () => {
+    renderHistory();
+    showScreen("history");
+  });
+  document.getElementById("btn-results-home").addEventListener("click", () => showScreen("start"));
+  document.getElementById("btn-history-home").addEventListener("click", () => showScreen("start"));
+}
+
+function renderEmbeddedSetLabel() {
+  const meta = window.EMBEDDED_SET_META || {};
+  const container = document.getElementById("set-list");
+  container.innerHTML = `
+    <div class="embedded-set-label">${meta.label || "Quiz set"} — ${window.EMBEDDED_QUESTIONS.length} questions</div>
+  `;
+}
+
+function renderSetList() {
+  const container = document.getElementById("set-list");
+  container.innerHTML = "";
+  manifest.sets.forEach((set, i) => {
+    const label = document.createElement("label");
+    label.className = "set-option";
+    label.innerHTML = `
+      <input type="checkbox" value="${set.file}" ${i === 0 ? "checked" : ""} />
+      <span>${set.label} — ${set.questionCount} questions</span>
+    `;
+    container.appendChild(label);
+  });
+}
+
+function getSelectedSetFiles() {
+  return Array.from(document.querySelectorAll("#set-list input:checked")).map((el) => el.value);
+}
+
+async function startQuiz() {
+  const nameInput = document.getElementById("player-name");
+  playerName = (nameInput.value || "").trim() || "You";
+
+  if (isEmbedded) {
+    const meta = window.EMBEDDED_SET_META || {};
+    currentSetId = meta.id || "embedded";
+    round = new Quiz.QuizRound(window.EMBEDDED_QUESTIONS);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+    return;
+  }
+
+  const files = getSelectedSetFiles();
+  if (files.length === 0) {
+    alert("Pick at least one question set.");
+    return;
+  }
+  const btn = document.getElementById("btn-start");
+  btn.disabled = true;
+  try {
+    const sets = await Promise.all(files.map((f) => Quiz.loadQuestionSet(f)));
+    const allQuestions = sets.flat();
+    currentSetId = files.map((f) => f.replace(/\.json$/, "")).join("+");
+    round = new Quiz.QuizRound(allQuestions);
+    answered = false;
+    showScreen("quiz");
+    renderQuestion();
+  } catch (err) {
+    alert(`Failed to start quiz: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderDots() {
+  const dots = document.getElementById("quiz-dots");
+  dots.innerHTML = "";
+  round.questions.forEach((q, i) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    if (i < round.answers.length) {
+      dot.classList.add(round.answers[i].correct ? "done-correct" : "done-wrong");
+    } else if (i === round.currentIndex) {
+      dot.classList.add("current");
+    }
+    dots.appendChild(dot);
+  });
+}
+
+function renderAudio(audio) {
+  const container = document.getElementById("quiz-audio");
+  const hasSource = audio && (audio.url || audio.videoId);
+  if (!hasSource) {
+    container.innerHTML = "";
+    container.style.display = "none";
+    return;
+  }
+  container.style.display = "block";
+
+  if (audio.type === "youtube" && audio.videoId) {
+    const start = audio.start ? `&start=${audio.start}` : "";
+    // Blurred + hidden behind a "listen only" button until answered: the
+    // YouTube embed's own thumbnail/title overlay would otherwise name the
+    // artist/song outright before anyone even presses play.
+    container.innerHTML = `
+      <div class="yt-wrap hidden" id="yt-wrap">
+        <iframe
+          id="yt-frame"
+          src="https://www.youtube-nocookie.com/embed/${audio.videoId}?enablejsapi=1&controls=1&modestbranding=1&rel=0${start}"
+          title="Audio clip"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+        <button type="button" class="yt-reveal-btn" id="yt-play-btn">▶ Play clip — video hidden until you answer</button>
+      </div>
+      ${audio.credit ? `<span class="audio-credit hidden" id="audio-credit">${audio.credit}</span>` : ""}
+    `;
+    document.getElementById("yt-play-btn").addEventListener("click", (e) => {
+      const frame = document.getElementById("yt-frame");
+      frame.contentWindow.postMessage(JSON.stringify({ event: "command", func: "playVideo", args: [] }), "*");
+      e.target.textContent = "🔊 Playing — video hidden until you answer";
+    });
+    return;
+  }
+
+  container.innerHTML = `
+    <audio controls preload="none" src="${audio.url}"></audio>
+    ${audio.credit ? `<span class="audio-credit hidden" id="audio-credit">${audio.credit}</span>` : ""}
+  `;
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = round.current;
+
+  document.getElementById("quiz-progress").textContent = `Q ${round.currentIndex + 1}/${round.total}`;
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  document.getElementById("quiz-category").textContent = q.category;
+  document.getElementById("quiz-question").textContent = q.question;
+  renderAudio(q.audio);
+  renderDots();
+
+  const optionsEl = document.getElementById("quiz-options");
+  optionsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const div = document.createElement("div");
+    div.className = "option";
+    div.dataset.index = i;
+    div.innerHTML = `
+      <span class="letter">${LETTERS[i]}</span>
+      <span class="opt-body">
+        <span class="opt-text">${opt.text}</span>
+        <span class="opt-info">${opt.info}</span>
+      </span>
+    `;
+    div.addEventListener("click", () => selectAnswer(i));
+    optionsEl.appendChild(div);
+  });
+
+  document.getElementById("btn-next").style.display = "none";
+}
+
+function selectAnswer(selectedIndex) {
+  if (answered) return;
+  answered = true;
+
+  const q = round.current;
+  const correct = round.submitAnswer(selectedIndex);
+
+  const ytWrap = document.getElementById("yt-wrap");
+  if (ytWrap) {
+    ytWrap.classList.remove("hidden");
+    const btn = document.getElementById("yt-play-btn");
+    if (btn) btn.remove();
+  }
+  const audioCredit = document.getElementById("audio-credit");
+  if (audioCredit) audioCredit.classList.remove("hidden");
+
+  const optionEls = document.querySelectorAll("#quiz-options .option");
+  optionEls.forEach((el) => {
+    const i = Number(el.dataset.index);
+    el.classList.add("disabled", "revealed");
+    if (i === q.correctIndex) {
+      el.classList.add("correct");
+    } else if (i === selectedIndex) {
+      el.classList.add("wrong");
+    }
+  });
+
+  document.getElementById("quiz-score").textContent = `Score ${round.score}`;
+  renderDots();
+
+  const nextBtn = document.getElementById("btn-next");
+  nextBtn.textContent = round.isLast ? "See Results" : "Next Question";
+  nextBtn.style.display = "inline-block";
+}
+
+function nextQuestion() {
+  if (round.isLast) {
+    finishRound();
+    return;
+  }
+  round.advance();
+  renderQuestion();
+}
+
+function finishRound() {
+  const entry = {
+    date: new Date().toISOString(),
+    name: playerName,
+    setId: currentSetId,
+    score: round.score,
+    total: round.total,
+    byCategory: round.byCategory(),
+    answers: round.answers,
+  };
+  lastResult = entry;
+  QuizStorage.addRoundToHistory(entry);
+
+  document.getElementById("results-score").textContent = `${round.score} / ${round.total}`;
+  const pct = round.total ? Math.round((round.score / round.total) * 100) : 0;
+  document.getElementById("results-pct").textContent = `${pct}%`;
+  showScreen("results");
+}
+
+function downloadResults() {
+  if (!lastResult) return;
+  const dateSlug = lastResult.date.slice(0, 10);
+  const fileName = `results-${slugify(lastResult.name)}-${dateSlug}.json`;
+  const blob = new Blob([JSON.stringify(lastResult, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function renderHistory() {
+  const list = document.getElementById("history-list");
+  const history = QuizStorage.getHistory();
+  if (history.length === 0) {
+    list.innerHTML = `<div class="empty-note">No rounds played yet.</div>`;
+    return;
+  }
+  list.innerHTML = "";
+  history.forEach((entry) => {
+    const row = document.createElement("div");
+    row.className = "history-row";
+    const date = new Date(entry.date);
+    const dateStr = isNaN(date) ? entry.date : date.toLocaleString();
+    const namePart = entry.name ? `${entry.name} — ` : "";
+    row.innerHTML = `
+      <span>${namePart}${dateStr}</span>
+      <span class="score">${entry.score} / ${entry.total}</span>
+    `;
+    list.appendChild(row);
+  });
+}
+
+init();
+
+</script>
+
+</body>
+</html>
