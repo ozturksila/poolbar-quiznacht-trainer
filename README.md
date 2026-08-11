@@ -78,7 +78,12 @@ agent (`.claude/agents/daily-quiz-generator.md`) — it reads every past set
 to match the house style and avoid repeating subjects, and writes the new
 file plus the manifest entry for you. It's biased toward History &
 Geography (favoring non-European continents) and toward classical music
-within Art & Culture / German Language, per the current prep priorities.
+within Art & Culture, per the current prep priorities.
+
+Questions use six categories: **Sport, Movies & TV, Art & Culture,
+Science, History & Geography, General Knowledge**. There is deliberately
+no "German Language" category — the quiz is run in German for native
+German speakers, so German is the medium, not a subject.
 
 To do it by hand instead:
 
@@ -111,9 +116,12 @@ To do it by hand instead:
    - Every option needs its own `info` blurb — it's revealed for all four
      options after answering, not just the correct one.
    - Keep questions context-first: a sentence or two of backstory/clue
-     before the actual question. German-language questions should hinge on
-     what a German word or surname means, not grammar drills — but never a
-     flat "means X in German" giveaway; work the meaning in obliquely.
+     before the actual question.
+   - **Never write language-learning questions.** No "what does this
+     German word/surname mean," no translations, no etymology used as the
+     clue, no vocabulary or grammar — the players are native German
+     speakers, so those test nothing. Ask about history, art, science and
+     the like instead.
    - Optional `audio` field for audio-guessing questions ("guess the
      composer/piece," "guess the original behind this cover"):
      `"audio": { "url": "https://...", "credit": "Public domain via Wikimedia Commons" }`.

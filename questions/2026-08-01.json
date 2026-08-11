@@ -1121,24 +1121,24 @@
   },
   {
     "id": "2026-08-01-45",
-    "category": "German Language",
-    "question": "This 19th-century German Romantic composer's surname is an old occupational name for someone whose trade involved leather, an awl, and a lot of repetitive stitching — repairing what people wore on their feet, all day, every day. He suffered from mental illness later in life and was married to a celebrated pianist and composer in her own right. Who was he?",
+    "category": "Art & Culture",
+    "question": "Written in 1899 as the closing number of a patriotic pageant staged to raise money for journalists silenced by Russian censorship, this tone poem became so politically charged that it was sometimes programmed under bland decoy titles to get past the authorities. Its calm hymn-like section was later given words and is now sung almost as an unofficial national anthem. Which composer wrote it?",
     "options": [
       {
-        "text": "Robert Schumann",
-        "info": "His wife, Clara Schumann, was herself a renowned concert pianist and composer, and often more famous than him during their lifetimes."
+        "text": "Jean Sibelius",
+        "info": "'Finlandia' made him a national figure at 34; he then wrote almost nothing at all in the last thirty years of his life."
       },
       {
-        "text": "Franz Schubert",
-        "info": "A contemporary Viennese composer whose surname's origin is debated, though some trace it to an old word related to shoving or pushing — not shoes."
+        "text": "Carl Nielsen",
+        "info": "The leading Danish symphonist of the same generation, with a very different, more combative harmonic language."
       },
       {
-        "text": "Carl Maria von Weber",
-        "info": "An earlier Romantic composer, sometimes claimed to share indirect family ties to Mozart, with a surname tied to weaving rather than shoemaking."
+        "text": "Edvard Grieg",
+        "info": "The Norwegian whose miniatures and 'Peer Gynt' music had already given Nordic music an international audience."
       },
       {
-        "text": "Felix Mendelssohn",
-        "info": "A contemporary composer whose surname is a patronymic honoring his grandfather, unrelated to any trade."
+        "text": "Wilhelm Stenhammar",
+        "info": "A Swedish composer and conductor of the era, admired at home but far less known abroad."
       }
     ],
     "correctIndex": 0,
@@ -1146,24 +1146,24 @@
   },
   {
     "id": "2026-08-01-46",
-    "category": "German Language",
-    "question": "Called the 'Father of the Symphony' and a mentor to both Mozart and Beethoven, imagine walking across open, sandy grassland dotted with heather — the kind of terrain you'd graze sheep on, not find thick forest — because that old German name for such land became this composer's surname. Who was he?",
+    "category": "Art & Culture",
+    "question": "Left almost totally blind at the age of three by a diphtheria epidemic, he composed in Braille and then dictated note by note to a copyist. In 1939 he wrote a concerto named after the gardens of a royal palace south of Madrid, whose slow movement — a plaintive cor anglais melody answered by the soloist — turned the classical guitar into a concerto instrument. Who was he?",
     "options": [
       {
-        "text": "Joseph Haydn",
-        "info": "Spent much of his career employed by the wealthy Esterházy family, composing over 100 symphonies."
+        "text": "Joaquín Rodrigo",
+        "info": "He said the 'Concierto de Aranjuez' was about the scent of magnolias and birdsong; his wife later wrote that the slow movement mourned their lost first child."
       },
       {
-        "text": "Johann Nepomuk Hummel",
-        "info": "A composer and piano virtuoso of the following generation, once a pupil of Mozart's, with an unrelated surname origin."
+        "text": "Andrés Segovia",
+        "info": "The guitarist who spent his career persuading composers to write for the instrument — but he did not write this piece and initially disliked it."
       },
       {
-        "text": "Carl Czerny",
-        "info": "An Austrian composer and piano teacher, a student of Beethoven, whose surname likely has Czech rather than German roots."
+        "text": "Manuel de Falla",
+        "info": "The older Spanish composer of 'The Three-Cornered Hat', who wrote only one short work for solo guitar."
       },
       {
-        "text": "Michael Haydn",
-        "info": "Joseph's younger brother, also a composer, sharing the same surname and its grassland origin."
+        "text": "Isaac Albéniz",
+        "info": "His piano suite 'Iberia' is so guitar-like that guitarists have adopted much of it, but he died in 1909."
       }
     ],
     "correctIndex": 0,
@@ -1171,24 +1171,24 @@
   },
   {
     "id": "2026-08-01-47",
-    "category": "German Language",
-    "question": "One of the most important German composers of the early Baroque era, active decades before Bach, this composer shares his surname with the German name for the zodiac sign depicting a mythical archer taking aim at the stars. Who was he?",
+    "category": "Art & Culture",
+    "question": "In June 1933 the Chicago Symphony Orchestra performed her Symphony in E minor at the Century of Progress world's fair — the first time a major American orchestra had played a symphony by a Black woman. She then slipped out of the repertoire almost entirely, until in 2009 a couple renovating a derelict house in St. Anne, Illinois, found boxes of her manuscripts inside. Who was she?",
     "options": [
       {
-        "text": "Heinrich Schütz",
-        "info": "Studied in Venice under Giovanni Gabrieli and became a key figure in bringing Italian musical styles into German sacred music."
+        "text": "Florence Price",
+        "info": "Trained in Boston, she had fled Arkansas after a lynching. Her rediscovered scores are now recorded and programmed worldwide."
       },
       {
-        "text": "Michael Praetorius",
-        "info": "A contemporary German composer known for the dance collection 'Terpsichore,' with a Latinized surname unrelated to this word."
+        "text": "Margaret Bonds",
+        "info": "A Chicago pianist and composer who studied with the correct answer here and premiered her piano concerto."
       },
       {
-        "text": "Dietrich Buxtehude",
-        "info": "A slightly later Baroque composer and organist whose surname likely derives from a Danish or North German place name."
+        "text": "Nora Holt",
+        "info": "The first Black American to earn a master's degree in music, better known as a critic than a composer."
       },
       {
-        "text": "Johann Pachelbel",
-        "info": "Best known today for his 'Canon in D,' a contemporary of Buxtehude with a surname of uncertain origin."
+        "text": "Undine Smith Moore",
+        "info": "A prolific composer of choral music, sometimes called the dean of Black women composers, active a generation later."
       }
     ],
     "correctIndex": 0,
@@ -1196,24 +1196,24 @@
   },
   {
     "id": "2026-08-01-48",
-    "category": "German Language",
-    "question": "A childhood pupil of Mozart's who later became one of Europe's most celebrated piano virtuosos, this composer's surname is shared with a small, round, fuzzy garden visitor known for a low droning buzz as it drifts from flower to flower — gentler-looking than its more famous striped cousin. Who was he?",
+    "category": "Movies & TV",
+    "question": "A short yelp recorded in 1951 for a western — a soldier being dragged under by an alligator — sat forgotten in a studio sound library until film-school graduates dug it out in the 1970s and began smuggling it into their own films as a private joke. It has since turned up in hundreds of movies, from space battles to Disney cartoons, and is named after a minor character in a 1953 western who used it. What is it?",
     "options": [
       {
-        "text": "Johann Nepomuk Hummel",
-        "info": "Studied briefly under Mozart as a child and later became a rival to the young Beethoven as a pianist."
+        "text": "The Wilhelm scream",
+        "info": "Sound designer Ben Burtt identified the reel and named it; he then put it in Star Wars and Indiana Jones, and the tradition spread."
       },
       {
-        "text": "Carl Czerny",
-        "info": "Also studied under a famous composer as a child — Beethoven — and became renowned as a piano teacher himself."
+        "text": "The Howie scream",
+        "info": "A real rival stock scream, sometimes called the 'Howie long scream', used in far fewer films."
       },
       {
-        "text": "Ignaz Moscheles",
-        "info": "A Bohemian-born piano virtuoso and composer of the same generation, later a friend of Mendelssohn's."
+        "text": "Castle Thunder",
+        "info": "A genuine stock effect — a thunderclap recorded in 1931 and reused for decades in horror films and cartoons."
       },
       {
-        "text": "Muzio Clementi",
-        "info": "An Italian-born composer and piano virtuoso active in London, of an earlier generation than Hummel."
+        "text": "The Goofy holler",
+        "info": "Also a real reused effect: the yodelling falling cry from Disney shorts, recycled since the 1940s."
       }
     ],
     "correctIndex": 0,
@@ -1221,24 +1221,24 @@
   },
   {
     "id": "2026-08-01-49",
-    "category": "German Language",
-    "question": "In German folklore and now horror movies worldwide, this word describes a noisy, often mischievous invisible spirit blamed for banging on walls, moving furniture, or hurling objects across a room. Literally, its two halves translate to 'racket' and 'ghost.' What is the word?",
+    "category": "Science",
+    "question": "In 1951 a Baltimore hospital took a tissue sample from a 31-year-old tobacco farmer and mother of five being treated for cervical cancer. Unlike every previous sample, her cells kept dividing indefinitely in culture — the first immortal human cell line. They were used to test the polio vaccine, flown into orbit, and sold around the world for decades, all without her family's knowledge or consent. Whose cells were they?",
     "options": [
       {
-        "text": "Poltergeist",
-        "info": "From 'poltern' (to make a racket) and 'Geist' (ghost or spirit); it entered English largely through 20th-century horror fiction and film."
+        "text": "Henrietta Lacks",
+        "info": "The HeLa line has featured in tens of thousands of studies. Her family reached an agreement with the US National Institutes of Health over access to the genome only in 2013."
       },
       {
-        "text": "Doppelgänger",
-        "info": "Another German loanword used in English, but describing an uncanny double or look-alike, not a noisy spirit."
+        "text": "Mary Mallon",
+        "info": "The New York cook known as 'Typhoid Mary', an asymptomatic carrier detained for decades — a very different kind of medical-consent case."
       },
       {
-        "text": "Kobold",
-        "info": "A different figure from German folklore — a household or mine-dwelling spirit, sometimes mischievous but not defined by loud noise."
+        "text": "Marie Maynard Daly",
+        "info": "The first Black American woman to earn a chemistry doctorate, whose research linked cholesterol to clogged arteries."
       },
       {
-        "text": "Wraith",
-        "info": "An English word of Scottish origin for a ghost or apparition, not a German loanword at all."
+        "text": "Alice Ball",
+        "info": "The chemist who developed the first effective injectable treatment for leprosy, and died at 24 before publishing it."
       }
     ],
     "correctIndex": 0,
@@ -1246,24 +1246,24 @@
   },
   {
     "id": "2026-08-01-50",
-    "category": "German Language",
-    "question": "This German loanword names the small, slightly guilty thrill of satisfaction you feel when something goes wrong for someone else — like watching a rival team blow a big lead. Breaking it into its two halves gives a literal clue to its meaning. What is the word?",
+    "category": "General Knowledge",
+    "question": "In 1945 an engineer at the defence firm Raytheon was standing next to a running magnetron — a component built for radar sets — when he noticed the snack in his pocket had turned to goo. He sent out for popcorn kernels, which duly popped, and tried an egg next, which exploded over a colleague. Which everyday appliance grew out of that accident?",
     "options": [
       {
-        "text": "Schadenfreude",
-        "info": "From 'Schaden' (harm/damage) and 'Freude' (joy); it's become common enough in English that it appears in many dictionaries without italics."
+        "text": "The microwave oven",
+        "info": "Percy Spencer's first commercial model, the 1947 Radarange, stood nearly two metres tall and was water-cooled."
       },
       {
-        "text": "Gemütlichkeit",
-        "info": "A different German loanword describing a warm, cozy, sociable feeling — closer to English 'coziness' than to malicious joy."
+        "text": "The induction hob",
+        "info": "Also electromagnetic, but it heats the pan itself by inducing currents in metal, and reached kitchens much later."
       },
       {
-        "text": "Sehnsucht",
-        "info": "A German word for a deep, wistful yearning or longing, often for something intangible — not the pleasure of someone else's misfortune."
+        "text": "The electric toaster",
+        "info": "Predates this by decades — the pop-up mechanism was patented in 1919."
       },
       {
-        "text": "Torschlusspanik",
-        "info": "A German word literally meaning 'gate-closing panic,' describing anxiety about diminishing opportunities as time runs out — not this feeling."
+        "text": "The pressure cooker",
+        "info": "A 17th-century invention of Denis Papin's, refined for home use long before radar existed."
       }
     ],
     "correctIndex": 0,
