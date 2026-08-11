@@ -67,9 +67,14 @@ used.
 
 ## Step 3 — Category mix and topic weighting
 
-Use the same seven categories as the existing sets: **Sport, Movies & TV,
-Art & Culture, Science, History & Geography, General Knowledge, German
-Language**. Do not invent new category labels.
+Use exactly these six categories: **Sport, Movies & TV, Art & Culture,
+Science, History & Geography, General Knowledge**. Do not invent new
+category labels.
+
+**There is no "German Language" category — never create one.** The quiz
+is run in German, for native German speakers, so German is the *medium*,
+not a subject. See "Never write language-learning questions" below; this
+is a hard rule, not a preference.
 
 Two themes must be over-represented relative to the rest:
 
@@ -80,24 +85,18 @@ Two themes must be over-represented relative to the rest:
    cross-continental topics) rather than Europe/Austria — the existing
    sets already lean heavily European, so actively counterbalance that.
 
-2. **Classical music, blended into Art & Culture and German Language.**
-   There is no separate "Classical Music" category — instead, a larger
-   share of the Art & Culture and German Language questions than before
-   should be about classical music specifically: composers, symphonies,
-   operas, instruments, music history, musical terms. German-language
-   classical-music questions keep following the existing surname/word-
-   meaning framing (see Style rules). Don't let this crowd out Art &
-   Culture entirely — still include some non-music art/architecture
-   questions and some non-music German word-meaning questions, just fewer
-   than before.
+2. **Classical music, folded into Art & Culture.**
+   There is no separate "Classical Music" category — instead, a healthy
+   share of the Art & Culture questions should be about classical music
+   specifically: composers, symphonies, operas, instruments, music
+   history, performance practice. Don't let this crowd out Art & Culture
+   entirely — still include non-music art and architecture questions.
 
 For a 50-question set, aim roughly for:
 - History & Geography: ~12-13 questions, at least 8-9 of them non-European.
-- Classical music (across Art & Culture + German Language combined):
-  ~8-10 questions.
-- The remaining ~27-30 questions spread reasonably evenly across Sport,
-  Movies & TV, Science, General Knowledge, and the non-music remainder of
-  Art & Culture / German Language.
+- Art & Culture: ~10, of which ~6-8 are classical music.
+- The remaining ~27-28 spread reasonably evenly across Sport, Movies & TV,
+  Science, and General Knowledge (~6-7 each).
 
 Scale these proportions if asked for a different total question count.
 
@@ -191,52 +190,30 @@ for lack of a verifiable source.
 - **Context-first phrasing.** Every question gives a sentence or two of
   backstory, a clue, or an "In [year]..." setup before landing on the
   actual ask — never a bare direct fact lookup.
-- **German Language questions** are framed as trivia where a German
-  surname or word's origin/meaning is *part of* the clue — not grammar
-  drills — but the tip must never be a flat giveaway. Concretely:
-  - **Never** write the literal-gloss phrasing "means X in German" / "is
-    the German word for X." That hands over the answer to anyone doing
-    simple word-matching, without needing to know anything about the
-    person or work itself. Too easy — avoid it.
-  - **Also never use the template "[surname] is/means the everyday German
-    word for ___" at all** — even when the blank is dressed up in
-    descriptive language rather than a bare dictionary gloss, that
-    sentence structure itself is the giveaway: it explicitly announces "a
-    direct word-equivalence exists, go decode it," which is all the
-    word-matching shortcut needs. This is a real mistake this agent has
-    made before — a past question read "This composer's surname, spelled
-    slightly differently, is the everyday German word you'd use to
-    explain a reason — 'since' or 'because.'" (Kurt Weill / "weil"). The
-    flowery description didn't help; announcing the equivalence at all
-    was the problem. **Don't write that sentence shape, ever, regardless
-    of what's in the blank.**
-  - Instead, embed the word inside a scenario where the solver has to
-    notice it themselves — never state that a translation or equivalence
-    exists. Two ways that work well:
-    - **Drop the actual word into a short piece of realistic German**
-      (a sentence, an exclamation, a label) and ask the solver to spot it
-      and transform it slightly — e.g. instead of naming "weil" and
-      translating it, write: "Imagine overhearing someone explain why
-      their train was late: '...weil der Zug Verspätung hatte.' Add one
-      letter to that first word and you have this composer's surname."
-      The solver has to parse real German and extract the word themselves
-      — nobody hands them the equivalence.
-    - **Describe the underlying thing/action without ever saying "this is
-      the word for it"** — e.g. instead of "Bach means brook," write
-      "this composer's surname survives today mostly in place names — it
-      names the small, everyday kind of running water you'd find
-      trickling past a barn, never a river you'd need a bridge to cross."
-      The description implies a meaning exists without labeling the
-      sentence as a definition.
-  - Don't stack the linguistic clue with an equally strong giveaway
-    biographical detail in the same sentence (e.g. naming the composer's
-    single most famous, instantly-recognizable work right alongside the
-    translation) — pick one primary clue to carry the question, and keep
-    the other supporting rather than redundant.
-  - At least one wrong option should have a surname/word with a plausible
-    or related-sounding German meaning too, so the question can't be
-    solved by word-matching alone — genuine recall of who/what is being
-    described still has to do real work.
+- **Never write language-learning questions (hard rule).** The audience
+  are native German speakers and the quiz is conducted in German, so
+  German is the medium, not a topic. A question whose answer is a German
+  word's meaning tests nothing — everyone in the room already knows it.
+  Specifically, never write a question that:
+  - asks what a German word, surname, or loanword means, translates to,
+    or derives from (e.g. "Bach means brook", "what does Schadenfreude
+    literally translate to", "this composer's surname is the word for a
+    weaver");
+  - uses a word's meaning as the *clue* to identify a person or work,
+    however obliquely phrased — dressing the gloss up in a scenario or
+    an image doesn't fix it, because the underlying task is still
+    vocabulary recall;
+  - tests German grammar, spelling, or vocabulary in any form.
+
+  This was a real, repeated failure: earlier sets built a whole category
+  on composer-surname meanings (Bach/brook, Weber/weaver, Wagner/cart),
+  which is why they kept landing as far too easy. The fix is not better
+  phrasing — it is not writing these questions at all.
+
+  Words *may* still appear incidentally when they're genuinely part of a
+  factual subject (e.g. the origin of a place name as history, or a
+  musical term of art in context) — but the thing being tested must be
+  the history, art, or science, never the German.
 - **Exactly 4 options per question.** Every option — not just the correct
   one — gets its own one-to-two-sentence `info` blurb of context/trivia,
   written to read naturally when shown after the user answers (don't

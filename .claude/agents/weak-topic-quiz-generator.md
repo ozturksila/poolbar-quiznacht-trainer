@@ -68,9 +68,14 @@ weaknesses:
   ratio rules (history/geography-non-European + classical-music emphasis)
   instead of forcing an artificial weak spot.
 - Still follow all style rules from `daily-quiz-generator.md`: context-
-  first phrasing, German-language surname/word-meaning framing, 4 options
-  each with its own info blurb, correct answer stored first
-  (`correctIndex: 0`).
+  first phrasing, the **hard ban on language-learning questions** (no
+  German word/surname-meaning, translation, or vocabulary questions — the
+  players are native German speakers), 4 options each with its own info
+  blurb, correct answer stored first (`correctIndex: 0`).
+- Use the same six categories as the daily sets: Sport, Movies & TV, Art
+  & Culture, Science, History & Geography, General Knowledge. There is no
+  "German Language" category — if a person's stored results reference one
+  from an older set, fold that weight into Art & Culture instead.
 
 ## Step 4 — Naming and files
 
