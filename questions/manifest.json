@@ -41,6 +41,12 @@
       "file": "2026-08-11.json",
       "label": "2026-08-11",
       "questionCount": 50
+    },
+    {
+      "id": "music-video-2026-08-11",
+      "file": "music-video-2026-08-11.json",
+      "label": "Music Video Special — 2026-08-11",
+      "questionCount": 25
     }
   ]
 }
